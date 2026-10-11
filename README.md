@@ -1,24 +1,26 @@
 # RoosterWorks Station Modules
 
-Original code-generated space station modules for Kerbal Space Program 1.12.5, with optional Kerbalism-compatible life-support storage.
+Procedurally modeled and textured space station modules for KSP 1.12.5 with optional Kerbalism life-support storage.
 
-## Current prototype: RW-HAB-250 v0.2.2
+## Current development build — RW-HAB-250 v0.2.3
 
-The **RW-HAB-250**, our first model, is a 2.5 m, four-Kerbal habitat. The latest prototype uses **three square recessed pressure windows per bay**, thick white bevels, smoked gray-green glass, and flush end bulkheads that do not protrude beyond the structural shell.
+**First habitat only:** a 2.5 m, four-crew orbital module with larger square pressure windows (50% wider and taller than v0.2.2), **slimmer flush connection rims**, and two stock KSP part variants: **Standard Windows** or **Exterior Side Hatch**. The side hatch replaces a single lower window bank; no second part ID is created.
 
-The v0.2.2 native KSP `.mu`, nine textures, editable OBJ and Blender reconstruction generator are packaged in the source ZIP. **This is a TEST build, not a published stable release**. Existing part ID, crew settings, mass and Kerbalism resource patches are preserved; actual in-game validation is pending.
+The **Side Hatch** is a cosmetic prototype, **not yet a tested functional EVA airlock**. Full custom interiors are also a later phase. The conditional Kerbalism resource patches are unchanged.
 
-### Import prepared source to this GitHub repository
+### Import the complete model/source package
 
-1. Download the `RoosterWorks-Station-Modules-v0.2.2-Developer-Source.zip` file supplied in our ChatGPT conversation.
-2. In this repository select **Add file → Upload files**, upload **the single ZIP with its exact filename** to `main`, and commit.
-3. The [import workflow](.github/workflows/import-prototype.yml) verifies the approved ZIP hash, extracts 28 source/assets/documentation files, runs static tests and commits them to `main`, removing the temporary ZIP.
-4. When the import succeeds, the root `README.md` is replaced by detailed installation, Blender rebuild and testing instructions. The separate `RoosterWorks-Station-Modules-v0.2.2-TEST.zip` is for KSP installation, not source import.
+The repository import workflow is configured for the exact `RoosterWorks-Station-Modules-v0.2.3-Developer-Source.zip` asset supplied in ChatGPT. To populate the repository:
 
-**Note:** No gameplay files have been committed until the source ZIP is uploaded and this workflow succeeds.
+1. Download the developer ZIP **without renaming it**.
+2. Open this repository on GitHub and use **Add file → Upload files** to commit the **single ZIP** on `main`; do not extract it first.
+3. GitHub Actions will check the fixed SHA-256, unpack the 31 approved source/asset files, run the geometry and checksum tests, commit the files to the repository, and remove the temporary ZIP.
+4. The imported README then includes KSP installation and Blender instructions. The separately supplied `RoosterWorks-Station-Modules-v0.2.3-TEST.zip` is the KSP installer, **not** the GitHub upload.
 
-### Future plans
+**Current status:** models and configs are packaged, but the gameplay model is not yet present on GitHub until the developer ZIP is uploaded and the import Action succeeds.
 
-A cohesive range of 2.5 m, 3.75 m and larger station habitats, labs, command, cupola, docking and logistics parts. Interiors are a later phase. Retain compatibility with RoosterWorks Station Support for larger stations.
+### Long-term lineup
 
-MIT — original RoosterWorks models and source; no third-party KSP game assets included.
+2.5 m habitation, lab, logistics, cupola and junction modules; 3.75 m Frontier series; larger 5 m and 7.5 m integration. Custom IVAs later.
+
+MIT-licensed original RoosterWorks materials. No third-party Kerbalism binaries or textures.
