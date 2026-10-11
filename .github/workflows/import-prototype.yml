@@ -1,0 +1,68 @@
+name: Import RW-HAB-250 Prototype Sources
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'RoosterWorks-Station-Modules-v0.1.0-WIP-GitHub-Upload.zip'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate approved prototype archive and extract source
+        shell: bash
+        run: |
+          python - <<'PY'
+          from zipfile import ZipFile
+          from hashlib import sha256
+          from pathlib import Path, PurePosixPath
+          archive=Path('RoosterWorks-Station-Modules-v0.1.0-WIP-GitHub-Upload.zip')
+          if not archive.is_file():
+              print('Source import ZIP absent. Nothing to import.')
+              raise SystemExit(0)
+          expected='17896949b0231fe76ea3a96d019453fc74f8b764febe21968143972dbd43244b'
+          actual=sha256(archive.read_bytes()).hexdigest()
+          assert actual == expected, f'Unexpected ZIP checksum: {actual}'
+          with ZipFile(archive) as z:
+              assert z.testzip() is None, 'Corrupt archive'
+              files=[item.filename for item in z.infolist() if not item.is_dir()]
+              assert len(files)==21 and len(set(files))==21, 'Wrong file count or duplicate paths'
+              assert all(not n.startswith('/') and '..' not in PurePosixPath(n).parts
+                         and '\\' not in n and not n.startswith('.')
+                         for n in files), 'Unsafe or unexpected path'
+              assert all(n in {'README.md','CHANGELOG.md','LICENSE'} or
+                         n.startswith(('Source/','Tools/','GameData/RoosterWorksStationModules/'))
+                         for n in files), 'Unexpected file outside project'
+              assert 'Source/build_hab250.py' in files
+              assert 'GameData/RoosterWorksStationModules/Models/RW_HAB_250.mu' in files
+              assert 'Tools/validate.py' in files
+              for name in files:
+                  destination=Path(name)
+                  destination.parent.mkdir(parents=True,exist_ok=True)
+                  destination.write_bytes(z.read(name))
+          print('Verified imported prototype files:',len(files))
+          PY
+      - name: Run non-gameplay validation
+        run: |
+          if [ -f Tools/validate.py ]; then
+            python Tools/validate.py
+          fi
+      - name: Commit imported model source and game assets
+        shell: bash
+        run: |
+          if [ ! -f RoosterWorks-Station-Modules-v0.1.0-WIP-GitHub-Upload.zip ]; then
+            echo 'No import requested.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add GameData/ Source/ Tools/ README.md CHANGELOG.md LICENSE
+          git rm -f RoosterWorks-Station-Modules-v0.1.0-WIP-GitHub-Upload.zip
+          git commit -m 'Import RW-HAB-250 v0.1.0 habitat model and Kerbalism source'
+          git push origin HEAD:main

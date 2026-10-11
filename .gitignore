@@ -1,0 +1,8 @@
+# Ignore local build archives except for the one-time GitHub import
+*.zip
+!RoosterWorks-Station-Modules-v0.1.0-WIP-GitHub-Upload.zip
+__pycache__/
+*.pyc
+*.blend1
+.DS_Store
+Thumbs.db
