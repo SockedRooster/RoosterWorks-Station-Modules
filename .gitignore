@@ -1,6 +1,5 @@
-# Archive builds are not tracked. Allow only the one-time, verified import ZIP.
 *.zip
-!RoosterWorks-Station-Modules-v0.2.3-Developer-Source.zip
+!RoosterWorks-Station-Modules-v0.2.4-Developer-Source.zip
 __pycache__/
 *.py[cod]
 *.blend1
