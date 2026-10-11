@@ -1,8 +1,8 @@
-# Ignore local build archives except for the one-time GitHub import
+# Local archives are build outputs; allow the temporary source importer ZIP.
 *.zip
-!RoosterWorks-Station-Modules-v0.1.0-WIP-GitHub-Upload.zip
+!RoosterWorks-Station-Modules-v0.2.0-Developer-Source.zip
 __pycache__/
-*.pyc
+*.py[cod]
 *.blend1
 .DS_Store
 Thumbs.db
