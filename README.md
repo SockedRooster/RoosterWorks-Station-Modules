@@ -1,23 +1,25 @@
 # RoosterWorks Station Modules
 
-Original code-generated station habitats for KSP 1.12.5 with optional Kerbalism life-support compatibility.
+Code-generated KSP 1.12.5 station habitats, with original textured meshes, optional Kerbalism life-support storage, and Blender-editable source.
 
-## RW-HAB-250 v0.2.4 — Current testing prototype
+## Current prototype: RW-HAB-250 v0.2.5 (not a stable release)
 
-The first 2.5 m, four-crew habitat retains its **50%-larger square windows, flush endcaps and two stock KSP part variants**: Standard Windows / Exterior Side Hatch.
+Our first part is a 2.5 m, four-crew habitat with **50%-larger square windows**, **flush slim end rings**, an original RoosterWorks rooster emblem, and two VAB variants (**Standard Windows** / **Exterior Side Hatch**).
 
-**v0.2.4 improvements:** A rail no longer crosses the Side Hatch, while Standard Windows retains it; the hatch is seated more closely against the cylindrical hull; and an original red-and-white RoosterWorks rooster emblem appears on the hull and opposite nameplate.
+**New in v0.2.5:** A stock **Toggle Cabin Lights** control (VAB and flight, default Lights action group) switches the window material between dark glass and a soft **warm-white glow**. Extra curved fairings improve the top/bottom mounting of the hatch and window frames.
 
-The side hatch remains **cosmetic** rather than a functional EVA airlock. KSP/VAB runtime approval and IVA interiors are still outstanding. No changes to Kerbalism life-support, mass, crew capacity, or attachment nodes.
+**Important limitations:** This version does **not** yet consume ElectricCharge for lighting or shut off at low power. The side hatch is cosmetic, not a verified EVA airlock. Custom IVA interiors come later. In-game light state, thermal overlays, and variant switching still need testing.
 
-### Import the source and native model
+### Upload the approved source archive to GitHub
 
-Download **`RoosterWorks-Station-Modules-v0.2.4-Developer-Source.zip`** from the ChatGPT conversation. In this repository use **Add file → Upload files** to commit the **single ZIP, not an extracted folder**, to `main`. A GitHub Action verifies the exact archive hash, extracts the 33 approved source/media/GameData files, runs geometry and checksum checks, commits the source and removes the temporary ZIP.
+1. Download the exact `RoosterWorks-Station-Modules-v0.2.5-Developer-Source.zip` from ChatGPT.
+2. Use **Add file → Upload files** to upload that single ZIP, without extracting it, and commit it to this repository's `main` branch.
+3. The [source import workflow](.github/workflows/import-prototype.yml) checks the approved ZIP SHA-256, extracts the 34 developer assets, validates the model and its manifest, then commits them to `main` and removes the temporary ZIP.
 
-Use `RoosterWorks-Station-Modules-v0.2.4-TEST.zip` separately to test the part in KSP. Do **not** substitute GitHub's automatic source-code ZIP for the KSP test installer.
+The separate `RoosterWorks-Station-Modules-v0.2.5-TEST.zip` is the KSP test installer, **not** the GitHub source upload.
 
-### Planned family
+### Long-term roadmap
 
-Orbital 2.5 m habitats, laboratories, cupola, logistics and junctions; 3.75 m Frontier modules and larger designs compatible with RoosterWorks Station Support. Custom IVA interiors later.
+2.5 m labs, cupolas, logistics and station junctions; 3.75 m Frontier series and larger 5 m / 7.5 m integration. Custom interiors later.
 
-MIT licensed, original RoosterWorks assets.
+All original RoosterWorks material is MIT-licensed. No third-party game assets are distributed.
