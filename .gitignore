@@ -1,6 +1,6 @@
-# Local archives are build outputs; allow the temporary source importer ZIP.
+# Do not track local player/archive builds; allow the one-time source import ZIP
 *.zip
-!RoosterWorks-Station-Modules-v0.2.0-Developer-Source.zip
+!RoosterWorks-Station-Modules-v0.2.2-Developer-Source.zip
 __pycache__/
 *.py[cod]
 *.blend1

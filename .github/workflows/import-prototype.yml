@@ -1,10 +1,10 @@
-name: Import RW-HAB-250 prototype v0.2 sources
+name: Import RW-HAB-250 v0.2.2 square-window prototype
 
 on:
   push:
     branches: [main]
     paths:
-      - 'RoosterWorks-Station-Modules-v0.2.0-Developer-Source.zip'
+      - 'RoosterWorks-Station-Modules-v0.2.2-Developer-Source.zip'
   workflow_dispatch:
 
 permissions:
@@ -15,54 +15,47 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Verify exact model source ZIP and extract
+      - name: Validate fixed-source ZIP and extract
         shell: bash
         run: |
           python - <<'PY'
-          from zipfile import ZipFile
           from pathlib import Path, PurePosixPath
           from hashlib import sha256
+          from zipfile import ZipFile
           root=Path.cwd()
-          archive=root/'RoosterWorks-Station-Modules-v0.2.0-Developer-Source.zip'
+          archive=root/'RoosterWorks-Station-Modules-v0.2.2-Developer-Source.zip'
           if not archive.is_file():
-              print('Source archive not uploaded yet; nothing to import.')
+              print('Developer ZIP not uploaded; nothing to import.')
               raise SystemExit(0)
-          approved_digest='e43ee10dfac583a402d0bb1a85f74e952503c09f10177e735ced06abbb07cf32'
-          assert sha256(archive.read_bytes()).hexdigest()==approved_digest, 'Unexpected archive hash'
+          assert sha256(archive.read_bytes()).hexdigest()=='2efae87d0c2524f441b0fc5fa3e3362ee05ba5682b3fe51d5d3d93b4f1c54792', 'Unexpected developer ZIP checksum'
           with ZipFile(archive) as z:
               assert z.testzip() is None, 'Corrupt archive'
-              names=[e.filename for e in z.infolist() if not e.is_dir()]
-              assert len(names)==28 and len(set(names))==28, 'Expected 28 unique files'
-              assert all(not n.startswith('/') and not n.startswith('.') and
-                         '..' not in PurePosixPath(n).parts and '\\' not in n
-                         for n in names), 'Unsafe ZIP path'
-              assert all(n in ('README.md','CHANGELOG.md','LICENSE','CHECKSUMS-SHA256.txt') or
-                         n.startswith(('Source/','Tools/','Media/','GameData/RoosterWorksStationModules/'))
-                         for n in names), 'Unexpected file path'
-              assert 'Source/build_hab250.py' in names
-              assert 'Source/Blender/create_hab250.py' in names
-              assert 'GameData/RoosterWorksStationModules/Models/RW_HAB_250.mu' in names
-              assert 'Media/RW-HAB-250-v0.2.0-Review-Render.png' in names
+              names=[info.filename for info in z.infolist() if not info.is_dir()]
+              assert len(names)==28 and len(set(names))==28, 'Expected 28 unique project files'
               for name in names:
-                  dest=root/name
-                  dest.parent.mkdir(parents=True,exist_ok=True)
-                  dest.write_bytes(z.read(name))
-          print('Imported model source files:',len(names))
+                  path=PurePosixPath(name)
+                  assert not name.startswith('/') and '\\' not in name and '..' not in path.parts and not name.startswith('.'), 'Unsafe filename: '+name
+                  assert name in ('README.md','CHANGELOG.md','LICENSE','CHECKSUMS-SHA256.txt') or name.startswith(('GameData/RoosterWorksStationModules/','Source/','Tools/','Media/')), 'Unexpected path: '+name
+              required={'Source/build_hab250.py','Source/Blender/create_hab250.py','Source/Blender/RW_HAB_250.obj','GameData/RoosterWorksStationModules/Models/RW_HAB_250.mu','Tools/validate.py','Media/RW-HAB-250-v0.2.2-Review-Render.png'}
+              assert required.issubset(set(names)), 'Missing required model or tools'
+              for name in names:
+                  destination=root/name
+                  destination.parent.mkdir(parents=True,exist_ok=True)
+                  destination.write_bytes(z.read(name))
           PY
-
-      - name: Validate geometry and resource configurations
+      - name: Run source validation and verify GameData hashes
         run: |
-          if [ -f Tools/validate.py ]; then python Tools/validate.py; fi
-          if [ -f CHECKSUMS-SHA256.txt ]; then sha256sum -c CHECKSUMS-SHA256.txt; fi
-
-      - name: Commit verified prototype and remove one-time ZIP
+          python Tools/validate.py
+          sha256sum -c CHECKSUMS-SHA256.txt
+      - name: Commit verified source and remove import archive
         run: |
-          if [ ! -f RoosterWorks-Station-Modules-v0.2.0-Developer-Source.zip ]; then
+          if [ ! -f 'RoosterWorks-Station-Modules-v0.2.2-Developer-Source.zip' ]; then
+            echo 'Nothing to commit.'
             exit 0
           fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add README.md CHANGELOG.md CHECKSUMS-SHA256.txt LICENSE GameData/ Source/ Tools/ Media/
-          git rm -f RoosterWorks-Station-Modules-v0.2.0-Developer-Source.zip
-          git commit -m 'Import detailed flush-endcap HAB-250 v0.2 prototype'
+          git add README.md CHANGELOG.md LICENSE CHECKSUMS-SHA256.txt GameData/ Source/ Tools/ Media/
+          git rm -f 'RoosterWorks-Station-Modules-v0.2.2-Developer-Source.zip'
+          git commit -m 'Import RW-HAB-250 v0.2.2 square window prototype and source'
           git push origin HEAD:main
