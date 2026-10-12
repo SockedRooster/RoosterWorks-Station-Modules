@@ -1,23 +1,19 @@
 # RoosterWorks Station Modules
 
-Original code-generated and textured KSP 1.12.5 station modules with optional Kerbalism life-support storage.
+Original 2.5 m KSP 1.12.5 station habitat prototypes with procedural native `.mu` assets, optional Kerbalism storage, and Blender-editable geometry.
 
-## Current prototype: RW-HAB-250 v0.2.6
+## Current test build — RW-HAB-250 v0.2.7
 
-The 2.5 m, four-crew habitat now has **continuous four-sided raised mounting frames** around the three-pane window banks and the cosmetic Side Hatch. Curved upper/lower returns blend into the hull like the original left/right frame supports, to address the oblique-angle gaps shown during testing.
+**Geometry root-cause fix:** v0.2.6 used a wide eight-corner window foundation. Its triangular faces cut straight across the curved hull, resulting in flying white side wings and incomplete top/bottom frame contact in the VAB. v0.2.7 rebuilds the mounting foundation from finely segmented **cylindrical contours** and removes stacked cosmetic filler trim and exposed stand-offs.
 
-The 50%-larger square windows, warm-white cabin lights, original rooster emblem, two exterior variants, slim flush endcaps, stock crew capacity and Kerbalism storage are retained.
+The **50% enlarged square windows, both Standard Windows and Side Hatch variants, working warm-white light toggle, rooster emblem, slim end rings, 4-crew capacity and Kerbalism patches** are preserved.
 
-**Important:** This is a prototype, not a stable published release. The Side Hatch remains cosmetic, not a validated EVA airlock. Cabin lights are working cosmetic emission, without automatic EC drain or low-power shutoff. Custom IVA interiors will come later.
+The Side Hatch remains **visual-only**, without a confirmed EVA airlock; cabin lights currently have no EC drain/automatic cutoff. The new model passed static tests and angled offscreen render review but **still requires a VAB test**.
 
-### Import developer ZIP to GitHub
+### Developer source import
 
-Download the exact **`RoosterWorks-Station-Modules-v0.2.6-Developer-Source.zip`** from ChatGPT, then use **Add file → Upload files** to commit the **single ZIP** to `main`. GitHub Actions verifies its SHA-256 hash, extracts the 34 approved files, runs the source validation and checksum tests, commits the GameData/Source/Media files and removes the temporary ZIP.
+Download the exact `RoosterWorks-Station-Modules-v0.2.7-Developer-Source.zip` from our ChatGPT conversation and upload **the single ZIP without extraction** to the GitHub repo `main` branch using Add file → Upload files. GitHub Actions verifies the known SHA-256, unpacks all 35 source/render/GameData files, checks the native model and manifests, commits the extracted files and deletes the ZIP from the branch.
 
-Use **`RoosterWorks-Station-Modules-v0.2.6-TEST.zip`** separately to test in KSP, replacing the older `GameData/RoosterWorksStationModules` folder. Verify the full top/bottom curved framing on both sides in the VAB.
+The `RoosterWorks-Station-Modules-v0.2.7-TEST.zip` is for actual KSP installation, not the GitHub source import. Always remove the prior `GameData/RoosterWorksStationModules` folder before installing a test ZIP.
 
-### Longer-term scope
-
-Realistic 2.5 m Orbital-series laboratories, cupolas, logistics, hubs; larger 3.75–7.5 m Frontier-series components. Custom IVAs at a later stage.
-
-MIT license for RoosterWorks-original code and model content.
+MIT licensed, original RoosterWorks assets. Future Station Modules: 2.5m labs, cupolas, hubs, logistics, and larger Frontier habitats. Custom IVA interiors later.
