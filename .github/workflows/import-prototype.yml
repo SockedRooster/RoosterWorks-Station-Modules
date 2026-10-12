@@ -1,10 +1,10 @@
-name: Import Station Modules v0.4.0 developer source
+name: Import Station Modules v0.4.1 developer source
 
 on:
   push:
     branches: [main]
     paths:
-      - 'RoosterWorks-Station-Modules-v0.4.0-Developer-Source.zip'
+      - 'RoosterWorks-Station-Modules-v0.4.1-Developer-Source.zip'
   workflow_dispatch:
 
 permissions:
@@ -15,61 +15,55 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Verify exact developer source archive and import project
+      - name: Validate exact uploaded source ZIP
         shell: bash
         run: |
           python - <<'PY'
           from pathlib import Path, PurePosixPath
           from zipfile import ZipFile
           from hashlib import sha256
-          archive=Path('RoosterWorks-Station-Modules-v0.4.0-Developer-Source.zip')
+          archive=Path('RoosterWorks-Station-Modules-v0.4.1-Developer-Source.zip')
           if not archive.exists():
-              print('Developer archive not uploaded; no import needed.')
+              print('v0.4.1 developer ZIP not uploaded; nothing to import.')
               raise SystemExit(0)
-          assert sha256(archive.read_bytes()).hexdigest()=='3cba0f5fad24b55ae7fc2f96750dab30d7d17b56a9f2116dc3a458300020f0e5', 'Unexpected source ZIP SHA-256'
+          assert sha256(archive.read_bytes()).hexdigest()=='61760a9dd8d5bb7f040b5d8a1c70f0666e39dbd187a834e09f408af805cc26e9', 'Unexpected source ZIP hash'
           with ZipFile(archive) as z:
-              assert z.testzip() is None, 'Damaged source ZIP'
-              entries=[entry for entry in z.infolist() if not entry.is_dir()]
-              names=[entry.filename for entry in entries]
-              assert len(names)==66 and len(set(names))==66, 'Expected 66 unique developer files'
-              required={
-                'README.md','CHANGELOG.md','LICENSE','CHECKSUMS-SHA256.txt',
+              assert z.testzip() is None, 'Corrupt source archive'
+              entries=[x for x in z.infolist() if not x.is_dir()]
+              names=[x.filename for x in entries]
+              assert len(entries)==66 and len(set(names))==66, 'Wrong developer file count'
+              required={'README.md','LICENSE','CHANGELOG.md','CHECKSUMS-SHA256.txt',
+                'GameData/RoosterWorksStationModules/Models/RW_CMD_250.mu',
+                'GameData/RoosterWorksStationModules/Parts/RW_CMD_250.cfg',
+                'GameData/RoosterWorksStationModules/Compatibility/CommandKerbalism.cfg',
                 'GameData/RoosterWorksStationModules/Parts/RW_HAB_250.cfg',
                 'GameData/RoosterWorksStationModules/Parts/RW_LAB_250.cfg',
-                'GameData/RoosterWorksStationModules/Parts/RW_CMD_250.cfg',
-                'GameData/RoosterWorksStationModules/Models/RW_CMD_250.mu',
-                'GameData/RoosterWorksStationModules/Compatibility/LabKerbalism.cfg',
-                'GameData/RoosterWorksStationModules/Compatibility/CommandKerbalism.cfg',
-                'Source/build_cmd250.py',
-                'Source/Blender/create_cmd250.py',
-                'Tools/validate.py',
-                'Tools/validate_cmd250.py',
-                'Media/RW-CMD-250-v0.4.0-Review-Render.png'
-              }
-              assert required.issubset(set(names)), 'Missing approved developer files'
-              for entry in entries:
-                  name=entry.filename
-                  assert not name.startswith('/') and not name.startswith('.') and '\\' not in name and '..' not in PurePosixPath(name).parts, 'Unsafe ZIP entry'
-                  assert ((entry.external_attr>>16)&0o170000)!=0o120000, 'Symlink forbidden'
-                  assert name in {'README.md','CHANGELOG.md','LICENSE','CHECKSUMS-SHA256.txt'} or name.startswith(('GameData/RoosterWorksStationModules/','Source/','Tools/','Media/')), 'Unexpected file path'
-              for entry in entries:
-                  path=Path(entry.filename)
+                'Source/build_cmd250.py','Tools/validate.py','Tools/validate_cmd250.py'}
+              assert required.issubset(set(names)), 'Required files missing'
+              for x in entries:
+                  name=x.filename
+                  assert not name.startswith('/') and not name.startswith('.') and '..' not in PurePosixPath(name).parts and '\\' not in name, 'Unsafe archive path'
+                  assert ((x.external_attr >> 16) & 0o170000)!=0o120000, 'Symlink not permitted'
+                  assert '__pycache__' not in name and not name.endswith('.pyc'), 'Build artifacts forbidden'
+                  assert name in ('README.md','LICENSE','CHANGELOG.md','CHECKSUMS-SHA256.txt') or name.startswith(('GameData/RoosterWorksStationModules/','Source/','Tools/','Media/')), 'Unexpected archive entry'
+              for x in entries:
+                  path=Path(x.filename)
                   path.parent.mkdir(parents=True,exist_ok=True)
-                  path.write_bytes(z.read(entry))
-          print('Approved prototype source extracted:',len(entries),'files')
+                  path.write_bytes(z.read(x))
+          print('Approved v0.4.1 source extracted:',len(entries),'files')
           PY
-      - name: Install validator prerequisites
+      - name: Prepare offline validator
         run: python -m pip install Pillow
-      - name: Run three-module offline checks
+      - name: Run model/config tests and verify assets
         run: |
           python Tools/validate.py
-          sha256sum --check CHECKSUMS-SHA256.txt
-      - name: Commit approved source and remove temporary import archive
+          sha256sum -c CHECKSUMS-SHA256.txt
+      - name: Commit verified source and delete temporary archive
         run: |
-          if [ ! -f 'RoosterWorks-Station-Modules-v0.4.0-Developer-Source.zip' ]; then exit 0; fi
+          if [ ! -f 'RoosterWorks-Station-Modules-v0.4.1-Developer-Source.zip' ]; then exit 0; fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add README.md CHANGELOG.md LICENSE CHECKSUMS-SHA256.txt GameData/ Source/ Tools/ Media/
-          git rm -f 'RoosterWorks-Station-Modules-v0.4.0-Developer-Source.zip'
-          git commit -m 'Import Station Modules v0.4.0 LAB science and CMD prototype'
+          git add README.md LICENSE CHANGELOG.md CHECKSUMS-SHA256.txt GameData/ Source/ Tools/ Media/
+          git rm -f 'RoosterWorks-Station-Modules-v0.4.1-Developer-Source.zip'
+          git commit -m 'Import Station Modules v0.4.1 CMD internal antenna and command fixes'
           git push origin HEAD:main
