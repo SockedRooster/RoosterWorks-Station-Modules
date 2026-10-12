@@ -1,10 +1,10 @@
-name: Import RW-HAB-250 v0.2.7 source
+name: Import Station Modules v0.3.0 development source
 
 on:
   push:
     branches: [main]
     paths:
-      - 'RoosterWorks-Station-Modules-v0.2.7-Developer-Source.zip'
+      - 'RoosterWorks-Station-Modules-v0.3.0-Developer-Source.zip'
   workflow_dispatch:
 
 permissions:
@@ -15,53 +15,60 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Verify source archive and safely extract
+      - name: Verify exact developer ZIP and safely unpack
         shell: bash
         run: |
           python - <<'PY'
           from pathlib import Path, PurePosixPath
           from zipfile import ZipFile
           from hashlib import sha256
-          archive=Path('RoosterWorks-Station-Modules-v0.2.7-Developer-Source.zip')
+          archive=Path('RoosterWorks-Station-Modules-v0.3.0-Developer-Source.zip')
           if not archive.is_file():
-              print('No v0.2.7 source upload; nothing to import.')
+              print('No v0.3.0 import ZIP yet; skipping.')
               raise SystemExit(0)
-          assert sha256(archive.read_bytes()).hexdigest()=='9c7d012fb0943886e207c24cd3596c92e823135482af1350ecee86d471140e71', 'Archive SHA-256 mismatch'
+          actual=sha256(archive.read_bytes()).hexdigest()
+          assert actual=='26e72393e4bb58a832673a09e7c02a0a70dcf0ed63fb67b76bf595552589d29b', f'Wrong developer ZIP digest: {actual}'
           with ZipFile(archive) as z:
-              assert z.testzip() is None, 'Corrupt archive'
+              assert z.testzip() is None, 'Corrupt source ZIP'
               entries=[i for i in z.infolist() if not i.is_dir()]
               names=[i.filename for i in entries]
-              assert len(entries)==35 and len(set(names))==35, 'Expect 35 unique files'
-              mandatory={
-                'README.md','LICENSE','CHANGELOG.md','CHECKSUMS-SHA256.txt',
+              assert len(entries)==51 and len(set(names))==51, 'Expected 51 unique files'
+              required={
+                'README.md', 'CHANGELOG.md', 'LICENSE', 'CHECKSUMS-SHA256.txt',
                 'GameData/RoosterWorksStationModules/Models/RW_HAB_250.mu',
-                'GameData/RoosterWorksStationModules/Models/rwm_cabin_emissive.png',
+                'GameData/RoosterWorksStationModules/Models/RW_LAB_250.mu',
                 'GameData/RoosterWorksStationModules/Parts/RW_HAB_250.cfg',
-                'Source/build_hab250.py','Source/Blender/create_hab250.py',
-                'Source/Blender/RW_HAB_250.obj','Source/Blender/RW_HAB_250_SideHatch.obj',
-                'Tools/validate.py','Media/Closeup-Standard.png','Media/Closeup-SideHatch.png'
+                'GameData/RoosterWorksStationModules/Parts/RW_LAB_250.cfg',
+                'GameData/RoosterWorksStationModules/Compatibility/LabKerbalism.cfg',
+                'Source/build_hab250.py', 'Source/build_lab250.py',
+                'Source/Blender/RW_LAB_250.obj', 'Source/Blender/create_lab250.py',
+                'Tools/validate.py', 'Tools/validate_hab250.py',
+                'Tools/validate_lab250.py',
+                'Media/RW-LAB-250-v0.3.0-Review-Render.png'
               }
-              assert mandatory.issubset(set(names)), 'Missing expected sources'
-              for item in entries:
-                  n=item.filename
-                  assert not n.startswith('/') and not n.startswith('.') and '..' not in PurePosixPath(n).parts and '\\' not in n, 'Unsafe ZIP filename'
-                  assert ((item.external_attr >> 16) & 0o170000) != 0o120000, 'No symlinks'
-                  assert n in ('README.md','LICENSE','CHANGELOG.md','CHECKSUMS-SHA256.txt') or n.startswith(('GameData/RoosterWorksStationModules/','Source/','Tools/','Media/')), 'Unexpected path'
-              for item in entries:
-                  p=Path(item.filename)
+              assert required.issubset(names), 'Missing required source files'
+              for info in entries:
+                  name=info.filename
+                  p=PurePosixPath(name)
+                  assert not name.startswith('/') and not name.startswith('.') and '..' not in p.parts and '\\' not in name, 'Unsafe source path'
+                  assert ((info.external_attr >> 16) & 0o170000)!=0o120000, 'Symlink not allowed'
+                  assert name in ('README.md','LICENSE','CHANGELOG.md','CHECKSUMS-SHA256.txt') or name.startswith(('GameData/RoosterWorksStationModules/','Source/','Tools/','Media/')), 'Unexpected path'
+              for info in entries:
+                  p=Path(info.filename)
                   p.parent.mkdir(parents=True,exist_ok=True)
-                  p.write_bytes(z.read(item))
+                  p.write_bytes(z.read(info))
+          print('Imported',len(entries),'files')
           PY
-      - name: Run geometry and resource checks
+      - name: Static verification of both modules and source hashes
         run: |
           python Tools/validate.py
           sha256sum -c CHECKSUMS-SHA256.txt
-      - name: Commit v0.2.7 source and remove one-time archive
+      - name: Commit assets and remove temporary ZIP
         run: |
-          if [ ! -f 'RoosterWorks-Station-Modules-v0.2.7-Developer-Source.zip' ]; then exit 0; fi
+          if [ ! -f 'RoosterWorks-Station-Modules-v0.3.0-Developer-Source.zip' ]; then exit 0; fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add README.md LICENSE CHANGELOG.md CHECKSUMS-SHA256.txt GameData/ Source/ Tools/ Media/
-          git rm -f 'RoosterWorks-Station-Modules-v0.2.7-Developer-Source.zip'
-          git commit -m 'Import HAB-250 v0.2.7 conformal window and hatch geometry'
+          git add README.md CHANGELOG.md LICENSE CHECKSUMS-SHA256.txt GameData/ Source/ Tools/ Media/
+          git rm -f 'RoosterWorks-Station-Modules-v0.3.0-Developer-Source.zip'
+          git commit -m 'Import Station Modules v0.3.0: HAB-250 and LAB-250'
           git push origin HEAD:main
