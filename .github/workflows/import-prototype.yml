@@ -86,6 +86,10 @@ jobs:
               print('Extracted', len(entries), 'verified developer-source files')
           PY
 
+      - name: Install offline validator dependencies
+        shell: bash
+        run: python -m pip install Pillow
+
       - name: Validate five modules and GameData manifest
         shell: bash
         run: |
