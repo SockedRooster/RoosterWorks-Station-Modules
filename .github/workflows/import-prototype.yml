@@ -1,10 +1,10 @@
-name: Import Station Modules v0.4.1 developer source
+name: Import Station Modules v0.4.2 developer source
 
 on:
   push:
     branches: [main]
     paths:
-      - 'RoosterWorks-Station-Modules-v0.4.1-Developer-Source.zip'
+      - 'RoosterWorks-Station-Modules-v0.4.2-Developer-Source.zip'
   workflow_dispatch:
 
 permissions:
@@ -15,55 +15,49 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Validate exact uploaded source ZIP
+      - name: Verify approved source archive and extract
         shell: bash
         run: |
           python - <<'PY'
           from pathlib import Path, PurePosixPath
           from zipfile import ZipFile
           from hashlib import sha256
-          archive=Path('RoosterWorks-Station-Modules-v0.4.1-Developer-Source.zip')
-          if not archive.exists():
-              print('v0.4.1 developer ZIP not uploaded; nothing to import.')
+          archive=Path('RoosterWorks-Station-Modules-v0.4.2-Developer-Source.zip')
+          if not archive.is_file():
+              print('Source ZIP not uploaded yet, nothing to do.')
               raise SystemExit(0)
-          assert sha256(archive.read_bytes()).hexdigest()=='61760a9dd8d5bb7f040b5d8a1c70f0666e39dbd187a834e09f408af805cc26e9', 'Unexpected source ZIP hash'
+          assert sha256(archive.read_bytes()).hexdigest()=='05be1e94dd8de46ef890a820f0ba0711bf9a4eacddeacd3652dc3581ee1fac24', 'Unapproved source ZIP hash'
           with ZipFile(archive) as z:
-              assert z.testzip() is None, 'Corrupt source archive'
-              entries=[x for x in z.infolist() if not x.is_dir()]
-              names=[x.filename for x in entries]
-              assert len(entries)==66 and len(set(names))==66, 'Wrong developer file count'
-              required={'README.md','LICENSE','CHANGELOG.md','CHECKSUMS-SHA256.txt',
-                'GameData/RoosterWorksStationModules/Models/RW_CMD_250.mu',
-                'GameData/RoosterWorksStationModules/Parts/RW_CMD_250.cfg',
-                'GameData/RoosterWorksStationModules/Compatibility/CommandKerbalism.cfg',
-                'GameData/RoosterWorksStationModules/Parts/RW_HAB_250.cfg',
-                'GameData/RoosterWorksStationModules/Parts/RW_LAB_250.cfg',
-                'Source/build_cmd250.py','Tools/validate.py','Tools/validate_cmd250.py'}
-              assert required.issubset(set(names)), 'Required files missing'
-              for x in entries:
-                  name=x.filename
-                  assert not name.startswith('/') and not name.startswith('.') and '..' not in PurePosixPath(name).parts and '\\' not in name, 'Unsafe archive path'
-                  assert ((x.external_attr >> 16) & 0o170000)!=0o120000, 'Symlink not permitted'
-                  assert '__pycache__' not in name and not name.endswith('.pyc'), 'Build artifacts forbidden'
-                  assert name in ('README.md','LICENSE','CHANGELOG.md','CHECKSUMS-SHA256.txt') or name.startswith(('GameData/RoosterWorksStationModules/','Source/','Tools/','Media/')), 'Unexpected archive entry'
-              for x in entries:
-                  path=Path(x.filename)
+              assert z.testzip() is None, 'Damaged ZIP'
+              entries=[e for e in z.infolist() if not e.is_dir()]
+              names=[e.filename for e in entries]
+              assert len(entries)==67 and len(set(names))==67, 'Unexpected archive contents'
+              for e in entries:
+                  n=e.filename
+                  p=PurePosixPath(n)
+                  assert n and not n.startswith(('/', '.')) and '..' not in p.parts and '\\' not in n, 'Unsafe path'
+                  assert (e.external_attr >> 16) & 0o170000 != 0o120000, 'Symlink prohibited'
+                  assert n in ('README.md','CHANGELOG.md','LICENSE','CHECKSUMS-SHA256.txt') or n.startswith(('GameData/RoosterWorksStationModules/','Source/','Tools/','Media/')), 'Unapproved file'
+              for required in ('Tools/validate_eva_airlock.py','Source/build_hab250.py','GameData/RoosterWorksStationModules/Parts/RW_HAB_250.cfg','GameData/RoosterWorksStationModules/Models/RW_HAB_250.mu','GameData/RoosterWorksStationModules/Parts/RW_CMD_250.cfg','GameData/RoosterWorksStationModules/Parts/RW_LAB_250.cfg'):
+                  assert required in names, required
+              for e in entries:
+                  path=Path(e.filename)
                   path.parent.mkdir(parents=True,exist_ok=True)
-                  path.write_bytes(z.read(x))
-          print('Approved v0.4.1 source extracted:',len(entries),'files')
+                  path.write_bytes(z.read(e))
+          print('Imported all 67 approved developer-source files')
           PY
-      - name: Prepare offline validator
+      - name: Install offline validation dependency
         run: python -m pip install Pillow
-      - name: Run model/config tests and verify assets
+      - name: Test all three parts, EVA airlock and checksums
         run: |
           python Tools/validate.py
-          sha256sum -c CHECKSUMS-SHA256.txt
-      - name: Commit verified source and delete temporary archive
+          sha256sum --check CHECKSUMS-SHA256.txt
+      - name: Commit validated sources and delete uploaded ZIP
         run: |
-          if [ ! -f 'RoosterWorks-Station-Modules-v0.4.1-Developer-Source.zip' ]; then exit 0; fi
+          if [ ! -f 'RoosterWorks-Station-Modules-v0.4.2-Developer-Source.zip' ]; then exit 0; fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add README.md LICENSE CHANGELOG.md CHECKSUMS-SHA256.txt GameData/ Source/ Tools/ Media/
-          git rm -f 'RoosterWorks-Station-Modules-v0.4.1-Developer-Source.zip'
-          git commit -m 'Import Station Modules v0.4.1 CMD internal antenna and command fixes'
+          git add README.md CHANGELOG.md LICENSE CHECKSUMS-SHA256.txt GameData/ Source/ Tools/ Media/
+          git rm -f 'RoosterWorks-Station-Modules-v0.4.2-Developer-Source.zip'
+          git commit -m 'Import HAB-250 v0.4.2 experimental Side Hatch EVA support'
           git push origin HEAD:main
