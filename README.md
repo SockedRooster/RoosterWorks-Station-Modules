@@ -1,25 +1,29 @@
 # RoosterWorks Station Modules
 
-Custom 2.5 m orbital station modules for KSP 1.12.5 with procedurally generated models, warm-white cabin lighting, optional Kerbalism life support and science features.
+Original KSP 1.12.5 station habitats, science laboratories and compact command modules with optional Kerbalism life-support and science integration.
 
-## Current developer test: v0.4.2 — HAB-250 Side Hatch EVA
+## Current testing candidate: v0.4.3
 
-The development package contains three modules:
+Three parts: **RW-HAB-250**, **RW-LAB-250**, and **RW-CMD-250**.
 
-- **RW-HAB-250:** 4-crew station habitat, two selectable variants: Standard Windows and Exterior Side Hatch.
-- **RW-LAB-250:** 2-crew science laboratory with stock/Kerbalism experiments.
-- **RW-CMD-250:** Compact 2-crew command pod with SAS, reaction wheels and antennas.
+### v0.4.3 development notes
 
-**New in v0.4.2:** The HAB previously had a visual hatch but no functional KSP airlock. The updated native HAB model adds a trigger BoxCollider tagged `Airlock` on KSP physics layer **21**, located outside the side hatch and aligned with the outward normal. The existing stock `ModulePartVariants` turns this trigger off for Standard Windows and on for Exterior Side Hatch. Blender source now displays a guide at the airlock location. No new plugin or additional part ID is required.
+- **EVA hatch registration:** The game scans active Airlock-tagged colliders during Part.Awake. The native HAB model already contains the airlock trigger, but the Standard Windows variant disabled it. This version leaves the physical collider active across visual variants to permit KSP initialization. **Temporary limitation:** EVA may be possible from the cosmetic Standard Windows variant at an invisible hatch position.
+- **CMD signal diagnostic:** Adds a stock `ModuleProbeControlPoint` requiring one crew member, following station control-module conventions. The separate direct/internal transmitters, SAS and existing command functions remain in place. **Signal restoration is not yet confirmed.**
+- The HAB's remaining curved window-frame visual refinement remains deferred. LAB science, warm-white lights, part sizes, Kerbalism supplies and graphics are otherwise unchanged.
 
-This is an **experimental EVA test**, not a confirmed stable fix. We need to confirm KSP recognizes the variant's airlock during part initialization, that a Kerbal aboard the HAB can exit and board again, and that EVA remains unavailable from the window-only variant. If the variant is not discovered correctly at load time, we'll revise the airlock registration mechanism.
+### Upload the tested developer source
 
-The RW-CMD-250 communications investigation continues separately. Previous HAB window-frame fit issues are deferred. LAB/other parts are otherwise unchanged.
+Download **`RoosterWorks-Station-Modules-v0.4.3-Developer-Source.zip`** from ChatGPT and upload this **single ZIP without extracting it** to the `main` branch using **Add file → Upload files**. The GitHub import workflow verifies the file's known checksum and 67-entry contents, runs static tests and commits the extracted source and GameData files, deleting the temporary ZIP afterward.
 
-### Upload developer sources
+The separate **`RoosterWorks-Station-Modules-v0.4.3-TEST.zip`** is for testing inside KSP, not for GitHub source import.
 
-Download **`RoosterWorks-Station-Modules-v0.4.2-Developer-Source.zip`** from ChatGPT. On GitHub choose **Add file → Upload files** and commit the **ZIP itself** to `main`, without extracting it. The [GitHub importer](.github/workflows/import-prototype.yml) verifies the exact archive SHA-256, imports the 67 files, validates the model and manifests, then commits the sources and removes the temporary ZIP.
+### Test procedure
 
-The separate **`RoosterWorks-Station-Modules-v0.4.2-TEST.zip`** is the player test installer. To install, remove the old `GameData/RoosterWorksStationModules` folder and extract the test ZIP into the KSP root. Launch a *new* craft with a crewed HAB in Side Hatch mode and test EVA/boarding from both the ground and orbit. The built-in 2.5m top/bottom endcaps are not separate docking ports.
+1. Remove the previously installed `GameData/RoosterWorksStationModules` folder **and any separately installed `CMD250_CommNet_Diagnostic_A.cfg`** from the earlier isolation test.
+2. Install the v0.4.3 TEST ZIP, restart KSP, and use a fresh craft.
+3. Test EVA **from a Kerbal seated in RW-HAB-250**, with Exterior Side Hatch selected and a clear exit.
+4. Test a fresh RW-CMD-250 near KSC with a crew member, **without another probe core**. Check stock CommNet signal and Kerbalism signal. Repeat uncrewed.
+5. If either issue persists, supply the full `ModuleManager.ConfigCache` entry for the part and relevant `KSP.log` entries. This prevents further speculative changes.
 
-**Status:** Static model and config checks pass; actual EVA and Kerbalism runtime behavior remain to be confirmed. Custom IVA interiors planned later. Original RoosterWorks work is MIT licensed.
+This is a development test and not a stable published release. The original RoosterWorks assets and code are MIT licensed. Custom IVA interiors are deferred.
