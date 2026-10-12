@@ -1,21 +1,25 @@
 # RoosterWorks Station Modules
 
-Code-generated, textured KSP 1.12.5 station components, with Kerbalism-aware life-support and science integration.
+Three development-stage, original space station modules for **KSP 1.12.5**, with optional Kerbalism life support.
 
-## v0.3.0 DEVELOPMENT TEST — 2 station parts
+## RW-Station-Modules v0.4.0 — Developer test build
 
-- **RW-HAB-250:** 2.5 m, four-Kerbal habitation module. The earlier v0.2.7 exterior, warm-white lights, window and Side Hatch variants are **unchanged**, including the deferred window/hatch frame-fit refinement.
-- **RW-LAB-250:** NEW 2.5 m, two-scientist laboratory. Independent original mesh with a smaller three-window observation row, science instrument cassettes, optical scanner, radiators, white thermal panels and RoosterWorks branding. Stock science processing works via standard stock lab modules; a conditional Kerbalism configuration replaces stock research with sample analysis and adds Default-profile supplies.
+| Part | Role | Size | Crew |
+| --- | --- | --- | --- |
+| RW-HAB-250 | Orbital habitat | 2.5 m × 3.96 m | 4 |
+| RW-LAB-250 | Science laboratory | 2.5 m × 3.96 m | 2 |
+| **RW-CMD-250** | Compact station command | **2.5 m × 1.72 m** | **2** |
 
-**No stable release yet.** Native models, config static checks, Blender-editable source, and actual-mesh lab renders are in the developer ZIP. Live VAB / Kerbalism science tests remain outstanding.
+- **LAB final functionality pass:** temperature, pressure, gravity, atmospheric analysis, materials study and Mystery Goo stock experiments; dedicated Kerbalism FeatureScience modules, Geiger when defined by the installed science profile, and sample analysis. The approved exterior remains unchanged.
+- **New CMD:** five recessed windows, compact avionics shell, station command/control, SAS, modest reaction wheels, short-range direct antenna, warm-white cabin lights and optional Kerbalism Default-profile provisions.
+- **HAB:** preserved v0.2.7 with existing lights and variants; its small window-frame fit issue is deferred.
 
-### Upload the prepared development source
+### Upload the development sources
 
-1. Download the exact `RoosterWorks-Station-Modules-v0.3.0-Developer-Source.zip` from the ChatGPT conversation.
-2. On this repository, choose **Add file → Upload files** and commit **the single ZIP as-is** to `main`. Do not extract it.
-3. The [import workflow](.github/workflows/import-prototype.yml) validates the ZIP SHA-256 and 51 approved files, then extracts both GameData models, all source and media, runs Python validation, commits the files, and removes the upload ZIP.
-4. Use the separate `RoosterWorks-Station-Modules-v0.3.0-TEST.zip` to install **both** parts in KSP; remove old `GameData/RoosterWorksStationModules` first.
+Download the exact **`RoosterWorks-Station-Modules-v0.4.0-Developer-Source.zip`** from ChatGPT. Use **Add file → Upload files** to upload the **single ZIP as-is** to this repository's `main` branch. The [import workflow](.github/workflows/import-prototype.yml) verifies SHA-256 and 66 approved files, runs static checks, commits all source/Models/Textures/Media assets and removes the ZIP.
 
-The final source `README.md` includes full installation, dependencies, and design limitations. Interiors will be added later.
+The separate **`RoosterWorks-Station-Modules-v0.4.0-TEST.zip`** is the KSP installation ZIP, not the GitHub source-import archive.
 
-[Repository](https://github.com/SockedRooster/RoosterWorks-Station-Modules) · MIT licensed original RoosterWorks content.
+**Status:** Working native models and static configuration checks; *not yet gameplay validated or officially released*. Test command controls, science experiments, Kerbalism science, temporary IVA and attachment nodes before approving a release.
+
+Custom IVA interiors are planned later. MIT — original RoosterWorks code and assets.
