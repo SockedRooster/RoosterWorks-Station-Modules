@@ -1,28 +1,23 @@
-# RoosterWorks Station Modules
+# RoosterWorks Station Modules — v0.6.0-dev.1
 
-Original station modules for **Kerbal Space Program 1.12.5**, with optional Kerbalism integration.
+**KSP 1.12.5 | DEVELOPMENT TEST, not a published release.**
 
-## Latest development build: v0.6.0-dev.1
+Original modular station family with RoosterWorks ivory thermal cladding, dark tinted glass, bronze insulation, original rooster crest and optional Kerbalism compatibility.
 
-The latest developer kit contains **five** 2.5 m station modules: **RW-HAB-250**, **RW-LAB-250**, **RW-CMD-250**, **RW-HUB-250**, and the newly added **RW-CUP-250 panoramic observation cupola**.
+| Part | Purpose | Crew | Stack nodes |
+|---|---|---:|---|
+| RW-HAB-250 | Habitat with selectable functional exterior Side Hatch | 4 | two 2.5 m ends |
+| RW-LAB-250 | Laboratory with stock / Kerbalism science | 2 | two 2.5 m ends |
+| RW-CMD-250 | Compact station command, SAS and CommNet | 2 | two 2.5 m ends |
+| RW-HUB-250 | Six-way structural pressurized junction | 0 | six 2.5 m sides |
+| **RW-CUP-250** | **NEW: terminal observation cupola, eight sloped viewports and skylight** | **1** | **one 2.5 m bottom** |
 
-The HAB/CMD/LAB/HUB models and runtime hatch plug-in were preserved from the v0.5.3-rc.1 development candidate. The new cupola has eight sloped windows, an overhead viewport, one crew seat, a 2.5 m bottom attachment, optional Kerbalism habitat resources and stock-compatible lighting. The cupola and the newer HUB/endcap work still need in-game validation; this is **not a stable published release**.
+v0.6.0-dev.1 includes a native `.mu` and editable `.obj` for the new 1.5m-class cupola, Blender reconstruction script, matching label texture, cabin-light shader action, one-seat temporary stock IVA, conditional Kerbalism supplies and volume, original convex collision mesh, review renders and regression validators.
 
-### Import the complete source tree to this repository
+**Cupola limitations:** no integrated EVA hatch, docking port, command avionics or research experiments. Use RW-CMD-250 for control and RW-HAB-250 Side Hatch for EVA. Window glazing uses the existing tinted-glass material; custom interior viewing is not yet provided. Its cabin light action is visual and does not consume electricity. Cupola has not been tested in KSP.
 
-This repository uses a single-ZIP import because the source package contains large native KSP **.mu models**, textures, DLL, editable OBJ geometry, Blender reconstruction scripts, and model preview renders.
+**Source preservation:** all non-versioned v0.5.3-rc.1 HAB/LAB/CMD/HUB native models, physics colliders, part configurations, original textures and hatch runtime DLL are retained byte-for-byte. The shared VAB Organizer optional patch receives a new cupola entry; root `.version` metadata is bumped for this dev build.
 
-1. Download [`RoosterWorks-Station-Modules-v0.6.0-dev.1-Developer-Source.zip`](https://chatgpt.com/) from the current ChatGPT conversation (the ZIP is attached there).
-2. In GitHub open this repository's **main** branch and select **Add file → Upload files**.
-3. Upload **the single developer-source ZIP without extracting it**, and commit the upload to `main`.
-4. The [import workflow](.github/workflows/import-prototype.yml) verifies the exact SHA-256 and 113 approved source paths, extracts and statically validates the five-module source, commits the actual assets, and removes the temporary ZIP.
+Run `python Tools/validate.py` after installing Pillow. Developer ZIP contains all original sources, new `Source/build_cup250.py`, Blender source reconstruction, `.mu`, verification scripts and KSP GameData. `Tools/render_cup250.py` requires NumPy and VTK only for previews. No KSP/Unity assemblies are redistributed.
 
-**Exact ZIP SHA-256:** `2ecaa133ee427115838563abadb1502c25e6d3b53ef46b98e27c9186ceb306fe`
-
-Do **not** upload the KSP install/test ZIP; it is not the developer source.
-
-After the import, `GameData/`, `Source/`, `Tools/`, `Media/` and their binary assets will appear directly in this repository. This does not create a GitHub release or tag.
-
-For in-game tests, install the separate `RoosterWorks-Station-Modules-v0.6.0-dev.1-TEST.zip`, keeping your existing tested saves backed up.
-
-Licensed MIT. All RoosterWorks art and code are original; additional dependencies remain governed by their own licenses.
+Read `INSTALLATION.md` and `TEST_CHECKLIST-v0.6.0.md` before flight testing. No GitHub tag/release or source commit is implied by packaging. MIT licensed, original RoosterWorks assets.
