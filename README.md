@@ -1,29 +1,28 @@
 # RoosterWorks Station Modules
 
-Original KSP 1.12.5 station habitats, science laboratories and compact command modules with optional Kerbalism life-support and science integration.
+Original station modules for **Kerbal Space Program 1.12.5**, with optional Kerbalism integration.
 
-## Current testing candidate: v0.4.3
+## Latest development build: v0.6.0-dev.1
 
-Three parts: **RW-HAB-250**, **RW-LAB-250**, and **RW-CMD-250**.
+The latest developer kit contains **five** 2.5 m station modules: **RW-HAB-250**, **RW-LAB-250**, **RW-CMD-250**, **RW-HUB-250**, and the newly added **RW-CUP-250 panoramic observation cupola**.
 
-### v0.4.3 development notes
+The HAB/CMD/LAB/HUB models and runtime hatch plug-in were preserved from the v0.5.3-rc.1 development candidate. The new cupola has eight sloped windows, an overhead viewport, one crew seat, a 2.5 m bottom attachment, optional Kerbalism habitat resources and stock-compatible lighting. The cupola and the newer HUB/endcap work still need in-game validation; this is **not a stable published release**.
 
-- **EVA hatch registration:** The game scans active Airlock-tagged colliders during Part.Awake. The native HAB model already contains the airlock trigger, but the Standard Windows variant disabled it. This version leaves the physical collider active across visual variants to permit KSP initialization. **Temporary limitation:** EVA may be possible from the cosmetic Standard Windows variant at an invisible hatch position.
-- **CMD signal diagnostic:** Adds a stock `ModuleProbeControlPoint` requiring one crew member, following station control-module conventions. The separate direct/internal transmitters, SAS and existing command functions remain in place. **Signal restoration is not yet confirmed.**
-- The HAB's remaining curved window-frame visual refinement remains deferred. LAB science, warm-white lights, part sizes, Kerbalism supplies and graphics are otherwise unchanged.
+### Import the complete source tree to this repository
 
-### Upload the tested developer source
+This repository uses a single-ZIP import because the source package contains large native KSP **.mu models**, textures, DLL, editable OBJ geometry, Blender reconstruction scripts, and model preview renders.
 
-Download **`RoosterWorks-Station-Modules-v0.4.3-Developer-Source.zip`** from ChatGPT and upload this **single ZIP without extracting it** to the `main` branch using **Add file → Upload files**. The GitHub import workflow verifies the file's known checksum and 67-entry contents, runs static tests and commits the extracted source and GameData files, deleting the temporary ZIP afterward.
+1. Download [`RoosterWorks-Station-Modules-v0.6.0-dev.1-Developer-Source.zip`](https://chatgpt.com/) from the current ChatGPT conversation (the ZIP is attached there).
+2. In GitHub open this repository's **main** branch and select **Add file → Upload files**.
+3. Upload **the single developer-source ZIP without extracting it**, and commit the upload to `main`.
+4. The [import workflow](.github/workflows/import-prototype.yml) verifies the exact SHA-256 and 113 approved source paths, extracts and statically validates the five-module source, commits the actual assets, and removes the temporary ZIP.
 
-The separate **`RoosterWorks-Station-Modules-v0.4.3-TEST.zip`** is for testing inside KSP, not for GitHub source import.
+**Exact ZIP SHA-256:** `2ecaa133ee427115838563abadb1502c25e6d3b53ef46b98e27c9186ceb306fe`
 
-### Test procedure
+Do **not** upload the KSP install/test ZIP; it is not the developer source.
 
-1. Remove the previously installed `GameData/RoosterWorksStationModules` folder **and any separately installed `CMD250_CommNet_Diagnostic_A.cfg`** from the earlier isolation test.
-2. Install the v0.4.3 TEST ZIP, restart KSP, and use a fresh craft.
-3. Test EVA **from a Kerbal seated in RW-HAB-250**, with Exterior Side Hatch selected and a clear exit.
-4. Test a fresh RW-CMD-250 near KSC with a crew member, **without another probe core**. Check stock CommNet signal and Kerbalism signal. Repeat uncrewed.
-5. If either issue persists, supply the full `ModuleManager.ConfigCache` entry for the part and relevant `KSP.log` entries. This prevents further speculative changes.
+After the import, `GameData/`, `Source/`, `Tools/`, `Media/` and their binary assets will appear directly in this repository. This does not create a GitHub release or tag.
 
-This is a development test and not a stable published release. The original RoosterWorks assets and code are MIT licensed. Custom IVA interiors are deferred.
+For in-game tests, install the separate `RoosterWorks-Station-Modules-v0.6.0-dev.1-TEST.zip`, keeping your existing tested saves backed up.
+
+Licensed MIT. All RoosterWorks art and code are original; additional dependencies remain governed by their own licenses.
