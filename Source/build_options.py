@@ -129,5 +129,9 @@ RESOURCE_DEFINITION:NEEDS[Kerbalism,ProfileDefault,CommunityResourcePack]
     storage_balance()
     from build_catalogue import build as catalogue
     catalogue()
+    from build_ring_options import build as ring_options
+    ring_options()
+    from build_logistics_options import build as logistics_options
+    logistics_options()
 
 if __name__=='__main__':build()

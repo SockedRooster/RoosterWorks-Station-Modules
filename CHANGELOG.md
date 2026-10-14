@@ -1,12 +1,42 @@
-# Changelog — RoosterWorks Station Modules
+# RoosterWorks Station Modules — v0.7.5-dev.4
 
-## v0.6.0 — Stable release (in-game verified)
+Command data archives now have five editor choices: 200–1000 MB at 2.5 m, 675–3375 MB at 3.75 m, and 1600–8000 MB at 5 m. Preserves dev3 ring fix, LAB tiers and all prior native models/gameplay. See COMMAND_STORAGE_075.md. Offline checks do not establish in-game acceptance or release status.
 
-- Maintainer confirmed successful in-game testing of the complete v0.6.0 feature set.
-- Stable version numbering carries forward the v0.16.0-dev.3 feature baseline: 23 part configurations, appearance and finish variants, power and storage balance, corrected tube models and elbow UVs, and editor organization.
-- No gameplay assets were modified as part of the repository's stable-release documentation cleanup.
+## Retained development history
 
-Earlier entries below are preserved as **historical development notes**. Statements about pending tests or unpublished development packages in those entries do not describe the stable v0.6.0 release.
+# RoosterWorks Station Modules — v0.7.5-dev.3
+
+Ring selector hotfix: resynchronizes live color selections and reconnects ring materials/meshes after editor/model rebuilds. Models, textures, configs, capacity tiers, reactors and surface options retained from dev2. See RING_MENU_HOTFIX.md. In-game reopen/reselect confirmation pending.
+
+## Retained development history
+
+# RoosterWorks Station Modules — v0.7.5-dev.2
+
+Adds 4/6/8 m long straight crew tubes at 2.5/3.75/5 m diameter, ten adjustable volume-scaled LAB data/sample steps, and grouped editor appearance swatches with optional B9PartSwitch. 41 current parts plus two hidden historical reactor IDs. See EDITOR_AND_STORAGE_075.md for capacities and live acceptance checks. Offline checks do not establish in-game acceptance or release status.
+
+## Retained development history
+
+# RoosterWorks Station Modules — v0.7.5-dev.1
+
+Roadmap 0.7 adds eleven native 5 m station modules and a 3.75-to-5 m adapter. Roadmap 0.75 adds compact two-crew HABs in all three diameters. The current catalogue has 38 parts, plus the two hidden historical reactor IDs. White/Grey finish, ring colors, LOG contents, hatch and reactor variants, warm-white lighting and current science limits are retained. Prior part IDs and models remain unchanged.
+
+See STATION_EXPANSION_070_075.md for specifications and the acceptance checklist. These are local development TEST/source packages; no game installation, save modification or GitHub release is implied. New parts and controls require in-game acceptance.
+
+## Preserved development history
+
+# RoosterWorks Station Modules — roadmap 0.65 / v0.6.5-dev.1
+
+Adds independent ring colors to all current models and editor-selectable contents to both LOG sizes. White/Grey finishes, hatch and reactor variants, native geometry, colliders, lighting, VAB groups and prior gameplay remain preserved. LOG defaults to the exact accepted mixed inventory; dedicated supply tanks start full and waste tanks empty. Flight loading never switches or refills cargo.
+
+See CUSTOMIZATION_065.md for capacities, implementation, source validation and the in-game acceptance checklist. Ring choices are Original, Steel, White, Charcoal, Blue, Green, Red and Gold. LOG choices are Mixed supplies, Food, Water, Oxygen, Nitrogen, Ammonia, Waste and WasteWater, conditional on Kerbalism Default/CRP. This is a local development test build, represented as 0.6.5-dev.1 in version metadata. Unity/VAB and gameplay acceptance remain pending. No installation, save edits or GitHub publication performed.
+
+## Prior development history
+
+# RoosterWorks Station Modules — v0.6.0
+
+The current build is numbered **0.6** (machine-readable **0.6.0**), at the user's request. This numbering reset carries forward the complete v0.16.0-dev.3 development candidate: all 23 current parts, both sizes, appearance fixes, White/Grey finishes, reactor variants, storage balance, elbow UV corrections and VAB organization. It does not revert to the historical v0.6 kit.
+
+Only version metadata and documentation change in this build; every other GameData file is byte-identical to v0.16.0-dev.3. Historical development notes below retain their original version labels. See ROADMAP.md for the new milestone sequence. These are local TEST/source packages; numbering does not establish publication or release status.
 
 ## Preserved development history
 

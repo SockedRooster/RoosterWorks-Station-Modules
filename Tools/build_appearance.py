@@ -48,7 +48,7 @@ def main():
     from build_options import build as build_options
     build_options()
     version_path=ROOT/'GameData/RoosterWorksStationModules/RoosterWorksStationModules.version'
-    version=json.loads(version_path.read_text());version['VERSION']={'MAJOR':0,'MINOR':6,'PATCH':0,'BUILD':0}
+    version=json.loads(version_path.read_text());version['VERSION']={'MAJOR':0,'MINOR':7,'PATCH':5,'BUILD':1}
     version_path.write_text(json.dumps(version,indent=2)+'\n')
     files=sorted(p for p in (ROOT/'GameData').rglob('*') if p.is_file())
     (ROOT/'CHECKSUMS-SHA256.txt').write_text(''.join(hashlib.sha256(p.read_bytes()).hexdigest()+'  '+p.relative_to(ROOT).as_posix()+'\n' for p in files))

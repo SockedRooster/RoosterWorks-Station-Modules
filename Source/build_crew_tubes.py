@@ -33,10 +33,11 @@ def mapped(mesh,elbow,scale):
     out.uvs=list(mesh.uvs);out.triangles=list(mesh.triangles)
     return out
 
-def geometry(elbow=False,scale=1):
+def geometry(elbow=False,scale=1,half_override=None):
     half=ARCLENGTH/2+COLLAR if elbow else 1.0
+    if half_override is not None:half=half_override
     m={name:h.Mesh() for name in MAT}
-    rows=10 if elbow else 4
+    rows=10 if elbow else round(4*half)
     # Sufficient axial sampling follows the bend rather than faceting into boxes.
     def panel(material,theta,y0,y1,width,r,around=8,along=1):
         for j in range(along):

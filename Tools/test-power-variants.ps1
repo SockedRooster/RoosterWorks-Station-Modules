@@ -50,8 +50,8 @@ public class PowerTest {
     static void Check(bool b,string s) {if(!b)throw new Exception(s);}
     static bool Close(double a,double b) {return Math.Abs(a-b)<1e-7;}
     public static void Run() {
-        foreach(double baseEC in new[]{2980.0,5740.0}) {
-            double scale=baseEC==2980?1.1:1.2; double nuclearEC=baseEC==2980?2450:4730;
+        foreach(double baseEC in new[]{2980.0,5740.0,10200.0}) {
+            double scale=baseEC==2980?1.1:baseEC==5740?1.2:1.3; double nuclearEC=baseEC==2980?2450:baseEC==5740?4730:8410;
             HighLogic.LoadedSceneIsEditor=true;HighLogic.LoadedSceneIsFlight=false;
             var p=new Part();p.Resources.data["ElectricCharge"]=new PartResource{amount=baseEC/2,maxAmount=baseEC};
             var v=new ModulePartVariants{part=p};var c=new ProcessController{part=p};p.Modules.Add(v);p.Modules.Add(c);

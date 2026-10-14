@@ -17,8 +17,11 @@ def font(sz,bold=False):
     from appearance_textures import font as resolve
     return resolve(sz,bold)
 
-def render(label,theta=.60,elevation=.42,span=4.7,variant='Standard',focus=(0,0,0),size=(760,840),emissive=0,diameter=250,dark=False,point_lights=False,finish='White'):
+def render(label,theta=.60,elevation=.42,span=4.7,variant='Standard',focus=(0,0,0),size=(760,840),emissive=0,diameter=250,dark=False,point_lights=False,finish='White',ring_color='Original'):
     model=load(MODELS/f'RW_{label}_{diameter}.mu')
+    if ring_color!='Original':
+        from preview_ring_model import apply
+        apply(model,ring_color)
     width,height=size
     rgb=np.zeros((height,width,3),dtype=np.uint8)
     gradient=np.linspace(1,0,height)[:,None,None]
@@ -35,7 +38,7 @@ def render(label,theta=.60,elevation=.42,span=4.7,variant='Standard',focus=(0,0,
     opaque=[];transparent=[]
     for path,node in walk(model.root):
         if 'mesh' not in node or 'materials' not in node:continue
-        if label=='HAB':
+        if label.startswith('HAB'):
             if variant=='Standard' and '/SideHatch/' in path:continue
             if variant=='SideHatch' and '/WindowBankStandard/' in path:continue
         assert node['position']==(0.,0.,0.) and node['rotation']==(0.,0.,0.,1.) and node['scale']==(1.,1.,1.)
@@ -43,6 +46,7 @@ def render(label,theta=.60,elevation=.42,span=4.7,variant='Standard',focus=(0,0,
         rel=verts-focus
         p_all=np.column_stack((width/2+rel@right*scale,height/2-rel@up*scale,rel@view))
         for sub,mat_id in zip(mesh['submeshes'],node['materials']):
+            if not sub:continue
             mat=model.materials[mat_id];tex_name=model.textures[mat['properties']['_MainTex']['index']]['name']
             if finish=='Grey metal' and tex_name in ('rwm_ceramic','rwm_white','rwm_cladding','rwm_cladding_white'):tex_name+='_grey'
             if tex_name not in textures:textures[tex_name]=np.asarray(Image.open(MODELS/(tex_name+'.png')).convert('RGBA'))

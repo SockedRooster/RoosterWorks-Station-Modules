@@ -1,0 +1,60 @@
+newmtl MAT0
+Kd 1 1 1
+map_Kd ../../GameData/RoosterWorksStationModules/Models/rwm_ceramic.png
+
+newmtl MAT1
+Kd 1 1 1
+map_Kd ../../GameData/RoosterWorksStationModules/Models/rwm_white.png
+
+newmtl MAT2
+Kd 1 1 1
+map_Kd ../../GameData/RoosterWorksStationModules/Models/rwm_steel.png
+
+newmtl MAT3
+Kd 1 1 1
+map_Kd ../../GameData/RoosterWorksStationModules/Models/rwm_graphite.png
+
+newmtl MAT4
+Kd 1 1 1
+map_Kd ../../GameData/RoosterWorksStationModules/Models/rwm_bronze.png
+
+newmtl MAT5
+Kd 1 1 1
+map_Kd ../../GameData/RoosterWorksStationModules/Models/rwm_glass.png
+
+newmtl MAT6
+Kd 1 1 1
+map_Kd ../../GameData/RoosterWorksStationModules/Models/rwm_black.png
+
+newmtl MAT7
+Kd 1 1 1
+map_Kd ../../GameData/RoosterWorksStationModules/Models/rwm_rail.png
+
+newmtl MAT8
+Kd 1 1 1
+map_Kd ../../GameData/RoosterWorksStationModules/Models/rwm_label.png
+
+newmtl MAT9
+Kd 1 1 1
+map_Kd ../../GameData/RoosterWorksStationModules/Models/rwm_crest.png
+
+newmtl MAT10
+Kd 1 1 1
+map_Kd ../../GameData/RoosterWorksStationModules/Models/rwm_hubblanket.png
+
+newmtl MAT11
+Kd 1 1 1
+map_Kd ../../GameData/RoosterWorksStationModules/Models/rwm_detail.png
+
+newmtl MAT12
+Kd 1 1 1
+map_Kd ../../GameData/RoosterWorksStationModules/Models/rwm_cladding.png
+
+newmtl MAT13
+Kd 1 1 1
+map_Kd ../../GameData/RoosterWorksStationModules/Models/rwm_cladding_white.png
+
+newmtl MAT14
+Kd 1 1 1
+map_Kd ../../GameData/RoosterWorksStationModules/Models/rwm_tublabel_500.png
+

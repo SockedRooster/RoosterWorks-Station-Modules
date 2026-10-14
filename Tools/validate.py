@@ -3,7 +3,7 @@
 from pathlib import Path
 import subprocess,sys,hashlib
 ROOT=Path(__file__).resolve().parents[1]
-for f in ('validate_hab250.py','validate_lab250.py','validate_cmd250.py','validate_eva_airlock.py','validate_runtime_candidate.py','validate_hab_clearance.py','validate_eva_ladder.py','validate_hub250.py','validate_shared_endcaps.py','validate_cup250.py','validate_log250.py','validate_appearance.py','validate_surface_fixes.py','validate_air250.py','validate_pwr250.py','validate_adapter.py','validate_grn250.py','validate_family375.py','validate_ec_balance.py','validate_options.py','validate_power_variants.py','validate_crew_tubes.py','validate_v016_balance.py','validate_elbow_uv_fix.py','validate_catalogue.py'):
+for f in ('validate_hab250.py','validate_lab250.py','validate_cmd250.py','validate_eva_airlock.py','validate_runtime_candidate.py','validate_hab_clearance.py','validate_eva_ladder.py','validate_hub250.py','validate_shared_endcaps.py','validate_cup250.py','validate_log250.py','validate_appearance.py','validate_surface_fixes.py','validate_air250.py','validate_pwr250.py','validate_adapter.py','validate_grn250.py','validate_family375.py','validate_ec_balance.py','validate_options.py','validate_power_variants.py','validate_crew_tubes.py','validate_v016_balance.py','validate_elbow_uv_fix.py','validate_catalogue.py','validate_roadmap065.py','validate_expansion.py','validate_editor075.py','validate_ring_hotfix.py','validate_command_storage.py'):
     subprocess.run([sys.executable,str(ROOT/'Tools'/f)],check=True)
 manifest=ROOT/'CHECKSUMS-SHA256.txt'
 seen=set()

@@ -37,7 +37,7 @@ assert 'name = HardDrive' in patch and 'sampleCapacity = 20' in patch
 assert '!MODULE[ModuleScienceContainer],*' in patch
 assert 'name = Mobile_Processing_Lab_Int' in part
 version=json.loads((ROOT/'GameData/RoosterWorksStationModules/RoosterWorksStationModules.version').read_text())
-assert tuple(version['VERSION'][x] for x in ('MAJOR','MINOR','PATCH'))in ((0,4,0),(0,4,1),(0,4,2),(0,4,3),(0,4,4),(0,4,5),(0,4,6),(0,5,0),(0,5,1),(0,5,2),(0,5,3),(0,6,0),(0,7,0),(0,8,0),(0,9,0),(0,10,0),(0,11,0),(0,12,0),(0,13,0),(0,14,0),(0,15,0),(0,16,0))
+assert tuple(version['VERSION'][x] for x in ('MAJOR','MINOR','PATCH'))in ((0,4,0),(0,4,1),(0,4,2),(0,4,3),(0,4,4),(0,4,5),(0,4,6),(0,5,0),(0,5,1),(0,5,2),(0,5,3),(0,6,0),(0,6,5),(0,7,0),(0,7,5),(0,8,0),(0,9,0),(0,10,0),(0,11,0),(0,12,0),(0,13,0),(0,14,0),(0,15,0),(0,16,0))
 models=MODELS
 mu=(models/(PART+'.mu')).read_bytes()
 assert struct.unpack_from('<ii',mu)==(76543,5) and len(mu)>250000

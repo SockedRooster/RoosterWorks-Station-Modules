@@ -5,7 +5,7 @@ ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'Source'))
 from electric_charge_balance import apply
 apply()
 p=ROOT/'GameData/RoosterWorksStationModules/RoosterWorksStationModules.version'
-v=json.loads(p.read_text());v['VERSION']={'MAJOR':0,'MINOR':6,'PATCH':0,'BUILD':0};p.write_text(json.dumps(v,indent=2)+'\n')
+v=json.loads(p.read_text());v['VERSION']={'MAJOR':0,'MINOR':7,'PATCH':5,'BUILD':1};p.write_text(json.dumps(v,indent=2)+'\n')
 from build_options import build as build_options
 build_options()
 from build_crew_tubes import build as crew_tubes

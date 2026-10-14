@@ -1,0 +1,24 @@
+{
+  "base_ec": {
+    "HAB": 370,
+    "LAB": 0,
+    "CMD": 630,
+    "HUB": 0,
+    "CUP": 525,
+    "LOG": 0,
+    "AIR": 0,
+    "PWR": 10200,
+    "GRN": 0,
+    "TUB": 0,
+    "ELB": 0
+  },
+  "source": "5 m SSPX core 600 +5%; cupola 500 +5%; HAB 500 +5%, -30%, round ten. PWR area proxy from accepted 3.75 m balances, rounded ten. Other passive roles retain zero.",
+  "power": {
+    "battery": 10200,
+    "nuclear": 8410,
+    "scale": 1.3
+  },
+  "scale": 2,
+  "volume": 8,
+  "area": 4
+}

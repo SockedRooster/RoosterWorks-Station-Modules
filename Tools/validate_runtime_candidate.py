@@ -34,7 +34,7 @@ for label in ('HAB','LAB','CMD'):
 plugin=ROOT/'GameData/RoosterWorksStationModules/Plugins/RoosterWorksStationRuntime.dll'
 assert plugin.read_bytes().startswith(b'MZ')
 version=json.loads((ROOT/'GameData/RoosterWorksStationModules/RoosterWorksStationModules.version').read_text())['VERSION']
-assert tuple(version[k] for k in ('MAJOR','MINOR','PATCH')) in ((0,5,3),(0,6,0),(0,7,0),(0,8,0),(0,9,0),(0,10,0),(0,11,0),(0,12,0),(0,13,0),(0,14,0),(0,15,0),(0,16,0))
+assert tuple(version[k] for k in ('MAJOR','MINOR','PATCH')) in ((0,5,3),(0,6,0),(0,6,5),(0,7,0),(0,7,5),(0,8,0),(0,9,0),(0,10,0),(0,11,0),(0,12,0),(0,13,0),(0,14,0),(0,15,0),(0,16,0))
 print('PASS all three parts explicitly classified Station; hatch module attached only to HAB')
 print('PASS built runtime DLL and 0.5.3/0.6.0 package metadata present')
 print('NOTE late hatch binding and CommNet need an actual KSP flight test')

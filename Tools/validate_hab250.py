@@ -88,7 +88,7 @@ with Image.open(models/'rwm_crest.png') as im:
 with Image.open(models/'rwm_glass.png') as im:
     assert max(im.getpixel((255,255)))<110
 v=json.loads(version.read_text())
-assert (v['VERSION']['MAJOR'],v['VERSION']['MINOR'],v['VERSION']['PATCH']) in ((0,2,7),(0,3,0),(0,4,0),(0,4,1),(0,4,2),(0,4,3),(0,4,4),(0,4,5),(0,4,6),(0,5,0),(0,5,1),(0,5,2),(0,5,3),(0,6,0),(0,7,0),(0,8,0),(0,9,0),(0,10,0),(0,11,0),(0,12,0),(0,13,0),(0,14,0),(0,15,0),(0,16,0))
+assert (v['VERSION']['MAJOR'],v['VERSION']['MINOR'],v['VERSION']['PATCH']) in ((0,2,7),(0,3,0),(0,4,0),(0,4,1),(0,4,2),(0,4,3),(0,4,4),(0,4,5),(0,4,6),(0,5,0),(0,5,1),(0,5,2),(0,5,3),(0,6,0),(0,6,5),(0,7,0),(0,7,5),(0,8,0),(0,9,0),(0,10,0),(0,11,0),(0,12,0),(0,13,0),(0,14,0),(0,15,0),(0,16,0))
 assert v['KSP_VERSION']=={'MAJOR':1,'MINOR':12,'PATCH':5}
 print('PASS | Part variants: Standard retains rail; Side Hatch rail clear of the door')
 print('PASS | Native MU transforms, +50% square windows, original rooster logo texture')

@@ -105,7 +105,7 @@ def part(role):
 def patches():
     root=parse('');organizer=parse('')
     for path in sorted((ROOT/'GameData/RoosterWorksStationModules/Compatibility').glob('*.cfg')):
-        if path.name.startswith('LargeFamily') or path.name in ('ExteriorFinish.cfg','CompactReactor.cfg','PowerVariants.cfg','StorageBalance.cfg','CrewTubes.cfg','StationCatalogue.cfg'):continue
+        if path.name.startswith('LargeFamily') or path.name in ('ExteriorFinish.cfg','CompactReactor.cfg','PowerVariants.cfg','StorageBalance.cfg','CrewTubes.cfg','StationCatalogue.cfg','RingColors.cfg','RingGeometry.cfg','LogisticsLoadouts.cfg'):continue
         tree=parse(path.read_text())
         for p in tree.children:
             if not any(f'RW_{r}_250' in p.header for r in ROLES):continue

@@ -1,0 +1,141 @@
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+
+// Exact generated native triangle selections. Only visual mesh instances split;
+// original mesh vertices, UVs, normals, colliders and persistent variant IDs stay.
+public sealed class ModuleRWRingColor : PartModule
+{
+    [KSPField] public string ringModel = "RW_HAB_250";
+    [KSPField(isPersistant = true, guiActiveEditor = true, guiName = "Ring color")]
+    [UI_ChooseOption(options = new[] { "Original", "Steel", "White", "Charcoal", "Blue", "Green", "Red", "Gold" }, affectSymCounterparts = UI_Scene.Editor)]
+    public string ringColor = "Original";
+    private sealed class Binding
+    {
+        public Renderer renderer;
+        public MeshFilter filter;
+        public Mesh original, instance;
+        public Material source, ring;
+        public Material[] originalMaterials;
+        public string texture;
+        public Texture lastSource;
+    }
+    private readonly List<Binding> bindings = new List<Binding>();
+    private string applied;
+    private int scan;
+    private ConfigNode[] geometry;
+    public override void OnStart(StartState state)
+    {
+        base.OnStart(state);
+        var control = Fields["ringColor"].uiControlEditor;
+        if (control != null) { control.onFieldChanged += Changed; control.onSymmetryFieldChanged += Changed; }
+        Apply();
+    }
+    private void Changed(BaseField field, object previous) { Apply(); }
+    public void Update()
+    {
+        if (!HighLogic.LoadedSceneIsEditor && !HighLogic.LoadedSceneIsFlight) return;
+        // Detect renderers made available by a later hatch/model variant switch.
+        if (ringColor != applied || ++scan % 30 == 0) Apply();
+        if (ringColor == "Original")
+            foreach (Binding b in bindings)
+                if (b.source.mainTexture != b.lastSource) SetColor(b);
+    }
+    private static string PathOf(Transform transform)
+    {
+        string path = "/" + transform.name;
+        while (transform.parent != null) { transform = transform.parent; path = "/" + transform.name + path; }
+        return path;
+    }
+    private void Bind()
+    {
+        if (part == null || GameDatabase.Instance == null) return;
+        if (geometry == null)
+        {
+            foreach (ConfigNode map in GameDatabase.Instance.GetConfigNodes("RW_RING_MAP"))
+                if (map.GetValue("model") == ringModel) { geometry = map.GetNodes("MESH"); break; }
+            if (geometry == null) return;
+        }
+        foreach (Renderer renderer in part.FindModelComponents<Renderer>())
+        {
+            if (bindings.Exists(b => b.renderer == renderer)) continue;
+            MeshFilter filter = renderer.GetComponent<MeshFilter>();
+            if (filter == null || filter.sharedMesh == null || filter.sharedMesh.subMeshCount < 1 || filter.sharedMesh.subMeshCount > 2) continue;
+            if (filter.sharedMesh.subMeshCount == 2 && !filter.sharedMesh.name.EndsWith(" RW ring instance", StringComparison.Ordinal)) continue;
+            if (ringColor == "Original" && filter.sharedMesh.subMeshCount == 1) continue;
+            string path = PathOf(renderer.transform);
+            foreach (ConfigNode spec in geometry)
+            {
+                string nativePath = spec.GetValue("path");
+                // KSP may rename the imported model root to "model".
+                string suffix = nativePath.Substring(nativePath.IndexOf('/', 1));
+                if (!path.EndsWith(suffix, StringComparison.Ordinal)) continue;
+                Mesh original = filter.sharedMesh;
+                int countTriangles = int.Parse(spec.GetValue("triangles"));
+                int[] bodyInput = original.GetTriangles(0);
+                int[] ringInput = original.subMeshCount == 2 ? original.GetTriangles(1) : new int[0];
+                if (original.vertexCount != int.Parse(spec.GetValue("vertices")) || bodyInput.Length + ringInput.Length != 3 * countTriangles)
+                { Debug.LogError("[RoosterWorks] Ring map mesh mismatch: " + suffix); continue; }
+                bool[] selected = new bool[countTriangles];
+                foreach (string range in spec.GetValue("ranges").Split(','))
+                {
+                    string[] pair = range.Split(':'); int start = int.Parse(pair[0]), count = int.Parse(pair[1]);
+                    if (start < 0 || count < 1 || start + count > selected.Length) throw new InvalidOperationException("Invalid RoosterWorks ring map");
+                    for (int i = start; i < start + count; i++) selected[i] = true;
+                }
+                var body = new List<int>(); var rings = new List<int>();
+                int bodyOffset = 0, ringOffset = 0;
+                for (int i = 0; i < selected.Length; i++)
+                {
+                    var destination = selected[i] ? rings : body;
+                    // Editor copies/symmetry can inherit an already split mesh.
+                    int[] input = original.subMeshCount == 2 && selected[i] ? ringInput : bodyInput;
+                    int offset = original.subMeshCount == 1 ? 3 * i : selected[i] ? ringOffset : bodyOffset;
+                    destination.Add(input[offset]); destination.Add(input[offset + 1]); destination.Add(input[offset + 2]);
+                    if (selected[i]) ringOffset += 3; else bodyOffset += 3;
+                }
+                Material[] originalMaterials = renderer.materials;
+                Material source = originalMaterials[0];
+                Mesh instance = (Mesh)UnityEngine.Object.Instantiate(original);
+                instance.name = original.name + " RW ring instance"; instance.subMeshCount = 2;
+                instance.SetTriangles(body.ToArray(), 0); instance.SetTriangles(rings.ToArray(), 1);
+                Material ring = new Material(source); ring.name = "RW_SelectableRing";
+                filter.sharedMesh = instance; renderer.materials = new[] { source, ring };
+                var binding = new Binding { renderer = renderer, filter = filter, original = original, instance = instance, source = source, ring = ring, originalMaterials = originalMaterials, texture = spec.GetValue("texture") };
+                bindings.Add(binding); SetColor(binding);
+                break;
+            }
+        }
+    }
+    private void SetColor(Binding b)
+    {
+        b.ring.CopyPropertiesFromMaterial(b.source);
+        b.ring.name = "RW_SelectableRing";
+        if (ringColor != "Original")
+        {
+            string path = "RoosterWorksStationModules/Models/rwm_ring_" + b.texture + "_" + ringColor.ToLowerInvariant();
+            Texture texture = GameDatabase.Instance.GetTexture(path, false);
+            if (texture != null) { b.ring.mainTexture = texture; b.ring.color = Color.white; }
+            else Debug.LogError("[RoosterWorks] Missing ring color texture: " + path);
+        }
+        b.lastSource = b.source.mainTexture;
+    }
+    private void Apply()
+    {
+        if ((!HighLogic.LoadedSceneIsEditor && !HighLogic.LoadedSceneIsFlight) || part == null) return;
+        Bind();
+        foreach (Binding b in bindings) SetColor(b);
+        applied = ringColor;
+    }
+    public void OnDestroy()
+    {
+        foreach (Binding b in bindings)
+        {
+            if (b.filter != null) b.filter.sharedMesh = b.original;
+            if (b.renderer != null) b.renderer.materials = b.originalMaterials;
+            UnityEngine.Object.Destroy(b.instance); UnityEngine.Object.Destroy(b.ring);
+        }
+        bindings.Clear();
+    }
+    public override string GetInfo() { return "Independent editor ring colors. Original follows the existing exterior finish; colored rings preserve panel weathering and saved choices."; }
+}

@@ -1,0 +1,12 @@
+{
+  "reported_finish_control": "appeared but stayed white",
+  "reactor_partloader_evidence": [
+    "[LOG 16:00:32.474] PartLoader: Compiling Part 'RoosterWorksStationModules/Parts/RW_PWR_250_REACTOR/RW_PWR_250_REACTOR'",
+    "[LOG 16:00:32.498] PartLoader: Compiling Part 'RoosterWorksStationModules/Parts/RW_PWR_375_REACTOR/RW_PWR_375_REACTOR'"
+  ],
+  "finish_dll_loaded": true,
+  "previous_reactor_tech": "experimentalElectrics",
+  "corrected_reactor_tech": "largeElectrics",
+  "corrected_editor_category": "nuclearReactors",
+  "live_hotfix_confirmation": "pending"
+}

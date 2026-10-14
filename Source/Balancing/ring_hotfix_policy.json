@@ -1,0 +1,15 @@
+{
+  "GameData/RoosterWorksStationModules/Plugins/RoosterWorksCustomization.dll": {
+    "after_binary": "517e58c07b7b02195f51b1c2e133922b23b57775e4d8ecce1a0123f8d8075b0e",
+    "sources": {
+      "Source/RingColor.cs": "998b7645baa89d6ec0bcc1451b2e5acb1a12e5a6bdd23eae20e8451c66c51b2b",
+      "Source/LogisticsContents.cs": "43397ae8d48be6ef4c95bca4b09adcf9d12915e2fb2b9385084e71a18ad8b2ed"
+    }
+  },
+  "GameData/RoosterWorksStationModules/Plugins/RoosterWorksEditor.dll": {
+    "after_binary": "becb2ee3d5aff9303dd32b67c5f1e3eb7bbb4c2ce7ffbb4ef09c90dca74ea864",
+    "sources": {
+      "Source/EditorMenu.cs": "9d678ebbe3b6b78694f09989e1496a6efc64ebac29c88bf2755e49930fc8bff0"
+    }
+  }
+}
