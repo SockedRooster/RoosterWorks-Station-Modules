@@ -1,8 +1,12 @@
-# RoosterWorks Station Modules — v0.6.0
+# Changelog — RoosterWorks Station Modules
 
-The current build is numbered **0.6** (machine-readable **0.6.0**), at the user's request. This numbering reset carries forward the complete v0.16.0-dev.3 development candidate: all 23 current parts, both sizes, appearance fixes, White/Grey finishes, reactor variants, storage balance, elbow UV corrections and VAB organization. It does not revert to the historical v0.6 kit.
+## v0.6.0 — Stable release (in-game verified)
 
-Only version metadata and documentation change in this build; every other GameData file is byte-identical to v0.16.0-dev.3. Historical development notes below retain their original version labels. See ROADMAP.md for the new milestone sequence. These are local TEST/source packages; numbering does not establish publication or release status.
+- Maintainer confirmed successful in-game testing of the complete v0.6.0 feature set.
+- Stable version numbering carries forward the v0.16.0-dev.3 feature baseline: 23 part configurations, appearance and finish variants, power and storage balance, corrected tube models and elbow UVs, and editor organization.
+- No gameplay assets were modified as part of the repository's stable-release documentation cleanup.
+
+Earlier entries below are preserved as **historical development notes**. Statements about pending tests or unpublished development packages in those entries do not describe the stable v0.6.0 release.
 
 ## Preserved development history
 
