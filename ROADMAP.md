@@ -1,5 +1,8 @@
 # RoosterWorks roadmap
 
+> **Release status (October 14, 2026):** v0.6.0 is the latest published stable release. **v0.7.5-dev.4 is the upcoming release candidate; the maintainer has completed in-game testing.** No v0.7.5 stable GitHub release has been published yet. Earlier development-stage testing warnings below are historical notes and do not describe the current candidate's testing status.
+
+
 Current candidate: **0.75 / v0.7.5-dev.4**, extending the accepted 0.6.0 source kit. All prior features and development history remain retained. Live KSP acceptance of the new controls is pending.
 
 ## Planned milestones
