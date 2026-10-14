@@ -1,0 +1,22 @@
+[
+  {
+    "size": 250,
+    "output_ec_per_second": 5.5,
+    "fuel_capacity": 1.6500000000000001,
+    "waste_capacity": 1.6500000000000001,
+    "fuel_units_per_second": 7.172660000000001e-09,
+    "added_dry_mass": 0.0429,
+    "full_power_lifetime_seconds": 230040180.3515014,
+    "battery_ec": 3500
+  },
+  {
+    "size": 375,
+    "output_ec_per_second": 6.0,
+    "fuel_capacity": 1.7999999999999998,
+    "waste_capacity": 1.7999999999999998,
+    "fuel_units_per_second": 7.824719999999999e-09,
+    "added_dry_mass": 0.0468,
+    "full_power_lifetime_seconds": 230040180.3515014,
+    "battery_ec": 6750
+  }
+]

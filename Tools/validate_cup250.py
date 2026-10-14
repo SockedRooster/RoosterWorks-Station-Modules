@@ -8,6 +8,16 @@ sys.path.insert(0,str(ROOT/'Source'))
 import build_cup250 as c
 part=(ROOT/'GameData/RoosterWorksStationModules/Parts/RW_CUP_250.cfg').read_text()
 patch=(ROOT/'GameData/RoosterWorksStationModules/Compatibility/CupolaKerbalism.cfg').read_text()
+# The eight-pane glass layout is preserved, but joining elements must
+# extend OVER the apertures and across both headers, never stop edge-to-edge.
+assert c.MULLION_HALF_ANGLE > c.PANE_EDGE_ANGLE + .010
+assert c.MULLION_Y_RANGE[0] < c.LOWER_HEADER_Y_RANGE[0]
+assert c.MULLION_Y_RANGE[1] > c.UPPER_HEADER_Y_RANGE[0]
+assert c.LOWER_HEADER_Y_RANGE[0] < c.GLASS_Y_RANGE[0] < c.LOWER_HEADER_Y_RANGE[1]
+assert c.UPPER_HEADER_Y_RANGE[0] < c.GLASS_Y_RANGE[1] < c.UPPER_HEADER_Y_RANGE[1]
+source=(ROOT/'Source/build_cup250.py').read_text()
+assert 'steps=192' in source and 'MULLION_HALF_ANGLE' in source
+assert (ROOT/'Media/RW-CUP-250-v0.6.0-dev.2-Review-Render.png').is_file()
 for s in (part,patch):
     assert s.count('{')==s.count('}'), 'Unbalanced CFG patch'
 for tok in ('name = RW_CUP_250','CrewCapacity = 1','vesselType = Station','node_stack_bottom = 0, -0.860, 0, 0, -1, 0, 2',
@@ -65,5 +75,6 @@ for item in ('Source/build_cup250.py','Source/Blender/create_cup250.py','Source/
     assert (ROOT/item).is_file(),item
 print('PASS CUP: original single-bottom-stack 2.5m cupola, 8 sloped pane groups, top viewport')
 print('PASS CUP: one crew; no phantom command/docking/EVA; conditional Kerbalism; native textured mesh')
+print('PASS CUP: gap-overlapped 360-degree canopy headers and 8 continuous mullion foundations')
 print('PASS CUP: watertight convex 96-triangle collision hull, coordinates and source files')
 print('NOTE: VAB/flight appearance, crew portrait, crew-transfer and Kerbalism pressure must be tested in-game')

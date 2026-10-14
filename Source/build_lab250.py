@@ -130,7 +130,7 @@ def geometry():
         for col in range(cols):
             tc=TAU*(col+.5)/cols
             width=TAU/cols-.019
-            mat='white' if (row*3+col)%15==0 else 'ceramic'
+            mat='cladding_white' if (row*3+col)%15==0 else 'cladding'
             panel(m[mat],tc,y0,y1,width,1.205,steps=5)
             if (row in (0,3,7)) and col%2==0:
                 stud(m['steel'],tc+width*.35,y0+.037,r=1.223,s=.009)
@@ -173,7 +173,10 @@ def geometry():
     panel(m['lablabel'],0,-1.145,-.815,.82,1.237,steps=24)
     for t in (-.405,.405):
         for yy in (-1.115,-.835):stud(m['steel'],t,yy,r=1.246,s=.013)
-    return m
+    from exterior_detail import add_lab
+    add_lab(m)
+    from surface_uv import finish
+    return finish(m)
 
 def create_native_mu(m,path):
     w=hb.Writer(path);w.i(76543,5);w.s(PART);hb.node(w,PART)
@@ -185,7 +188,7 @@ def create_native_mu(m,path):
         w.i(7);w.i(13,len(mesh.vertices),1);w.i(14)
         for xyz in mesh.vertices:w.xyz(xyz)
         w.i(15)
-        for u,v in mesh.uvs:w.f((1.0-u) if mat in ('lablabel','crest') else u,v)
+        for u,v in mesh.uvs:w.f(u,v)
         w.i(17)
         for norm in mesh.normals:w.xyz(norm)
         w.i(19,len(mesh.triangles)*3)

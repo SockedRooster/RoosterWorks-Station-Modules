@@ -1,0 +1,175 @@
+{
+  "rule": "Role references retained, plus user HAB -30%, passive PWR -15%, nuclear PWR -20%; changed base EC rounded to tens.",
+  "bonus": 1.05,
+  "parts": {
+    "RW_ADP_250_375": {
+      "reference": "passive structural junction/adapter",
+      "reference_base_ec": 0,
+      "proxy_factor": 1,
+      "crew": 0,
+      "target_base_ec": 0.0
+    },
+    "RW_AIR_250": {
+      "reference": "sspx-airlock-25-1",
+      "reference_base_ec": 0,
+      "proxy_factor": 1,
+      "reference_sha256": "496e0f3af327bd0acfab23061b97ed7c931e5bd1afe1bf7aab0325fff8ed581c",
+      "reference_file": "StationPartsExpansionRedux/Parts/Rigid/station-25/sspx-airlock-25-1.cfg",
+      "crew": 2,
+      "target_base_ec": 0.0
+    },
+    "RW_AIR_375": {
+      "reference": "sspx-airlock-25-1",
+      "reference_base_ec": 0,
+      "proxy_factor": 3.375,
+      "reference_sha256": "496e0f3af327bd0acfab23061b97ed7c931e5bd1afe1bf7aab0325fff8ed581c",
+      "reference_file": "StationPartsExpansionRedux/Parts/Rigid/station-25/sspx-airlock-25-1.cfg",
+      "crew": 2,
+      "target_base_ec": 0.0
+    },
+    "RW_CMD_250": {
+      "reference": "sspx-core-25-1",
+      "reference_base_ec": 200.0,
+      "proxy_factor": 1,
+      "reference_sha256": "2e92017f1b81d2464d08f640151b903d0e15bf15d3e8d95edbcb2396e80da7b3",
+      "reference_file": "StationPartsExpansionRedux/Parts/Rigid/station-25/sspx-core-25-1.cfg",
+      "crew": 2,
+      "target_base_ec": 210.0
+    },
+    "RW_CMD_375": {
+      "reference": "sspx-core-375-1",
+      "reference_base_ec": 450.0,
+      "proxy_factor": 1,
+      "reference_sha256": "2c261b299edd0435ec90deac2a43d550df38ce99826b9d0a64021308c77ece14",
+      "reference_file": "StationPartsExpansionRedux/Parts/Rigid/station-375/sspx-core-375-1.cfg",
+      "crew": 2,
+      "target_base_ec": 472.5
+    },
+    "RW_CUP_250": {
+      "reference": "cupola",
+      "reference_base_ec": 200.0,
+      "proxy_factor": 1,
+      "reference_sha256": "6ffa986b7f5ac6ef7eefe62552c9ea42734d329a15c1a989fac5ed8f5d1f1dec",
+      "reference_file": "Squad/Parts/Command/cupola/cupola.cfg",
+      "crew": 1,
+      "target_base_ec": 210.0
+    },
+    "RW_CUP_375": {
+      "reference": "sspx-cupola-375-1",
+      "reference_base_ec": 500.0,
+      "proxy_factor": 1,
+      "reference_sha256": "92a8a53c8612404955d0a6d4f7ba2a85f30f9af188ab81d598a2b95217815748",
+      "reference_file": "StationPartsExpansionRedux/Parts/Rigid/station-375/sspx-cupola-375-1.cfg",
+      "crew": 1,
+      "target_base_ec": 525.0
+    },
+    "RW_GRN_250": {
+      "reference": "sspx-greenhouse-25-1",
+      "reference_base_ec": 0,
+      "proxy_factor": 1,
+      "reference_sha256": "293b92f58a29668b7dfbca4e59a07b036cf4662a656a186138f1ba1f928657f7",
+      "reference_file": "StationPartsExpansionRedux/Parts/Rigid/station-25/sspx-greenhouse-25-1.cfg",
+      "crew": 0,
+      "target_base_ec": 0.0
+    },
+    "RW_GRN_375": {
+      "reference": "sspx-greenhouse-375-1",
+      "reference_base_ec": 0,
+      "proxy_factor": 1,
+      "reference_sha256": "48b31a8c95b335bb31adab4a5390b35e9c96dabe2b1d6664e4854777bd6ef371",
+      "reference_file": "StationPartsExpansionRedux/Parts/Rigid/station-375/sspx-greenhouse-375-1.cfg",
+      "crew": 0,
+      "target_base_ec": 0.0
+    },
+    "RW_HAB_250": {
+      "reference": "User v0.16 reduction, rounded base EC",
+      "reference_base_ec": 400.0,
+      "proxy_factor": 1,
+      "reference_sha256": "8ffb669a751bebdd771aadf7378695cece67bab6321d42e1912691a46a662f7f",
+      "reference_file": "StationPartsExpansionRedux/Parts/Rigid/station-25/sspx-habitation-25-1.cfg",
+      "crew": 4,
+      "target_base_ec": 290,
+      "override_base_ec": 290
+    },
+    "RW_HAB_375": {
+      "reference": "User v0.16 reduction, rounded base EC",
+      "reference_base_ec": 750.0,
+      "proxy_factor": 1,
+      "reference_sha256": "3abaa5dd85464fc799476319c1442dd5485447ed4dbd300a650e43e1a126295f",
+      "reference_file": "StationPartsExpansionRedux/Parts/Rigid/station-375/sspx-habitation-375-3.cfg",
+      "crew": 4,
+      "target_base_ec": 550,
+      "override_base_ec": 550
+    },
+    "RW_HUB_250": {
+      "reference": "passive structural junction/adapter",
+      "reference_base_ec": 0,
+      "proxy_factor": 1,
+      "crew": 0,
+      "target_base_ec": 0.0
+    },
+    "RW_HUB_375": {
+      "reference": "passive structural junction/adapter",
+      "reference_base_ec": 0,
+      "proxy_factor": 1,
+      "crew": 0,
+      "target_base_ec": 0.0
+    },
+    "RW_LAB_250": {
+      "reference": "Large_Crewed_Lab",
+      "reference_base_ec": 0,
+      "proxy_factor": 1,
+      "reference_sha256": "d5fd363701868755ec9f3dfd026a96a56b187219d0e143a0c06d29d13bcf0d72",
+      "reference_file": "Squad/Parts/Science/LargeCrewedLab/largeCrewedLab.cfg",
+      "crew": 2,
+      "target_base_ec": 0.0
+    },
+    "RW_LAB_375": {
+      "reference": "sspx-lab-375-1",
+      "reference_base_ec": 0,
+      "proxy_factor": 1,
+      "reference_sha256": "8f7d05b8bdf9ecbbaf5c1475c1da73318ce8a78ddf0d4414c4ca245897831b88",
+      "reference_file": "StationPartsExpansionRedux/Parts/Rigid/station-375/sspx-lab-375-1.cfg",
+      "crew": 2,
+      "target_base_ec": 0.0
+    },
+    "RW_LOG_250": {
+      "reference": "sspx-cargo-25-1",
+      "reference_base_ec": 0,
+      "proxy_factor": 1,
+      "reference_sha256": "8c03f70ac1b028ee8f2ac2cc3b8d66e019df38c6dc4289c6c64f0b4b125c91c7",
+      "reference_file": "StationPartsExpansionRedux/Parts/Rigid/station-25/sspx-cargo-25-1.cfg",
+      "crew": 0,
+      "target_base_ec": 0.0
+    },
+    "RW_LOG_375": {
+      "reference": "sspx-cargo-25-1",
+      "reference_base_ec": 0,
+      "proxy_factor": 3.375,
+      "reference_sha256": "8c03f70ac1b028ee8f2ac2cc3b8d66e019df38c6dc4289c6c64f0b4b125c91c7",
+      "reference_file": "StationPartsExpansionRedux/Parts/Rigid/station-25/sspx-cargo-25-1.cfg",
+      "crew": 0,
+      "target_base_ec": 0.0
+    },
+    "RW_PWR_250": {
+      "reference": "User v0.16 reduction, rounded base EC",
+      "reference_base_ec": 12000.0,
+      "proxy_factor": 1,
+      "reference_sha256": "c1f147dff5c1d4ba3ba182c482ec42a7c7e191e39f175dad729dd8ebe6eda9c1",
+      "reference_file": "NearFutureElectrical/Parts/Batteries/battery-25.cfg",
+      "crew": 0,
+      "target_base_ec": 2980,
+      "override_base_ec": 2980
+    },
+    "RW_PWR_375": {
+      "reference": "User v0.16 reduction, rounded base EC",
+      "reference_base_ec": 12000.0,
+      "proxy_factor": 3.375,
+      "reference_sha256": "c1f147dff5c1d4ba3ba182c482ec42a7c7e191e39f175dad729dd8ebe6eda9c1",
+      "reference_file": "NearFutureElectrical/Parts/Batteries/battery-25.cfg",
+      "crew": 0,
+      "target_base_ec": 5740,
+      "override_base_ec": 5740
+    }
+  }
+}

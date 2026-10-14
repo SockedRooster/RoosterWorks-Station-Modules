@@ -1,0 +1,6 @@
+{
+  "previous": "v0.16.0-dev.3",
+  "current": "v0.6.0",
+  "unchanged_GameData_files": 120,
+  "only_changed_GameData_file": "GameData/RoosterWorksStationModules/RoosterWorksStationModules.version"
+}

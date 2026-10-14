@@ -1,0 +1,50 @@
+{
+  "baseline": "v0.7.0-dev.3",
+  "candidate": "v0.13.0-dev.1",
+  "parts": {
+    "HAB": {
+      "triangles_before": 51684,
+      "triangles_after": 52964,
+      "largest_mesh_vertices": 23040,
+      "colliders_preserved": 3,
+      "glass_meshes_preserved": 3
+    },
+    "LAB": {
+      "triangles_before": 22280,
+      "triangles_after": 23560,
+      "largest_mesh_vertices": 12064,
+      "colliders_preserved": 14,
+      "glass_meshes_preserved": 1
+    },
+    "CMD": {
+      "triangles_before": 18084,
+      "triangles_after": 19364,
+      "largest_mesh_vertices": 10892,
+      "colliders_preserved": 14,
+      "glass_meshes_preserved": 1
+    },
+    "HUB": {
+      "triangles_before": 78588,
+      "triangles_after": 82428,
+      "largest_mesh_vertices": 48576,
+      "colliders_preserved": 13,
+      "glass_meshes_preserved": 0
+    },
+    "CUP": {
+      "triangles_before": 15634,
+      "triangles_after": 16850,
+      "largest_mesh_vertices": 9556,
+      "colliders_preserved": 1,
+      "glass_meshes_preserved": 1
+    },
+    "LOG": {
+      "triangles_before": 25604,
+      "triangles_after": 26884,
+      "largest_mesh_vertices": 16560,
+      "colliders_preserved": 1,
+      "glass_meshes_preserved": 0
+    }
+  },
+  "preserved_files": 37,
+  "status": "PASS offline; KSP runtime pending"
+}

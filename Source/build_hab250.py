@@ -29,6 +29,9 @@ TEXTURES = OrderedDict([
     ('label',   (235, 237, 229)),
     ('crest',   (222, 226, 217)),
     ('hubblanket', (151,113,66)),
+    ('detail', (51,66,71)),
+    ('cladding', (214,220,215)),
+    ('cladding_white', (233,234,221)),
 ])
 
 @dataclass
@@ -425,7 +428,7 @@ def generate_groups():
             if (row,col) in equipment_tiles:
                 equipment_bay(meshes,center,(y0+y1)/2)
                 continue
-            material='white' if (row+3*col)%11==0 else 'ceramic'
+            material='cladding_white' if (row+3*col)%11==0 else 'cladding'
             clipped_hull_panel(meshes[material],center,y0,y1,width,1.204)
             if (row+col)%3==0:
                 clipped_hull_panel(meshes['steel'],center,y0,y0+.009,width-.040,1.212)
@@ -505,6 +508,10 @@ def generate_groups():
     flat_panel(meshes['label'],th,-.248,.250,.682,1.245,segments=12)
     for sign in (-1,1):
         for dy in (-.215,.215):radial_fastener(meshes['graphite'],th+sign*.324,dy,radius=1.253,head=.013)
+    from exterior_detail import add_hab
+    add_hab(meshes)
+    from surface_uv import finish
+    finish(meshes);finish(standard);finish(hatch)
     return {'Base':meshes,'WindowBankStandard':standard,'SideHatch':hatch}
 
 
@@ -723,7 +730,7 @@ def create_mu(groups,path):
             w.i(7);w.i(13,len(mesh.vertices),1);w.i(14)
             for p in mesh.vertices:w.xyz(p)
             w.i(15)
-            for u,v in mesh.uvs:w.f((1.0-u) if mat in ('label','crest') else u,v)
+            for u,v in mesh.uvs:w.f(u,v)
             w.i(17)
             for n in mesh.normals:w.xyz(n)
             w.i(19,len(mesh.triangles)*3)

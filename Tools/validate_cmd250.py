@@ -13,7 +13,7 @@ for tok in ('name = RW_CMD_250','CrewCapacity = 2','mass = 2.2','node_stack_top 
             'name = ModuleSAS','SASServiceLevel = 2','name = ModuleReactionWheel',
             'name = ModuleDataTransmitter','antennaPower = 5000000',
             'name = ModuleColorChanger','includedRenderer = RW_CmdGlass',
-            'defaultActionGroup = Light','name = ElectricCharge','maxAmount = 2400'):
+            'defaultActionGroup = Light','name = ElectricCharge','maxAmount = 210'):
     assert tok in part,tok
 # v0.4.1: exercise the actual control/communications configuration.
 # A DIRECT radio alone is not a substitute for a built-in INTERNAL

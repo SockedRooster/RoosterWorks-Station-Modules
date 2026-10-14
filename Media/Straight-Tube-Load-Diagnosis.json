@@ -1,0 +1,26 @@
+{
+  "prior_game_evidence": [
+    "[LOG 21:20:58.202] Load MU model: RoosterWorksStationModules/Models/RW_TUB_250",
+    "[ERR 21:20:58.205] Model RoosterWorksStationModules/Models error: Index was out of range. Must be non-negative and less than the size of the collection.",
+    "Parameter name: index",
+    "  at System.ThrowHelper.ThrowArgumentOutOfRangeException (System.ExceptionArgument argument, System.ExceptionResource resource) [0x00029] in <9577ac7a62ef43179789031239ba8798>:0 ",
+    "  at System.ThrowHelper.ThrowArgumentOutOfRangeException () [0x00000] in <9577ac7a62ef43179789031239ba8798>:0 ",
+    "  at KSPCommunityFixes.Library.MuParser.ReadMaterials () [0x00087] in <62bb7f5420994f409a34377c091e8538>:0 ",
+    "  at KSPCommunityFixes.Library.MuParser.ReadChild (UnityEngine.Transform parent) [0x00137] in <62bb7f5420994f409a34377c091e8538>:0 ",
+    "  at KSPCommunityFixes.Library.MuParser.Parse (System.String modelDirectoryUrl, System.Byte[] data, System.Int32 dataLength) [0x00093] in <62bb7f5420994f409a34377c091e8538>:0 ",
+    "",
+    "[WRN 21:20:58.205] LOAD FAILED : MU model load error",
+    "[LOG 21:20:58.205] Load MU model: RoosterWorksStationModules/Models/RW_TUB_375",
+    "[ERR 21:20:58.206] Model RoosterWorksStationModules/Models error: Index was out of range. Must be non-negative and less than the size of the collection.",
+    "Parameter name: index",
+    "  at System.ThrowHelper.ThrowArgumentOutOfRangeException (System.ExceptionArgument argument, System.ExceptionResource resource) [0x00029] in <9577ac7a62ef43179789031239ba8798>:0 ",
+    "  at System.ThrowHelper.ThrowArgumentOutOfRangeException () [0x00000] in <9577ac7a62ef43179789031239ba8798>:0 ",
+    "  at KSPCommunityFixes.Library.MuParser.ReadMaterials () [0x00087] in <62bb7f5420994f409a34377c091e8538>:0 ",
+    "  at KSPCommunityFixes.Library.MuParser.ReadChild (UnityEngine.Transform parent) [0x00137] in <62bb7f5420994f409a34377c091e8538>:0 ",
+    "  at KSPCommunityFixes.Library.MuParser.Parse (System.String modelDirectoryUrl, System.Byte[] data, System.Int32 dataLength) [0x00093] in <62bb7f5420994f409a34377c091e8538>:0 ",
+    "",
+    "[WRN 21:20:58.206] LOAD FAILED : MU model load error"
+  ],
+  "corrected_game_loading": "pending",
+  "scope": "tube material-table and catalogue fixes only"
+}

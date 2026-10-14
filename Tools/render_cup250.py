@@ -52,6 +52,6 @@ font=ImageFont.truetype(fontpath,25)
 d=ImageDraw.Draw(output)
 for k,(label,_) in enumerate(views):
     d.text((w*k+20,15),f'RW-CUP-250   /   {label}',font=font,fill=(239,237,229))
-path=ROOT/'Media/RW-CUP-250-v0.6.0-Review-Render.png'
+path=ROOT/'Media/RW-CUP-250-v0.6.0-dev.2-Review-Render.png'
 output.save(path)
 print(path)

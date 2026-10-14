@@ -5,6 +5,9 @@ Standalone procedurally authored 2.5m / 1.7m KSP .mu with a sloped eight-pane
 panorama, top glass viewport, one bottom stack joint and watertight solid
 collision geometry. No EVA, integrated docking port, or station command.
 
+v0.6.0-dev.2: gap-proof circumferential headers and continuous structural
+mullions, deeper pane reveals, reinforced lower belt and detailed crown.
+
 Run from any cwd: python Source/build_cup250.py
 """
 from pathlib import Path
@@ -22,6 +25,14 @@ TAU=math.tau
 BASE_Y=-.860
 CROWN_Y=.625
 R_SHELL=1.205
+# Deliberate overlap dimensions, to prevent a reintroduction of the
+# visible gaps seen between cupola panes in v0.6.0-dev.1.
+PANE_EDGE_ANGLE=.071
+MULLION_HALF_ANGLE=.086
+GLASS_Y_RANGE=(-.155,.520)
+MULLION_Y_RANGE=(-.260,.624)
+LOWER_HEADER_Y_RANGE=(-.254,-.143)
+UPPER_HEADER_Y_RANGE=(.505,.628)
 
 def meshes():return {name:h.Mesh() for name in MAT}
 def radius(y):return 1.205+(.715-1.205)*(y+.23)/(.605+.23)
@@ -59,41 +70,88 @@ def geometry():
     h.cylinder_surface(m['graphite'],1.18,BASE_Y+.037,-.225,segments=96)
     for j in range(16):
         a=TAU*j/16+.006;b=TAU*(j+1)/16-.006
-        mat='white' if j%7==0 else 'ceramic'
+        mat='cladding_white' if j%7==0 else 'cladding'
         h.cylinder_surface(m[mat],1.208,-.789,-.300,segments=6,theta0=a,theta1=b)
         h.cylinder_surface(m['steel'],1.216,-.798,-.786,segments=6,theta0=a,theta1=b)
-    # Reinforcing rings, scalloped separators and matching bronze trim.
-    for y0,y1,r,mat in [(-.835,-.816,1.213,'white'),(-.305,-.263,1.228,'graphite'),
-                        (-.260,-.250,1.237,'steel'),(-.239,-.231,1.238,'bronze')]:
-        h.cylinder_surface(m[mat],r,y0,y1,segments=96)
-    h.annulus(m['white'],1.163,1.227,-.230,segments=96)
-    # 8 sloped panoramic panes; structural mullions replace the pressure shell
-    # between glass panels. Pane strips follow the actual taper, not flat chords.
+    # Reinforced base collar: the enlarged graphite belt physically overlaps
+    # the conformal lower canopy header. No butt-joint gap in KSP grazing light.
+    for y0,y1,r,mat in [(-.835,-.816,1.213,'white'),
+                        (-.311,-.258,1.228,'graphite'),
+                        (-.275,-.255,1.239,'steel'),
+                        (-.247,-.233,1.240,'bronze')]:
+        h.cylinder_surface(m[mat],r,y0,y1,segments=144)
+    h.annulus(m['white'],1.163,1.227,-.230,segments=144)
+
+    # Full 360-degree canopy headers. The previous build made eight separate
+    # header arcs, leaving a seam at EVERY mullion. These continuous conical
+    # bands extend beyond both glass limits and overlap the upper/lower collars.
+    patch(m['graphite'],*LOWER_HEADER_Y_RANGE,0,TAU,offset=.023,steps=192)
+    patch(m['ceramic'],-.248,-.165,0,TAU,offset=.034,steps=192)
+    patch(m['steel'],-.170,-.156,0,TAU,offset=.042,steps=192)
+    patch(m['bronze'],-.251,-.240,0,TAU,offset=.043,steps=192)
+
+    patch(m['graphite'],*UPPER_HEADER_Y_RANGE,0,TAU,offset=.023,steps=192)
+    patch(m['ceramic'],.529,.615,0,TAU,offset=.034,steps=192)
+    patch(m['steel'],.510,.527,0,TAU,offset=.042,steps=192)
+    patch(m['bronze'],.604,.616,0,TAU,offset=.043,steps=192)
+
+    # Eight actual glazing bays. The central gap of each boundary is covered
+    # by a *continuous* opaque conformal mullion from lower belt to crown.
+    # The substrate overlaps each pane angularly to remove all daylight holes.
+    # Pane geometry and dimensions stay EXACTLY as in dev.1.
     for j in range(8):
-        mid=TAU*(j+.5)/8
         a=TAU*j/8;b=TAU*(j+1)/8
-        # 0.061 rad edge space (both sides): each pane spans ~0.78m near foot.
-        # No opaque underlayer behind the panoramas: glass is the canopy wall.
-        patch(m['glass'],-.155,.520,a+.071,b-.071,offset=.012,steps=13)
-        # Thin inner graphite gasket and metallic window frame on the sloping face.
-        for pa,pb in ((a+.038,a+.053),(b-.053,b-.038)):
-            patch(m['steel'],-.164,.528,pa,pb,offset=.018,steps=2)
-        for pa,pb in ((a+.053,a+.073),(b-.073,b-.053)):
-            patch(m['black'],-.157,.522,pa,pb,offset=.023,steps=2)
-        # Sloped mullions and champagne-bronze stripe between each glass panel.
-        patch(m['ceramic'],-.224,.591,a+.003,a+.034,offset=.025,steps=2)
-        patch(m['steel'],-.224,.591,a+.035,a+.043,offset=.032,steps=1)
-        # Lower/top header strips and fasteners near frame corners.
-        patch(m['white'],-.227,-.160,a+.045,b-.045,offset=.028,steps=10)
-        patch(m['white'],.525,.590,a+.045,b-.045,offset=.028,steps=10)
+        patch(m['glass'],*GLASS_Y_RANGE,a+PANE_EDGE_ANGLE,b-PANE_EDGE_ANGLE,offset=.012,steps=13)
+
+        # Continuous opaque foundation centred on the boundary angle.
+        # With seam at 'a', cover a-.086 ... a+.086: adjacent glass starts
+        # at +/- .071, so the 15 mrad overlap positively closes the slot.
+        patch(m['graphite'],*MULLION_Y_RANGE,a-MULLION_HALF_ANGLE,a+MULLION_HALF_ANGLE,offset=.017,steps=12)
+        # Interior reveal / shadow backing, only at the perimeter; importantly
+        # not an opaque pane-wide sheet behind the transparent glazing.
+        for pa,pb in ((a+.068,a+.096),(b-.096,b-.068)):
+            patch(m['black'],-.155,.521,pa,pb,offset=-.026,steps=3)
+        patch(m['black'],-.154,-.132,a+.071,b-.071,offset=-.027,steps=13)
+        patch(m['black'],.497,.520,a+.071,b-.071,offset=-.027,steps=13)
+        # Outer bevel legs, tinted glass gasket and a broad continuous
+        # structural spine: all deliberately extend under both header bands.
+        for pa,pb in ((a+.063,a+.080),(b-.080,b-.063)):
+            patch(m['black'],-.177,.540,pa,pb,offset=.028,steps=3)
+        for pa,pb in ((a+.043,a+.060),(b-.060,b-.043)):
+            patch(m['steel'],-.242,.607,pa,pb,offset=.035,steps=3)
+        patch(m['ceramic'],-.259,.619,a-.043,a+.043,offset=.038,steps=7)
+        patch(m['steel'],-.251,.619,a-.009,a+.009,offset=.049,steps=3)
+        for pa,pb in ((a-.044,a-.036),(a+.036,a+.044)):
+            patch(m['bronze'],-.247,.614,pa,pb,offset=.045,steps=2)
+        # Actual 3D fasteners at both ends of the frame; neither floats at
+        # a seam (top and bottom are covered by the continuous header lips).
         for t in (a+.050,b-.050):
-            for y in (-.171,.541):
-                h.tube(m['bronze'],point(y,t,.032),point(y,t,.053),r=.009,sides=7)
-    # Crown rings and a genuine exterior top window with no hull backing.
-    h.cylinder_surface(m['graphite'],.715,.584,.625,segments=96)
-    h.annulus(m['ceramic'],.636,.715,.623,segments=96)
-    h.annulus(m['steel'],.613,.636,.624,segments=96)
-    h.annulus(m['bronze'],.597,.611,.624,segments=96)
+            for y in (-.193,.559):
+                h.tube(m['bronze'],point(y,t,.044),point(y,t,.060),r=.009,sides=7)
+
+    # Crown and top window remain the same aperture size. A thicker retaining
+    # rim and 16 recessed crown fastener plates add visible engineering detail.
+    h.cylinder_surface(m['graphite'],.715,.578,.630,segments=144)
+    h.cylinder_surface(m['steel'],.720,.612,.631,segments=144)
+    h.annulus(m['steel'],.714,.720,.631,segments=144)
+    h.annulus(m['ceramic'],.636,.715,.631,segments=144)
+    h.annulus(m['steel'],.613,.636,.632,segments=144)
+    h.annulus(m['bronze'],.594,.614,.633,segments=144)
+    # Seal the upper viewport perimeter too, retaining the accepted glass
+    # aperture and frame profile. Normals face into the recessed skylight.
+    liner=h.Mesh();h.cylinder_surface(liner,.594,.621,.633,segments=144)
+    liner.normals=[tuple(-v for v in n) for n in liner.normals]
+    liner.triangles=[(a,c,b) for a,b,c in liner.triangles]
+    from exterior_detail import append
+    append(m['graphite'],liner)
+    for j in range(16):
+        center=TAU*(j+.5)/16
+        a=center-.023;b=center+.023
+        m['graphite'].quad((h.point(.671,a,.633),h.point(.705,a,.633),
+                            h.point(.705,b,.633),h.point(.671,b,.633)),
+                           ((0,1,0),)*4)
+        h.tube(m['steel'],h.point(.688,center,.634),h.point(.688,center,.641),
+               r=.008,sides=7)
     for j in range(96):
         a=TAU*j/96;b=TAU*(j+1)/96
         m['glass'].triangle(((0,.622,0),h.point(.595,a,.622),h.point(.595,b,.622)),
@@ -115,7 +173,10 @@ def geometry():
             h.tube(m['steel'],h.point(1.213,theta,y),h.point(1.247,theta,y),r=.019,sides=8)
     # Reuse canonical hub face on its single compatible bottom stack interface.
     add_endcap(m,-1,.860)
-    return m
+    from exterior_detail import add_cup
+    add_cup(m)
+    from surface_uv import finish
+    return finish(m)
 
 def collision():
     """96-triangle closed convex canopy prism, no hollow self-colliding walls."""

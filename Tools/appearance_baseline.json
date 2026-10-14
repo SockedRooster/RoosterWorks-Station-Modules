@@ -1,0 +1,226 @@
+{
+  "parts": {
+    "HAB": {
+      "colliders": {
+        "/RW_HAB_250/RW_HAB250_EVA_Airlock": "02e99cc9a9f06266d0a4c3e1f58eab26c1147fb9728272d414326fc8a8255ebf",
+        "/RW_HAB_250/RW_HAB250_EVA_Ladder": "699ae8b68f30513094245c470159ff22abff111966a1632e9edddd59883040b7",
+        "/RW_HAB_250/RW_HAB250_SolidHullCollider": "f83091046345daa1c4c9528f08d53cbb3c1146e436b82105185ead8317ff0278"
+      },
+      "glazing": {
+        "/RW_HAB_250/RW_GlassBase": "5ed1284eb64cadd83224acd781c44fe972259cd9ee4fc7ebca9737aa113f6f79",
+        "/RW_HAB_250/WindowBankStandard/RW_GlassStandard": "ccc4e97b24453e02e8626be3858340cb56a5d24a3e10f69cb14a980fd4ad88e8",
+        "/RW_HAB_250/SideHatch/RW_GlassSideHatch": "322dfa48d9b7b030d2264042432691eeae3dcb11b3758a5da9c3799d14b5eb00"
+      },
+      "variants": {
+        "/RW_HAB_250/WindowBankStandard/RW_Ceramic": "ffd8508c108089805d5954a10954a15bc6418f5786cc16a6d25b3b3a9280840a",
+        "/RW_HAB_250/WindowBankStandard/RW_White": "07c82ff1db92f06411607bca53e937f99428fc44c8841fe7d19084645ef1cdd8",
+        "/RW_HAB_250/WindowBankStandard/RW_Steel": "d0d2bfc8b758d77bd01eec16f36f00ace92b231e64d3ba87b83400ba4f3cbb82",
+        "/RW_HAB_250/WindowBankStandard/RW_Graphite": "dddb60f119f8d3bfdf17fe3e6fd4791f79e1c1748fdea09dbe3d699158c84bb7",
+        "/RW_HAB_250/WindowBankStandard/RW_GlassStandard": "ccc4e97b24453e02e8626be3858340cb56a5d24a3e10f69cb14a980fd4ad88e8",
+        "/RW_HAB_250/WindowBankStandard/RW_Black": "1296c2fe5eafa16d63544aa440b642a817e1e2100c0e406d4d910dc1745d6aee",
+        "/RW_HAB_250/WindowBankStandard/RW_Rail": "8cd74e9b47be73e1f17fcfdd1f27ba6b3476f3f066006a73bb933f04b17c65e1",
+        "/RW_HAB_250/SideHatch/RW_Ceramic": "02c346838f1ce77ec5cc9d6541f494f7c6fce7261a62639152e47fddbc035465",
+        "/RW_HAB_250/SideHatch/RW_White": "c6cb3626fc6a175121061624599a191858873e5cf2a793f714878dd4b9f6b80b",
+        "/RW_HAB_250/SideHatch/RW_Steel": "eb022f518e9c77a178e62e305db725618c87e5866e4f856d8a5bdc2ada2fcd00",
+        "/RW_HAB_250/SideHatch/RW_Graphite": "f031e20ed2202c7a30315b97bf4237ef7adb3667aebea860dabc2173d17fb777",
+        "/RW_HAB_250/SideHatch/RW_GlassSideHatch": "322dfa48d9b7b030d2264042432691eeae3dcb11b3758a5da9c3799d14b5eb00",
+        "/RW_HAB_250/SideHatch/RW_Black": "02596789086e27b52291c6d3d50e2fb931234535b2704e0a862cd996e8bd7612",
+        "/RW_HAB_250/SideHatch/RW_Rail": "14cf12b49ed6fd2fed2580e627f0be8dda2e96c656dff772a642dc31df4a5a72"
+      },
+      "materials": {
+        "RW_ceramic": "9946684de766f0984e05b22f65f923dc9ec65010c206462416ff0c559c3c3ad4",
+        "RW_white": "8df664830d4c2a2d980880c8932076698fb346f5678b533dedf4c3a64b912a13",
+        "RW_steel": "f577ea7e7a9280f84371eaf64b9759fc8918ffad46b0437f06e183f9eaeb383a",
+        "RW_graphite": "ae0409113961b6829e7f9dc91a606be72cd1cf46b7f3f9b22b7dac2b377c1551",
+        "RW_bronze": "723caf068b4a73b46b07a7316d5913c24dcc0dadfdde65a49bfa47d375a9c51d",
+        "RW_glass": "317dcab275db99a3aa109a514c1e0d66501acd1b698c025cff626d914a30a190",
+        "RW_black": "2737894a703d419338891947a36d17d18854b13cd1614d504a310cb40b47c381",
+        "RW_rail": "7750f447e72eb516c90e072d6443ee475e639fbd122acd69ab575e594a2f4f07",
+        "RW_label": "09cbee81867d4d05b7f5d299def4be4c01c41125ee70ad20e1a50c8fa03ee4da",
+        "RW_crest": "04facc2b9b586cecc7078e8008f593d049ee7c8b2a308c86e2e501bd96344c42",
+        "RW_hubblanket": "f449dde022013c439e56c801d5909ecd35c837d01e2ff1c6b173f3a9fd1d2357"
+      },
+      "triangles": 48480,
+      "max_vertices": 23040
+    },
+    "LAB": {
+      "colliders": {
+        "/RW_LAB_250/LabRadialFace_00": "16233f8f9e76a29c8db3aa12fe5186fcd3569df0750d9802faf0296b4141abb7",
+        "/RW_LAB_250/LabRadialFace_01": "6334d7c963dbfaac254951b8040c85306f92476d362b7f6b9c278adac1e1f7d1",
+        "/RW_LAB_250/LabRadialFace_02": "87f769e25b1c3d38fd0cd6ad61df1e1b841b22e5f92d03067eefa79e5862b75e",
+        "/RW_LAB_250/LabRadialFace_03": "2ae62dd01ca1e133613f9d642985109782b405e68d06d937ca0e6b1d120dabcb",
+        "/RW_LAB_250/LabRadialFace_04": "eac7495adeca596eeeae13879bedfea8aced70d07ce9ae5a92314e38bdc38db4",
+        "/RW_LAB_250/LabRadialFace_05": "9a0b05454c76c3361d63be6a99ccd88c32b22a74c4b09b42a8690b89e47a5c72",
+        "/RW_LAB_250/LabRadialFace_06": "299cf3479f6b2e89ab0d793c48c71d70a0d51397c9171d9c82912517d520b5d5",
+        "/RW_LAB_250/LabRadialFace_07": "904878e52b2b3bd90aa9673ae8694331e5f7148c6bd620881d94c2e608d2c4f4",
+        "/RW_LAB_250/LabRadialFace_08": "b55167347f89804a8738e5db95a0221cbb09f65e8ad8e1abb1ecd9dd88bbfd0f",
+        "/RW_LAB_250/LabRadialFace_09": "9626b65715bd26aa736c802f8b191d73aada8681aceaf8fccae7edd27c7f6d48",
+        "/RW_LAB_250/LabRadialFace_10": "0551f8c8ddfc03a65dec37e11851271669475cee2cb55c6fcbc5380214dc5b6c",
+        "/RW_LAB_250/LabRadialFace_11": "17e91f0b7f1bca6eb1ccdb6ce5253d6f38e35f4807ee629162762f04a277b96d",
+        "/RW_LAB_250/LabFlushEndcapBottom": "0e931e85ff9a7fde496cc2e451c93aca2775125633dde4155c36e63ff7b93d48",
+        "/RW_LAB_250/LabFlushEndcapTop": "6b290e60fe8ce8b4611a3cb7919042749601e9102229b03ce9ca59e6b195ab9b"
+      },
+      "glazing": {
+        "/RW_LAB_250/RW_LabGlass": "433543e326e1148b720bd0dee5ab6d60832d9d0f7ec70b1a5774832dac65e4ec"
+      },
+      "variants": {},
+      "materials": {
+        "RW_Lab_ceramic": "9946684de766f0984e05b22f65f923dc9ec65010c206462416ff0c559c3c3ad4",
+        "RW_Lab_white": "8df664830d4c2a2d980880c8932076698fb346f5678b533dedf4c3a64b912a13",
+        "RW_Lab_steel": "f577ea7e7a9280f84371eaf64b9759fc8918ffad46b0437f06e183f9eaeb383a",
+        "RW_Lab_graphite": "ae0409113961b6829e7f9dc91a606be72cd1cf46b7f3f9b22b7dac2b377c1551",
+        "RW_Lab_bronze": "723caf068b4a73b46b07a7316d5913c24dcc0dadfdde65a49bfa47d375a9c51d",
+        "RW_Lab_glass": "317dcab275db99a3aa109a514c1e0d66501acd1b698c025cff626d914a30a190",
+        "RW_Lab_black": "2737894a703d419338891947a36d17d18854b13cd1614d504a310cb40b47c381",
+        "RW_Lab_rail": "7750f447e72eb516c90e072d6443ee475e639fbd122acd69ab575e594a2f4f07",
+        "RW_Lab_label": "09cbee81867d4d05b7f5d299def4be4c01c41125ee70ad20e1a50c8fa03ee4da",
+        "RW_Lab_crest": "04facc2b9b586cecc7078e8008f593d049ee7c8b2a308c86e2e501bd96344c42",
+        "RW_Lab_hubblanket": "f449dde022013c439e56c801d5909ecd35c837d01e2ff1c6b173f3a9fd1d2357",
+        "RW_Lab_lablabel": "2843a74df8a5a999953ae0293a04dc761870be0afa2672c73ff015d6cdfa3e5e",
+        "RW_Lab_instrument": "6d657770b06f3b7c68bd2dcc4075407a8dd4869487df49335928e69529951133"
+      },
+      "triangles": 18232,
+      "max_vertices": 9216
+    },
+    "CMD": {
+      "colliders": {
+        "/RW_CMD_250/CmdRadialFace_00": "33d16d1ec1bf62552314f782c63b8f0db26afa24dac8291c71c61c03a89f2b36",
+        "/RW_CMD_250/CmdRadialFace_01": "8c5a5f14e20da8b5c10be3cec1d9a8dd59ede25c45e6537b9954e4b5e7395542",
+        "/RW_CMD_250/CmdRadialFace_02": "42b51f6e0a3f717cef4f012201966a452564df1bd0e0d671e63209a09c9b500f",
+        "/RW_CMD_250/CmdRadialFace_03": "0ba1562857ec3d52859957aa78567531a06f5798fda23211075aa5fa41b718eb",
+        "/RW_CMD_250/CmdRadialFace_04": "362d77d61b8e8666a6f5ce6101decfdf14ba07e54544820d0dc4147a2e9d1632",
+        "/RW_CMD_250/CmdRadialFace_05": "ed45a760f89e8b319d8737bbc16f9dfe8739b2f92b43cb2d7c234ab351b61a95",
+        "/RW_CMD_250/CmdRadialFace_06": "ed02e65e222b47cce4faa4f20d930647241178230daf07d074ab976371b5ab6d",
+        "/RW_CMD_250/CmdRadialFace_07": "47ecec5c5986969afb6061fb84e4dbfdd8a6522e7a70f63e53173e306cd0ad23",
+        "/RW_CMD_250/CmdRadialFace_08": "23973ea63f72ed04b3156c86f8b9517826f36e325d1770a1442f5beaf4a421cc",
+        "/RW_CMD_250/CmdRadialFace_09": "e5042aba690929d67758d0f57bb5ff4880ef0f51ac7acc1225e02b014e50f146",
+        "/RW_CMD_250/CmdRadialFace_10": "993ab98b7590b5e9a07dc079e659c96eef2d611eda190dee1c3889d54878b169",
+        "/RW_CMD_250/CmdRadialFace_11": "721c2e8e74f904ee557a6ca2b40e1f92e6ede1f1545dd5f8ed8aeae8b6b53f85",
+        "/RW_CMD_250/CmdFlushEndcapBottom": "904562d4692e177dc6e1420f666be83726fd13bc9ab4783b79e8f97bbb7f4a5a",
+        "/RW_CMD_250/CmdFlushEndcapTop": "b3641f629663656847a2560f89cfc4dd30bdc38a7da4a9aaea53002a8af0b589"
+      },
+      "glazing": {
+        "/RW_CMD_250/RW_CmdGlass": "b538e236362fc64239ed7b763b8c01d56949851f45a124397c829ae1cbe09559"
+      },
+      "variants": {},
+      "materials": {
+        "RW_Cmd_ceramic": "9946684de766f0984e05b22f65f923dc9ec65010c206462416ff0c559c3c3ad4",
+        "RW_Cmd_white": "8df664830d4c2a2d980880c8932076698fb346f5678b533dedf4c3a64b912a13",
+        "RW_Cmd_steel": "f577ea7e7a9280f84371eaf64b9759fc8918ffad46b0437f06e183f9eaeb383a",
+        "RW_Cmd_graphite": "ae0409113961b6829e7f9dc91a606be72cd1cf46b7f3f9b22b7dac2b377c1551",
+        "RW_Cmd_bronze": "723caf068b4a73b46b07a7316d5913c24dcc0dadfdde65a49bfa47d375a9c51d",
+        "RW_Cmd_glass": "317dcab275db99a3aa109a514c1e0d66501acd1b698c025cff626d914a30a190",
+        "RW_Cmd_black": "2737894a703d419338891947a36d17d18854b13cd1614d504a310cb40b47c381",
+        "RW_Cmd_rail": "7750f447e72eb516c90e072d6443ee475e639fbd122acd69ab575e594a2f4f07",
+        "RW_Cmd_label": "09cbee81867d4d05b7f5d299def4be4c01c41125ee70ad20e1a50c8fa03ee4da",
+        "RW_Cmd_crest": "04facc2b9b586cecc7078e8008f593d049ee7c8b2a308c86e2e501bd96344c42",
+        "RW_Cmd_hubblanket": "f449dde022013c439e56c801d5909ecd35c837d01e2ff1c6b173f3a9fd1d2357",
+        "RW_Cmd_cmdlabel": "bb7c50a6303928634081f295580bde370c983628a8c12eedd5f826301b909357",
+        "RW_Cmd_display": "7cf8351816614e62275f5a745a4bd61ca24eb591e1e3295d8986560cb31df30c"
+      },
+      "triangles": 15592,
+      "max_vertices": 9216
+    },
+    "HUB": {
+      "colliders": {
+        "/RW_HUB_250/HubCentralCollider": "92076dc34f7208a9af083023f728f05ca491d1cd8bc974ddc23aa693dd2f1864",
+        "/RW_HUB_250/HubPortCollider_top": "aa8c1b4aff3abe5611940cf452ad42a11f538d0d66d6ed6121bb739fde0226b5",
+        "/RW_HUB_250/HubShoulderCollider_top": "6e5df46d46e3901817d18e74735e4b217665ef5403d04977eafc95345e8b9cfe",
+        "/RW_HUB_250/HubPortCollider_bottom": "74b7be10cdd7e251d2fcf97e76c6ef4fb1bc1ab84dc7317e251d8238f0ca4ce9",
+        "/RW_HUB_250/HubShoulderCollider_bottom": "44abddeebc592d3881438b3b45cd404edf4d817cbf62b363eda943b3d7c63ec7",
+        "/RW_HUB_250/HubPortCollider_right": "08fa67c23d9d451852fbe37b4b608d7d9feed76cd6aec93faed2be31b33bd82e",
+        "/RW_HUB_250/HubShoulderCollider_right": "72e2f4d7b26b32b44bbd24b99cf92a6602cba7af087e8a159a7386c465c63591",
+        "/RW_HUB_250/HubPortCollider_left": "afd0c0c44d67b9f765a39b13ddab8d7cdcbcac8a2f521f2e2347e41345fb32ba",
+        "/RW_HUB_250/HubShoulderCollider_left": "fcba9a484698a5eaa1738f350f52436a1c589c4b808c88e3f636d94867ad660d",
+        "/RW_HUB_250/HubPortCollider_front": "437af1746b6a359f7c61ceec62f9be6b9703fdce47f646fe130a9f5dfe00c5e6",
+        "/RW_HUB_250/HubShoulderCollider_front": "40370c4b8a841137f79d153b58bd5e5a6b110386e8f3e75d599b100b0526c1d7",
+        "/RW_HUB_250/HubPortCollider_back": "78c72ad658a1f27a2f7b93bf6aeb4bc090ae5f5df9274465ab5f5606f2946c54",
+        "/RW_HUB_250/HubShoulderCollider_back": "cdbcc55a79fc45f13b8de90532ba6cfe8c65904fc9946eee2b8d85686b1ebac6"
+      },
+      "glazing": {},
+      "variants": {},
+      "materials": {
+        "RW_Hub_ceramic": "9946684de766f0984e05b22f65f923dc9ec65010c206462416ff0c559c3c3ad4",
+        "RW_Hub_white": "8df664830d4c2a2d980880c8932076698fb346f5678b533dedf4c3a64b912a13",
+        "RW_Hub_steel": "f577ea7e7a9280f84371eaf64b9759fc8918ffad46b0437f06e183f9eaeb383a",
+        "RW_Hub_graphite": "ae0409113961b6829e7f9dc91a606be72cd1cf46b7f3f9b22b7dac2b377c1551",
+        "RW_Hub_bronze": "723caf068b4a73b46b07a7316d5913c24dcc0dadfdde65a49bfa47d375a9c51d",
+        "RW_Hub_black": "2737894a703d419338891947a36d17d18854b13cd1614d504a310cb40b47c381",
+        "RW_Hub_rail": "7750f447e72eb516c90e072d6443ee475e639fbd122acd69ab575e594a2f4f07",
+        "RW_Hub_crest": "04facc2b9b586cecc7078e8008f593d049ee7c8b2a308c86e2e501bd96344c42",
+        "RW_Hub_hublabel": "714ff51bff48bc99672656a4889fadf129eccdc86ad31c0f8516319bcc375fc2",
+        "RW_Hub_hubblanket": "f449dde022013c439e56c801d5909ecd35c837d01e2ff1c6b173f3a9fd1d2357"
+      },
+      "triangles": 36300,
+      "max_vertices": 27648
+    },
+    "CUP": {
+      "colliders": {
+        "/RW_CUP_250/CupolaHullCollider": "e3fdc1b7d8367750a18e12ada4afda132b08c8254b4631a71912955011878fde"
+      },
+      "glazing": {
+        "/RW_CUP_250/RW_CupGlass": "2013273784d607158e742cd9defbec71a5a6d69096c11524ba4773cb29e8065a"
+      },
+      "variants": {},
+      "materials": {
+        "RW_Cup_ceramic": "9946684de766f0984e05b22f65f923dc9ec65010c206462416ff0c559c3c3ad4",
+        "RW_Cup_white": "8df664830d4c2a2d980880c8932076698fb346f5678b533dedf4c3a64b912a13",
+        "RW_Cup_steel": "f577ea7e7a9280f84371eaf64b9759fc8918ffad46b0437f06e183f9eaeb383a",
+        "RW_Cup_graphite": "ae0409113961b6829e7f9dc91a606be72cd1cf46b7f3f9b22b7dac2b377c1551",
+        "RW_Cup_bronze": "723caf068b4a73b46b07a7316d5913c24dcc0dadfdde65a49bfa47d375a9c51d",
+        "RW_Cup_glass": "317dcab275db99a3aa109a514c1e0d66501acd1b698c025cff626d914a30a190",
+        "RW_Cup_black": "2737894a703d419338891947a36d17d18854b13cd1614d504a310cb40b47c381",
+        "RW_Cup_rail": "7750f447e72eb516c90e072d6443ee475e639fbd122acd69ab575e594a2f4f07",
+        "RW_Cup_label": "09cbee81867d4d05b7f5d299def4be4c01c41125ee70ad20e1a50c8fa03ee4da",
+        "RW_Cup_crest": "04facc2b9b586cecc7078e8008f593d049ee7c8b2a308c86e2e501bd96344c42",
+        "RW_Cup_hubblanket": "f449dde022013c439e56c801d5909ecd35c837d01e2ff1c6b173f3a9fd1d2357",
+        "RW_Cup_cuplabel": "21943d910461a36d2e0affe9af82a0c6d92d56492d18b96834c639e6c523bf06"
+      },
+      "triangles": 14150,
+      "max_vertices": 6816
+    },
+    "LOG": {
+      "colliders": {
+        "/RW_LOG_250/LogisticsHullCollider": "5ca32f3c6d491ad1bacc1ba4be5c09260525360f5ff2dd1e4d4ab79e5869d99c"
+      },
+      "glazing": {},
+      "variants": {},
+      "materials": {
+        "RW_Log_ceramic": "9946684de766f0984e05b22f65f923dc9ec65010c206462416ff0c559c3c3ad4",
+        "RW_Log_white": "8df664830d4c2a2d980880c8932076698fb346f5678b533dedf4c3a64b912a13",
+        "RW_Log_steel": "f577ea7e7a9280f84371eaf64b9759fc8918ffad46b0437f06e183f9eaeb383a",
+        "RW_Log_graphite": "ae0409113961b6829e7f9dc91a606be72cd1cf46b7f3f9b22b7dac2b377c1551",
+        "RW_Log_bronze": "723caf068b4a73b46b07a7316d5913c24dcc0dadfdde65a49bfa47d375a9c51d",
+        "RW_Log_glass": "f34bb0cfe5a9e902b833e54a26adccbc05f5536f05fc564b6f93983026881526",
+        "RW_Log_black": "2737894a703d419338891947a36d17d18854b13cd1614d504a310cb40b47c381",
+        "RW_Log_rail": "7750f447e72eb516c90e072d6443ee475e639fbd122acd69ab575e594a2f4f07",
+        "RW_Log_label": "09cbee81867d4d05b7f5d299def4be4c01c41125ee70ad20e1a50c8fa03ee4da",
+        "RW_Log_crest": "04facc2b9b586cecc7078e8008f593d049ee7c8b2a308c86e2e501bd96344c42",
+        "RW_Log_hubblanket": "f449dde022013c439e56c801d5909ecd35c837d01e2ff1c6b173f3a9fd1d2357",
+        "RW_Log_loglabel": "666fc325ccaf90bf0b34c1aba6d4a8e905bc487121041817de66504935e78cbc",
+        "RW_Log_logpanel": "9256a2e970ac56445653ad4cd55fd25fc7542ed85b14cf9e3bbc980ad8eb5b6c"
+      },
+      "triangles": 21124,
+      "max_vertices": 10528
+    }
+  },
+  "preserved_files": {
+    "GameData/RoosterWorksStationModules/Compatibility/CommandKerbalism.cfg": "15ddd83c58b7e24e7d826085fcf9cd451b89625f013279d9462bc04cf4b7bde3",
+    "GameData/RoosterWorksStationModules/Compatibility/CupolaKerbalism.cfg": "def00e62aa4d9d1a898b9f900aa1263153817551dc7982d7c38b57d080d5226e",
+    "GameData/RoosterWorksStationModules/Compatibility/HubKerbalism.cfg": "c513eaedd51f9597f6b3a4b9e11e76b92ac89b1b025674e7a106dcb522278e92",
+    "GameData/RoosterWorksStationModules/Compatibility/KerbalismDefault.cfg": "c6fad258ca4928619c57ab8a38850ad3321f52346093c62bf1b3692c132b7db2",
+    "GameData/RoosterWorksStationModules/Compatibility/LabKerbalism.cfg": "209c737e5096d1e7cbff015f88573fb44a6a8b550dc15293cd7c14ddc01a7f87",
+    "GameData/RoosterWorksStationModules/Compatibility/LogisticsKerbalism.cfg": "8b8abfe6a451da012bad0fe8615c8093708592a50d26a4a758c55b80fe90ef0b",
+    "GameData/RoosterWorksStationModules/Compatibility/VABOrganizer.cfg": "ea1b0c9b314a20bda3de69b11faa83c0a8a04eb8ec2950c77a68872af8143f97",
+    "GameData/RoosterWorksStationModules/Models/rwm_cabin_emissive.png": "2292be7fb5c339b188c49d1c487157f2e0f276bfb2be6f29392fd648fa3ca714",
+    "GameData/RoosterWorksStationModules/Models/rwm_crest.png": "e1654d36d5c99c9be06365be9c555b804ffeabce5f9a68cb40af6272000d2070",
+    "GameData/RoosterWorksStationModules/Models/rwm_glass.png": "777b2b2fbc19399673bb153418f311a46727b8d2247c17b58d6dff41fa710a09",
+    "GameData/RoosterWorksStationModules/Parts/RW_CMD_250.cfg": "9a2e435fc88f40c3d52aac1b697bc8aaa7d3585c702a9395d9c0a4adf5c55a43",
+    "GameData/RoosterWorksStationModules/Parts/RW_CUP_250.cfg": "129849071752f5976d52418937143c94c1bb79371ff6786348467c1b08340483",
+    "GameData/RoosterWorksStationModules/Parts/RW_HAB_250.cfg": "05f0c616f8dcd54f8ab4fb232fab0267674ec02d124df8b517373c7276d9a822",
+    "GameData/RoosterWorksStationModules/Parts/RW_HUB_250.cfg": "01b93736b4e54588e6b49af99feca7be958c720cebd2d80f7f85b154900f5380",
+    "GameData/RoosterWorksStationModules/Parts/RW_LAB_250.cfg": "c79bd74bc45e891583462c6d8668c9497795a671380d6f47e3f2d9d088370a18",
+    "GameData/RoosterWorksStationModules/Parts/RW_LOG_250.cfg": "d3429a1c17d257834772c08ebc0158bcf29643793e37b4a917e8637af3d51057",
+    "GameData/RoosterWorksStationModules/Plugins/RoosterWorksStationRuntime.dll": "43b0eb6fbdbf01c1b8d308cde0d4ae4e52b4bfc248492d9d4bf10bf2f5e2b50c"
+  }
+}

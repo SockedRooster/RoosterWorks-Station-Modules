@@ -22,15 +22,26 @@ def face_mesh():
     # are original decorative geometry; no EVA or docking functionality.
     caps={k:h.Mesh() for k in MAT}
     h.annulus(caps['graphite'],1.145,1.225,1.997,segments=96)
-    h.annulus(caps['steel'],1.127,1.145,1.993,segments=96)
-    h.cylinder_surface(caps['graphite'],1.127,1.921,1.993,segments=96)
+    h.annulus(caps['steel'],1.125,1.145,1.993,segments=96)
+    # Recess walls must face into the recess. Outward cylinder faces disappear
+    # from the cavity side in KSP and expose the background behind the rim.
+    def wall(material,r,y0,y1,inward=False,segments=96):
+        mesh=h.Mesh();h.cylinder_surface(mesh,r,y0,y1,segments=segments)
+        if inward:
+            mesh.normals=[tuple(-v for v in n) for n in mesh.normals]
+            mesh.triangles=[(a,c,b) for a,b,c in mesh.triangles]
+        append(caps[material],mesh)
+    wall('graphite',1.125,1.920,1.994,True)
+    wall('graphite',1.145,1.992,1.997,True)
+    wall('steel',1.225,1.920,1.997)
+
     # Actual shallow folds in the blanket catch light without increasing
     # the mating envelope. Radial/angular UVs map the unique blanket texture.
     def blanket(r,t):
         depth=1.934+.004*math.sin(t*37+r*9)+.002*math.sin(t*71-r*14)
         return h.point(r,t,depth)
     for ring in range(8):
-        r0=.59+.537*ring/8;r1=.59+.537*(ring+1)/8
+        r0=.59+.540*ring/8;r1=.59+.540*(ring+1)/8
         for j in range(144):
             a=math.tau*j/144;b=math.tau*(j+1)/144
             quad(m['hubblanket'],[blanket(r0,a),blanket(r1,a),blanket(r1,b),blanket(r0,b)],
@@ -40,6 +51,11 @@ def face_mesh():
     h.annulus(caps['black'],.485,.51,1.982,segments=64)
     h.annulus(caps['ceramic'],.13,.485,1.970,segments=64)
     h.annulus(caps['steel'],.104,.13,1.981,segments=48)
+    wall('steel',.510,1.981,1.986,True,64)
+    wall('black',.485,1.969,1.982,True,64)
+    wall('steel',.130,1.969,1.981,False,48)
+    wall('steel',.104,1.976,1.981,True,48)
+
     for j in range(48):
         a=math.tau*j/48;b=math.tau*(j+1)/48
         caps['black'].triangle([(0,1.977,0),h.point(.104,a,1.977),h.point(.104,b,1.977)],
@@ -70,6 +86,8 @@ def face_mesh():
     # Small flat brand plate below the central closure.
     quad(m['crest'],[(-.09,1.977,.35),(.09,1.977,.35),
                      (.09,1.977,.17),(-.09,1.977,.17)])
+    from exterior_detail import add_endcap as add_detail
+    add_detail(m)
     return m
 def add_endcap(meshes,sign,plane):
     for mat,mesh in face_mesh().items():

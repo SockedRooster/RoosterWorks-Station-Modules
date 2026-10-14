@@ -91,7 +91,7 @@ def geometry():
         t=TAU*(j+.5)/14;dw=TAU/14-.014
         for row in range(4):
             a=-.72+row*.36+.008;b=a+.344
-            shade='white' if (j+row*2)%13==0 else 'ceramic'
+            shade='cladding_white' if (j+row*2)%13==0 else 'cladding'
             panel(m,shade,t,a,b,dw,1.206,n=6)
             if row in (0,3) and j%2==0:fastener(m,t,a+.04)
     # Short reinforced pressure shell shoulders, slim and integrated.
@@ -133,7 +133,10 @@ def geometry():
     for theta in (-2.65,2.65):
         panel(m,'graphite',theta,-.55,-.38,.225,1.225,n=14)
         panel(m,'white',theta,-.52,-.408,.180,1.235,n=14)
-    return m
+    from exterior_detail import add_cmd
+    add_cmd(m)
+    from surface_uv import finish
+    return finish(m)
 
 def create_native_mu(meshes,dest):
     w=h.Writer(dest);w.i(76543,5);w.s(PART);h.node(w,PART)
@@ -145,7 +148,7 @@ def create_native_mu(meshes,dest):
         w.i(7);w.i(13,len(mesh.vertices),1);w.i(14)
         for p in mesh.vertices:w.xyz(p)
         w.i(15)
-        for u,v in mesh.uvs:w.f((1-u) if mat in ('crest','cmdlabel') else u,v)
+        for u,v in mesh.uvs:w.f(u,v)
         w.i(17)
         for n in mesh.normals:w.xyz(n)
         w.i(19,len(mesh.triangles)*3)

@@ -1,0 +1,7 @@
+{
+  "rule": "Cuts from v0.15.0-dev.3; round base EC to nearest ten, half up. Keep reactor output/fuel/cooling unchanged.",
+  "parts": {
+    "250": {"previous_battery": 3500, "battery_multiplier": 0.85, "battery": 2980, "previous_nuclear": 3060, "nuclear_multiplier": 0.8, "nuclear": 2450, "reactor_scale": 1.1},
+    "375": {"previous_battery": 6750, "battery_multiplier": 0.85, "battery": 5740, "previous_nuclear": 5910, "nuclear_multiplier": 0.8, "nuclear": 4730, "reactor_scale": 1.2}
+  }
+}

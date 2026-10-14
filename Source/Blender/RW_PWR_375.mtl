@@ -1,0 +1,96 @@
+newmtl RW_Cmd_ceramic
+Ka 0.3 0.3 0.3
+Kd 1 1 1
+Ks 0.2 0.2 0.2
+map_Kd ../../GameData/RoosterWorksStationModules/Models/rwm_ceramic.png
+
+newmtl RW_Cmd_white
+Ka 0.3 0.3 0.3
+Kd 1 1 1
+Ks 0.2 0.2 0.2
+map_Kd ../../GameData/RoosterWorksStationModules/Models/rwm_white.png
+
+newmtl RW_Cmd_steel
+Ka 0.3 0.3 0.3
+Kd 1 1 1
+Ks 0.2 0.2 0.2
+map_Kd ../../GameData/RoosterWorksStationModules/Models/rwm_steel.png
+
+newmtl RW_Cmd_graphite
+Ka 0.3 0.3 0.3
+Kd 1 1 1
+Ks 0.2 0.2 0.2
+map_Kd ../../GameData/RoosterWorksStationModules/Models/rwm_graphite.png
+
+newmtl RW_Cmd_bronze
+Ka 0.3 0.3 0.3
+Kd 1 1 1
+Ks 0.2 0.2 0.2
+map_Kd ../../GameData/RoosterWorksStationModules/Models/rwm_bronze.png
+
+newmtl RW_Cmd_glass
+Ka 0.3 0.3 0.3
+Kd 1 1 1
+Ks 0.2 0.2 0.2
+map_Kd ../../GameData/RoosterWorksStationModules/Models/rwm_glass.png
+
+newmtl RW_Cmd_black
+Ka 0.3 0.3 0.3
+Kd 1 1 1
+Ks 0.2 0.2 0.2
+map_Kd ../../GameData/RoosterWorksStationModules/Models/rwm_black.png
+
+newmtl RW_Cmd_rail
+Ka 0.3 0.3 0.3
+Kd 1 1 1
+Ks 0.2 0.2 0.2
+map_Kd ../../GameData/RoosterWorksStationModules/Models/rwm_rail.png
+
+newmtl RW_Cmd_label
+Ka 0.3 0.3 0.3
+Kd 1 1 1
+Ks 0.2 0.2 0.2
+map_Kd ../../GameData/RoosterWorksStationModules/Models/rwm_label_375.png
+
+newmtl RW_Cmd_crest
+Ka 0.3 0.3 0.3
+Kd 1 1 1
+Ks 0.2 0.2 0.2
+map_Kd ../../GameData/RoosterWorksStationModules/Models/rwm_crest.png
+
+newmtl RW_Cmd_hubblanket
+Ka 0.3 0.3 0.3
+Kd 1 1 1
+Ks 0.2 0.2 0.2
+map_Kd ../../GameData/RoosterWorksStationModules/Models/rwm_hubblanket.png
+
+newmtl RW_Cmd_detail
+Ka 0.3 0.3 0.3
+Kd 1 1 1
+Ks 0.2 0.2 0.2
+map_Kd ../../GameData/RoosterWorksStationModules/Models/rwm_detail.png
+
+newmtl RW_Cmd_cladding
+Ka 0.3 0.3 0.3
+Kd 1 1 1
+Ks 0.2 0.2 0.2
+map_Kd ../../GameData/RoosterWorksStationModules/Models/rwm_cladding.png
+
+newmtl RW_Cmd_cladding_white
+Ka 0.3 0.3 0.3
+Kd 1 1 1
+Ks 0.2 0.2 0.2
+map_Kd ../../GameData/RoosterWorksStationModules/Models/rwm_cladding_white.png
+
+newmtl RW_Cmd_pwrlabel
+Ka 0.3 0.3 0.3
+Kd 1 1 1
+Ks 0.2 0.2 0.2
+map_Kd ../../GameData/RoosterWorksStationModules/Models/rwm_pwrlabel_375.png
+
+newmtl RW_Cmd_pwrpanel
+Ka 0.3 0.3 0.3
+Kd 1 1 1
+Ks 0.2 0.2 0.2
+map_Kd ../../GameData/RoosterWorksStationModules/Models/rwm_pwrpanel.png
+

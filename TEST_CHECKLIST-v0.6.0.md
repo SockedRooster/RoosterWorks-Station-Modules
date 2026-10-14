@@ -1,4 +1,4 @@
-# RoosterWorks Station Modules v0.6.0-dev.1 — in-game test checklist
+# RoosterWorks Station Modules v0.6.0-dev.2 — in-game test checklist
 
 **Development build only.** The stable release candidate **v0.5.3-rc.1** remains unchanged and unpublished. This package adds the separate RW-CUP-250 observation cupola.
 
@@ -13,6 +13,8 @@
 
 - [ ] Locate `RW-CUP-250` in Utility/crew-related categorization.
 - [ ] Attach its **single 2.5 m bottom node** onto HAB/CMD/LAB or any HUB-250 branch; confirm it sits flush with the mating ring.
+- [ ] Inspect all **eight vertical mullion-to-header joints** at the top and bottom in VAB, including tight grazing angles; confirm there are **no open gaps or detached floating trim**.
+- [ ] Look at the crown fasteners, thicker lower retaining ring and recessed dark inner frame strips: confirm no z-fighting, excessive visual clutter or transparent holes.
 - [ ] Inspect the eight angled tinted windows, top skylight and RoosterWorks crest from multiple VAB viewpoints.
 - [ ] Check rotation and node orientation when mounting radially through a separate hub face.
 - [ ] Place one crew member in the cupola; confirm the portrait and stock temporary `cupolaInternal` IVA work.

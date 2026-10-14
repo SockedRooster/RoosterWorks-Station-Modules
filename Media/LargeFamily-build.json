@@ -1,0 +1,47 @@
+{
+  "HAB": {
+    "scale": 1.5,
+    "volume_factor": 3.375,
+    "visual_triangles": 52964
+  },
+  "LAB": {
+    "scale": 1.5,
+    "volume_factor": 3.375,
+    "visual_triangles": 23560
+  },
+  "CMD": {
+    "scale": 1.5,
+    "volume_factor": 3.375,
+    "visual_triangles": 19364
+  },
+  "HUB": {
+    "scale": 1.5,
+    "volume_factor": 3.375,
+    "visual_triangles": 82428
+  },
+  "CUP": {
+    "scale": 1.5,
+    "volume_factor": 3.375,
+    "visual_triangles": 16850
+  },
+  "LOG": {
+    "scale": 1.5,
+    "volume_factor": 3.375,
+    "visual_triangles": 26884
+  },
+  "AIR": {
+    "scale": 1.5,
+    "volume_factor": 3.375,
+    "visual_triangles": 21920
+  },
+  "PWR": {
+    "scale": 1.5,
+    "volume_factor": 3.375,
+    "visual_triangles": 21772
+  },
+  "GRN": {
+    "scale": 1.5,
+    "volume_factor": 3.375,
+    "visual_triangles": 40764
+  }
+}

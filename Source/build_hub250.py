@@ -1,7 +1,7 @@
 """Original six-way 2.5 m station connector. Units metres, Unity +Y up.
 
-Six stack faces lie at +/-2 m. Smooth square-to-round shoulders enclose a
-central pressure volume. Seven solid colliders preserve the concave outline.
+Six stack faces lie at +/-2 m. A spherical pressure body blends into six circular necks.
+Thirteen convex solid colliders follow the rounded junction and its ports.
 No seats, exterior EVA hatch, command electronics or built-in docking ports.
 """
 from pathlib import Path
@@ -38,32 +38,57 @@ def append(dest,src):
 def quad(mesh,p,uv=((0,0),(1,0),(1,1),(0,1))):
     n=norm(cross(sub(p[1],p[0]),sub(p[2],p[0])))
     mesh.quad(p,(n,)*4,uv)
+BODY_RADIUS=1.80
+ROOT_Y=1.30
+ROOT_RADIUS=math.sqrt(BODY_RADIUS**2-ROOT_Y**2)
+
+def neck_radius(y):
+    # Hermite blend: tangent to the spherical shell and cylindrical collar.
+    v=(y-ROOT_Y)/(1.60-ROOT_Y)
+    return ((2*v**3-3*v**2+1)*ROOT_RADIUS
+            +(v**3-2*v**2+v)*(1.60-ROOT_Y)*(-ROOT_Y/ROOT_RADIUS)
+            +(-2*v**3+3*v**2)*1.204)
+
 def shoulder(t,u,lift=0):
-    r0=1.25/max(abs(math.sin(t)),abs(math.cos(t)))
-    r=r0*(1-u)+1.204*u
-    return h.point(r,t,1.25+.35*u+lift)
+    # Six spherical face patches meet exactly along their shared great circles.
+    # The old cube-face roots have been removed entirely.
+    if u<=.5:
+        edge_phi=math.atan(1/max(abs(math.sin(t)),abs(math.cos(t))))
+        root_phi=math.acos(ROOT_Y/BODY_RADIUS)
+        phi=edge_phi+(root_phi-edge_phi)*(u*2)
+        r=BODY_RADIUS*math.sin(phi);y=BODY_RADIUS*math.cos(phi)
+    else:
+        y=ROOT_Y+(u-.5)*2*(1.60-ROOT_Y);r=neck_radius(y)
+    return h.point(r,t,y+lift)
+
+def shoulder_normal(t,u):
+    if u<=.5:return norm(shoulder(t,u))
+    tangent=sub(shoulder(t+.00001,u),shoulder(t-.00001,u))
+    slope=sub(shoulder(t,u+.00001),shoulder(t,u-.00001))
+    return norm(cross(tangent,slope))
+
+def shoulder_quad(mesh,a,b,u,v,lift,panel):
+    samples=((a,u),(b,u),(b,v),(a,v))
+    mesh.quad([shoulder(t,k,lift) for t,k in samples],
+              [shoulder_normal(t,k) for t,k in samples],
+              [(max(0,min(1,t/(math.tau/8)-panel)),k) for t,k in samples])
+
 def geometry():
     meshes={k:h.Mesh() for k in MAT}
     for name,axis in PORTS.items():
         m={k:h.Mesh() for k in MAT}
-        # Eight thermal panels per shoulder; dark joints remain narrow.
+        # Curved thermal petals subdivide the spherical core and necks.
         for j in range(64):
-            a=math.tau*j/64;b=math.tau*(j+1)/64
-            quad(m['graphite'],[shoulder(a,0),shoulder(b,0),shoulder(b,1),shoulder(a,1)])
+            a=math.tau*j/64;b=math.tau*(j+1)/64;panel=j//8
             left_gap=.002 if j%8==0 else 0
             right_gap=.002 if j%8==7 else 0
-            quad(m['white' if j//8%3==0 else 'ceramic'],
-                 [shoulder(a+left_gap,.015,.002),shoulder(b-right_gap,.015,.002),
-                  shoulder(b-right_gap,.985,.002),shoulder(a+left_gap,.985,.002)])
-        for material in ('graphite','ceramic','white'):
-            mesh=m[material]
-            mesh.uvs=[(math.atan2(x,z)/math.tau+.5,y*.5) for x,y,z in mesh.vertices]
-            # Keep each octant's deliberate crease, smooth subdivisions within it.
-            for i,(x,y,z) in enumerate(mesh.vertices):
-                t=math.atan2(x,z);u=max(0,min(1,(y-1.25)/.35))
-                tangent=sub(shoulder(t+.00001,u),shoulder(t-.00001,u))
-                slope=sub(shoulder(t,1),shoulder(t,0))
-                mesh.normals[i]=norm(cross(tangent,slope))
+            for k in range(20):
+                u=k/20;v=(k+1)/20
+                shoulder_quad(m['graphite'],a,b,u,v,0,panel)
+                # Narrow joints show the continuous pressure shell beneath.
+                lo=.008 if k==0 else u;hi=.992 if k==19 else v
+                shoulder_quad(m['cladding_white' if panel%3==0 else 'cladding'],
+                              a+left_gap,b-right_gap,lo,hi,.002,panel)
         h.cylinder_surface(m['ceramic'],1.204,1.60,1.985,segments=64)
         for y0,y1,r,mat in [(1.60,1.625,1.211,'steel'),(1.67,1.685,1.216,'graphite'),
                             (1.88,1.90,1.214,'steel'),(1.91,1.918,1.220,'bronze'),
@@ -72,42 +97,51 @@ def geometry():
         from station_endcaps import face_mesh
         for mat,mesh in face_mesh().items():
             if mesh.triangles:append(m[mat],mesh)
+        from exterior_detail import add_hub_port
+        add_hub_port(m)
         for mat in MAT:append(meshes[mat],rotate(m[mat],axis))
-    return meshes
+    from surface_uv import finish
+    return finish(meshes)
 def collision_port(axis):
-    m=h.Mesh();h.cylinder_surface(m,1.204,1.24,2.0,segments=24)
-    for y,sgn in [(1.24,-1),(2.0,1)]:
+    m=h.Mesh();h.cylinder_surface(m,1.204,1.60,2.0,segments=24)
+    for y,sgn in [(1.60,-1),(2.0,1)]:
         for j in range(24):
             pts=[(0,y,0),h.point(1.204,math.tau*j/24,y),h.point(1.204,math.tau*(j+1)/24,y)]
             if sgn<0:pts.reverse()
             m.triangle(pts,[(0,sgn,0)]*3,[(.5,.5),(0,0),(1,0)])
     return rotate(m,axis)
 def collision_shoulder(axis):
-    # Convex hull of the square root and circular collar. Compute supporting
-    # planes rather than relying on Unity to repair a nonconvex input mesh.
-    from itertools import combinations
-    pts=[(x,1.25,z) for x in (-1.25,1.25) for z in (-1.25,1.25)]
-    pts += [h.point(1.204,math.tau*j/24,1.60) for j in range(24)]
-    planes={}
-    for i,j,k in combinations(range(len(pts)),3):
-        raw=cross(sub(pts[j],pts[i]),sub(pts[k],pts[i]))
-        if sum(x*x for x in raw)<1e-12:continue
-        n=norm(raw);ds=[sum(n[q]*(p[q]-pts[i][q]) for q in range(3)) for p in pts]
-        if max(ds)>1e-7 and min(ds)<-1e-7:continue
-        if max(ds)>1e-7:n=tuple(-x for x in n)
-        face=tuple(p for p,d in enumerate(ds) if abs(d)<1e-7)
-        planes[face]=n
-    mesh=h.Mesh()
-    for ids,n in planes.items():
-        center=tuple(sum(pts[i][q] for i in ids)/len(ids) for q in range(3))
-        u=norm(sub(pts[ids[0]],center));v=cross(n,u)
-        def angle(i):
-            p=sub(pts[i],center)
-            return math.atan2(sum(p[q]*v[q] for q in range(3)),sum(p[q]*u[q] for q in range(3)))
-        ordered=sorted(ids,key=angle)
-        for i in range(1,len(ordered)-1):
-            mesh.triangle([pts[ordered[0]],pts[ordered[i]],pts[ordered[i+1]]],[n]*3,[(0,0),(1,0),(1,1)])
+    # Conservative closed frustum, overlapping the spherical central collider.
+    # Its sides stay inside the curved visible neck rather than retaining the
+    # previous invisible square shoulders.
+    mesh=h.Mesh();y0=1.24;y1=1.60;r0=1.10;r1=1.204
+    for j in range(24):
+        a=math.tau*j/24;b=math.tau*(j+1)/24
+        quad(mesh,[h.point(r0,a,y0),h.point(r0,b,y0),h.point(r1,b,y1),h.point(r1,a,y1)])
+        for y,r,sgn in ((y0,r0,-1),(y1,r1,1)):
+            pts=[(0,y,0),h.point(r,a,y),h.point(r,b,y)]
+            if sgn<0:pts.reverse()
+            mesh.triangle(pts,[(0,sgn,0)]*3,[(.5,.5),(0,0),(1,0)])
     return rotate(mesh,axis)
+
+def collision_central():
+    # Inscribed sphere: 224 triangles, below Unity's convex cooking limit.
+    mesh=h.Mesh();n=16;rows=8
+    def p(j,k):
+        phi=math.pi*k/rows
+        return h.point(BODY_RADIUS*math.sin(phi),math.tau*j/n,BODY_RADIUS*math.cos(phi))
+    def face(pts):
+        center=tuple(sum(p[q] for p in pts)/3 for q in range(3))
+        if sum(x*y for x,y in zip(cross(sub(pts[1],pts[0]),sub(pts[2],pts[0])),center))<0:pts.reverse()
+        mesh.triangle(pts,[norm(p) for p in pts],[(0,0),(1,0),(1,1)])
+    for j in range(n):
+        face([p(j,0),p(j,1),p(j+1,1)])
+        for k in range(1,rows-1):
+            face([p(j,k),p(j,k+1),p(j+1,k+1)])
+            face([p(j,k),p(j+1,k+1),p(j+1,k)])
+        face([p(j,rows-1),p(j,rows),p(j+1,rows-1)])
+    return mesh
+
 def create_mu(meshes):
     w=h.Writer(MODELS/(PART+'.mu'));w.i(76543,5);w.s(PART);h.node(w,PART)
     for index,(mat,mesh) in enumerate(meshes.items()):
@@ -115,7 +149,8 @@ def create_mu(meshes):
         w.i(0);h.node(w,'RW_Hub_'+mat)
         w.i(7);h.write_mesh(w,mesh)
         w.i(8);w.b(1);w.b(1);w.i(1,index);w.i(1)
-    w.i(0);h.node(w,'HubCentralCollider',collider=(2.5,2.5,2.5));w.i(1)
+    w.i(0);h.node(w,'HubCentralCollider')
+    w.i(25);w.b(0);w.b(1);h.write_mesh(w,collision_central());w.i(1)
     for name,axis in PORTS.items():
         w.i(0);h.node(w,'HubPortCollider_'+name)
         w.i(25);w.b(0);w.b(1);h.write_mesh(w,collision_port(axis));w.i(1)

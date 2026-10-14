@@ -64,3 +64,21 @@ Kd 1.0 1.0 1.0
 Ks 0.15 0.15 0.15
 map_Kd ../../GameData/RoosterWorksStationModules/Models/rwm_hubblanket.png
 
+newmtl RW_detail
+Ka 0.3 0.3 0.3
+Kd 1.0 1.0 1.0
+Ks 0.15 0.15 0.15
+map_Kd ../../GameData/RoosterWorksStationModules/Models/rwm_detail.png
+
+newmtl RW_cladding
+Ka 0.3 0.3 0.3
+Kd 1.0 1.0 1.0
+Ks 0.15 0.15 0.15
+map_Kd ../../GameData/RoosterWorksStationModules/Models/rwm_cladding.png
+
+newmtl RW_cladding_white
+Ka 0.3 0.3 0.3
+Kd 1.0 1.0 1.0
+Ks 0.15 0.15 0.15
+map_Kd ../../GameData/RoosterWorksStationModules/Models/rwm_cladding_white.png
+

@@ -1,0 +1,17 @@
+{
+  "part": "nfe-reactor-tiny-1",
+  "reference_file": "NearFutureElectrical/Parts/FissionReactors/nfe-reactor-tiny-1.cfg",
+  "reference_sha256": "e959bc9a1e9bf6486f16f6754b81e62dbbade17119506e0d252650a516b4caa2",
+  "output_ec_per_second": 5,
+  "fuel_capacity": 1.5,
+  "waste_capacity": 1.5,
+  "fuel_units_per_second": 6.5206e-09,
+  "reactor_dry_mass": 0.014,
+  "integrated_cooling_dry_mass": 0.025,
+  "cost": 10880,
+  "entry_cost": 35500,
+  "size_bonus": {
+    "250": 1.1,
+    "375": 1.2
+  }
+}
