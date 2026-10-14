@@ -1,5 +1,8 @@
 # RoosterWorks Station Modules — v0.7.5-dev.4
 
+> **Release status (October 14, 2026):** v0.6.0 is the latest published stable release. **v0.7.5-dev.4 is the upcoming release candidate; the maintainer has completed in-game testing.** No v0.7.5 stable GitHub release has been published yet. Earlier development-stage testing warnings below are historical notes and do not describe the current candidate's testing status.
+
+
 Command data archives now have five editor choices: 200–1000 MB at 2.5 m, 675–3375 MB at 3.75 m, and 1600–8000 MB at 5 m. Preserves dev3 ring fix, LAB tiers and all prior native models/gameplay. See COMMAND_STORAGE_075.md. Offline checks do not establish in-game acceptance or release status.
 
 ## Retained development history
