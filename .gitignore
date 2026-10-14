@@ -1,5 +1,4 @@
 *.zip
-!RoosterWorks-Station-Modules-v0.6.0-dev.1-Developer-Source.zip
 __pycache__/
 *.py[cod]
 *.blend1
