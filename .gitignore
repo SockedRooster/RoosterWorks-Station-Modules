@@ -1,6 +1,20 @@
+# Generated output, caches and local editor files
 *.zip
-__pycache__/
 *.py[cod]
+**/__pycache__/
 *.blend1
+*.blend2
+*.log
+*.tmp
+*.bak
 .DS_Store
 Thumbs.db
+.vscode/
+.vs/
+.venv/
+venv/
+.pytest_cache/
+/dist/
+/build/
+
+# Keep shipped .dll, .mu, .cfg, .version, textures, and editable OBJ/MTL sources tracked.
