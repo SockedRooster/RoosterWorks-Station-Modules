@@ -9,6 +9,10 @@
 - Compact habitats; long crew tubes; laboratory and command storage options.
 - Editor improvements and in-game-tested stable release.
 
+## v0.7.5 configuration details
+
+**Selectable ring colors** on supported modules include Original, Steel, White, Charcoal, Blue, Green, Red, and Gold. **Selectable logistics contents** include Mixed supplies, Food, Water, Oxygen, Nitrogen, Ammonia, Waste, and WasteWater when supported by the installed resource configuration.
+
 ## Proposed future work
 
 | Milestone | Scope | Status |

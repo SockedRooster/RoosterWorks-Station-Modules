@@ -26,7 +26,7 @@ Back up saves, close KSP, remove the old `GameData/RoosterWorksStationModules` f
 - `GameData/` — shipped parts, models, textures, compatibility patches and runtime plugins; **do not delete hidden legacy parts or required DLLs**.
 - `Source/` — editable procedural scripts, OBJ/MTL files, baseline data and development history.
 - `Tools/` — build, packaging, renderer and regression-validator utilities.
-- `Media/` — visual previews, screenshots and future concept art (not playable parts).
+- [`Media/`](Media/README.md) — a curated set of release previews, historical evidence still referenced by documentation, and future concept art (not playable parts).
 - `Docs/History/` — historical test checklists and milestone documents, plus the original pre-cleanup root documentation.
 - `CHECKSUMS-SHA256.txt` — checksum manifest used by the GameData validation suite.
 
