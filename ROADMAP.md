@@ -15,3 +15,7 @@
 - **Observation cupola.** A short panoramic module with one seat angled toward the planet and another looking along the station for visiting craft. Use the sightlines from inside to place the window frames.
 - **EVA wayfinding.** Small port numbers on hub collars and matching markings inside at the hatches would let a player call out a destination such as “Port 3” and find it from either side. Try the markings on one six-way hub at EVA camera distance.
 - **Crew lighting.** Try warm berth lamps in the habitat and a dim night setting in command. Check that the instrument faces stay readable and the planet stays visible through the windows on the dark side of an orbit.
+
+## Gravity rings
+
+- Add gravity rings for the 3.75 m and 5 m station families.
