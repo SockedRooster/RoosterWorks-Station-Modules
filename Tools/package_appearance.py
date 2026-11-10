@@ -2,7 +2,7 @@
 from pathlib import Path
 import hashlib,json,zipfile,subprocess,sys
 ROOT=Path(__file__).resolve().parents[1]
-VERSION='v0.7.5-dev.4'
+VERSION='v0.7.5-dev.5'
 
 def main():
     subprocess.run([sys.executable,str(ROOT/'Tools/validate.py')],check=True)
@@ -13,10 +13,8 @@ def package():
     files=sorted(p for p in ROOT.rglob('*') if p.is_file() and '__pycache__' not in p.parts
                  and p.suffix!='.pyc' and p.name!='LOG-collar-QA.png')
     tests=[p for p in files if p.relative_to(ROOT).parts[0]=='GameData']
-    # Include current root guides and historical documents from their archive.
-    tests += [ROOT/f for f in ('README.md','INSTALLATION.md','RELEASE_NOTES.md','LICENSE',
-                              'CHANGELOG.md','CHECKSUMS-SHA256.txt','ROADMAP.md')]
-    tests += sorted((ROOT/'Docs/History').glob('*.md'))
+    tests += [ROOT/f for f in ('README.md','INSTALLATION.md','RELEASE_NOTES.md','LICENSE','CHANGELOG.md',
+                              'CHECKSUMS-SHA256.txt','TEST_CHECKLIST-v0.7.0.md','APPEARANCE_TEST_CHECKLIST.md','AIRLOCK_TEST_CHECKLIST.md','POWER_TEST_CHECKLIST.md','ADAPTER_TEST_CHECKLIST.md','GREENHOUSE_TEST_CHECKLIST.md','LARGE_FAMILY_TEST_CHECKLIST.md','ELECTRIC_CHARGE_BALANCE.md','FINISH_AND_REACTOR_OPTIONS.md','POWER_VARIANTS.md','CREW_TUBES_AND_BALANCE.md','ROADMAP.md','VAB_CATALOGUE.md','CUSTOMIZATION_065.md','STATION_EXPANSION_070_075.md','EDITOR_AND_STORAGE_075.md','RING_MENU_HOTFIX.md','COMMAND_STORAGE_075.md','APPEARANCE_SCOPE_FIX.md')]
     report={}
     for suffix,entries in [('Developer-Source',files),('TEST',tests)]:
         out=ROOT.parent/f'RoosterWorks-Station-Modules-{VERSION}-{suffix}.zip'

@@ -47,7 +47,7 @@ for n,size,factor in zip(science.children,(250,375,500),(1,3.375,8)):
     assert 'CMD' not in n.header
 assert 'ZZZScienceStorage075.cfg'>max('StorageBalance.cfg','Family500.cfg')
 ui=parse((GD/'Compatibility/EditorAppearance.cfg').read_text())
-assert ui.children[1].header.endswith(':NEEDS[B9PartSwitch]:FOR[RoosterWorksStationModules]')
+assert ui.children[1].header.endswith(':NEEDS[B9PartSwitch]:AFTER[RoosterWorksStationModules]')
 assert [len(c.children) for c in ui.children[1].children]==[2,8]
 for switch in ui.children[1].children:
     assert switch.get('switchInFlight')=='false'

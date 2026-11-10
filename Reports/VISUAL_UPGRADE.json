@@ -1,0 +1,151 @@
+{
+  "models": [
+    {
+      "file": "RW_HAB_250.mu",
+      "added_triangles": 2760,
+      "original_nodes_unchanged": true
+    },
+    {
+      "file": "RW_HAB_375.mu",
+      "added_triangles": 2760,
+      "original_nodes_unchanged": true
+    },
+    {
+      "file": "RW_HAB_500.mu",
+      "added_triangles": 2760,
+      "original_nodes_unchanged": true
+    },
+    {
+      "file": "RW_LAB_250.mu",
+      "added_triangles": 1136,
+      "original_nodes_unchanged": true
+    },
+    {
+      "file": "RW_LAB_375.mu",
+      "added_triangles": 1136,
+      "original_nodes_unchanged": true
+    },
+    {
+      "file": "RW_LAB_500.mu",
+      "added_triangles": 1136,
+      "original_nodes_unchanged": true
+    },
+    {
+      "file": "RW_CMD_250.mu",
+      "added_triangles": 920,
+      "original_nodes_unchanged": true
+    },
+    {
+      "file": "RW_CMD_375.mu",
+      "added_triangles": 920,
+      "original_nodes_unchanged": true
+    },
+    {
+      "file": "RW_CMD_500.mu",
+      "added_triangles": 920,
+      "original_nodes_unchanged": true
+    },
+    {
+      "file": "RW_CUP_250.mu",
+      "added_triangles": 920,
+      "original_nodes_unchanged": true
+    },
+    {
+      "file": "RW_CUP_375.mu",
+      "added_triangles": 920,
+      "original_nodes_unchanged": true
+    },
+    {
+      "file": "RW_CUP_500.mu",
+      "added_triangles": 920,
+      "original_nodes_unchanged": true
+    },
+    {
+      "file": "RW_LOG_250.mu",
+      "added_triangles": 3680,
+      "original_nodes_unchanged": true
+    },
+    {
+      "file": "RW_LOG_375.mu",
+      "added_triangles": 3680,
+      "original_nodes_unchanged": true
+    },
+    {
+      "file": "RW_LOG_500.mu",
+      "added_triangles": 3680,
+      "original_nodes_unchanged": true
+    }
+  ],
+  "textures": [
+    "rwm_cladding.png",
+    "rwm_cladding_white.png",
+    "rwm_cladding_grey.png",
+    "rwm_cladding_white_grey.png",
+    "rwm_ceramic.png",
+    "rwm_ceramic_grey.png",
+    "rwm_white.png",
+    "rwm_white_grey.png",
+    "rwm_steel.png",
+    "rwm_bronze.png",
+    "rwm_rail.png",
+    "rwm_graphite.png",
+    "rwm_hubblanket.png"
+  ],
+  "protected_files_verified": 216,
+  "validation": {
+    "status": "PASS offline; KSP review pending",
+    "native_models_parsed": 47,
+    "all_meshes_within_16_bit_limit": true,
+    "original_materials_and_texture_tables_preserved": true,
+    "texture_dimensions_and_modes_preserved": true,
+    "triangle_counts": {
+      "RW_ADP_250_375.mu": 16356,
+      "RW_ADP_375_500.mu": 16356,
+      "RW_AIR_250.mu": 21920,
+      "RW_AIR_375.mu": 21920,
+      "RW_AIR_500.mu": 21920,
+      "RW_CEN_250.mu": 27004,
+      "RW_CMD_250.mu": 20284,
+      "RW_CMD_375.mu": 20284,
+      "RW_CMD_500.mu": 20284,
+      "RW_CUP_250.mu": 17770,
+      "RW_CUP_375.mu": 17770,
+      "RW_CUP_500.mu": 17770,
+      "RW_ELB_250.mu": 40172,
+      "RW_ELB_375.mu": 40172,
+      "RW_ELB_500.mu": 40172,
+      "RW_END_250_125.mu": 28708,
+      "RW_GRAV_250.mu": 61268,
+      "RW_GRN_250.mu": 40764,
+      "RW_GRN_375.mu": 40764,
+      "RW_GRN_500.mu": 40764,
+      "RW_HABS_250.mu": 34400,
+      "RW_HABS_375.mu": 34400,
+      "RW_HABS_500.mu": 34400,
+      "RW_HAB_250.mu": 55724,
+      "RW_HAB_375.mu": 55724,
+      "RW_HAB_500.mu": 55724,
+      "RW_HUB_250.mu": 82428,
+      "RW_HUB_375.mu": 82428,
+      "RW_HUB_500.mu": 82428,
+      "RW_ISRU_250.mu": 26036,
+      "RW_LAB_250.mu": 24696,
+      "RW_LAB_375.mu": 24696,
+      "RW_LAB_500.mu": 24696,
+      "RW_LOG_250.mu": 30564,
+      "RW_LOG_375.mu": 30564,
+      "RW_LOG_500.mu": 30564,
+      "RW_NSM_250.mu": 24204,
+      "RW_NST_250.mu": 26932,
+      "RW_PWR_250.mu": 21772,
+      "RW_PWR_375.mu": 21772,
+      "RW_PWR_500.mu": 21772,
+      "RW_TUBL_250.mu": 18228,
+      "RW_TUBL_375.mu": 18228,
+      "RW_TUBL_500.mu": 18228,
+      "RW_TUB_250.mu": 17460,
+      "RW_TUB_375.mu": 17460,
+      "RW_TUB_500.mu": 17460
+    }
+  }
+}

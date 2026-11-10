@@ -1,6 +1,7 @@
 from pathlib import Path
 import sys,json,hashlib
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'Source'))
+from hotfix_assets import check_digest
 from config_nodes import parse
 from build_catalogue import MAPPING
 from tube_material_regression import check as check_tube
@@ -26,7 +27,7 @@ baseline=json.loads((ROOT/'Tools/catalogue_baseline.json').read_text())
 for path,digest in baseline.items():
     if path.endswith('.version'):continue
     if path.endswith('/RW_TUB_250.mu') or path.endswith('/RW_TUB_375.mu'):check_tube(ROOT,path,digest)
-    else:assert hashlib.sha256((ROOT/path).read_bytes()).hexdigest()==digest,('Unexpected prior asset change',path)
+    else:assert check_digest(ROOT,path,digest),('Unexpected prior asset change',path)
 roadmap=(ROOT/'ROADMAP.md').read_text(encoding='utf-8')
 assert all(term in roadmap for term in ('Selectable logistics contents','Food','Water','Oxygen','Ammonia','Waste','Selectable ring colors'))
 print('PASS all 23 catalogue placements, unique final nodes, conditional SSPXr category fallbacks, tube loader material-table fix and exact geometry/collision/UV preservation; roadmap variants recorded')

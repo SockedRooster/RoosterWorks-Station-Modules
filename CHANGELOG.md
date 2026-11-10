@@ -1,3 +1,23 @@
+# RoosterWorks Station Modules v0.7.7
+
+- Show or hide the mission flag on each module in the editor or in flight. Each part remembers its setting. One control operates both ends of the gravity ring.
+- Use **Mirror wiring** to move the blue and yellow service lines and their clips to the opposite side of the handrail. Elbow wiring follows the bend, and the six-way hub switches all branches together. **Restore standard wiring** returns the original layout.
+- Recommended companions are **RoosterWorks Station Support** for girders, storage hubs and docking couplers, and **RoosterWorks Ground Modules** for surface bases.
+
+# v0.7.6 — 2026-11-02
+
+- Detailed insulation, foil, paneling, recessed windows, fasteners, rails and supported exterior fittings across the station family.
+- Consistent stack rails and blue/yellow service lanes, including continuous side-port routing around the six-way hubs.
+- Corrected EVA ladder connections and hatch surrounds; removed oversized named placards and detailed the orbital ring.
+- Includes the development-line gravity ring, rounded station endcap, station logistics and orbital industrial parts, plus the existing appearance, storage and command/lab controls.
+- Preserves existing part IDs, attachment nodes and included runtime plugins.
+
+# RoosterWorks Station Modules — v0.7.5-dev.5
+
+Appearance selectors are now restricted to compatible models/controllers, fixing the Station Support spillover entirely in Station Modules. No separate Support UI hotfix is needed. All models, plugins, gameplay and data tiers remain unchanged. See APPEARANCE_SCOPE_FIX.md for installation and verification.
+
+## Retained development history
+
 # RoosterWorks Station Modules — v0.7.5-dev.4
 
 Command data archives now have five editor choices: 200–1000 MB at 2.5 m, 675–3375 MB at 3.75 m, and 1600–8000 MB at 5 m. Preserves dev3 ring fix, LAB tiers and all prior native models/gameplay. See COMMAND_STORAGE_075.md. Offline checks do not establish in-game acceptance or release status.

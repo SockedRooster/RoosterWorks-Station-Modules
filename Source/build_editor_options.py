@@ -7,9 +7,10 @@ def switch(identifier,title,choices):
     return Node('MODULE',[('name','ModuleB9PartSwitch'),('moduleID',identifier),('switcherDescription',title),('switcherDescriptionPlural',title+' options'),('affectDragCubes','false'),('affectFARVoxels','false'),('switchInFlight','false'),('uiGroupName','RWAppearance'),('uiGroupDisplayName','Appearance')],[Node('SUBTYPE',[('name',name.replace(' ','_')),('title',name),('primaryColor',color),('secondaryColor',color)]) for name,color in choices.items()])
 def build():
     out=Node('ROOT')
-    # FOR precedes the AFTER/FINAL Kerbalism additions. Cosmetics get a single early group.
-    out.children.append(Node('@PART[RW_*]:HAS[~category[none],!MODULE[ModuleRWEditorMenu]]:FOR[RoosterWorksStationModules]',children=[Node('MODULE',[('name','ModuleRWEditorMenu')])]))
-    out.children.append(Node('@PART[RW_*]:HAS[~category[none]]:NEEDS[B9PartSwitch]:FOR[RoosterWorksStationModules]',children=[switch('RWFinishSwatch','Surface',{'White':'#EBDDCC','Grey metal':'#747D83'}),switch('RWRingSwatch','Rings',PALETTE)]))
+    # AFTER ensures the ring/finish controllers from the FOR pass already exist.
+    # Only capable parts receive cosmetic controls; no Support or other RW_* spillover.
+    out.children.append(Node('@PART[RW_*]:HAS[@MODULE[ModuleRWRingColor],~category[none],!MODULE[ModuleRWEditorMenu]]:AFTER[RoosterWorksStationModules]',children=[Node('MODULE',[('name','ModuleRWEditorMenu')])]))
+    out.children.append(Node('@PART[RW_*]:HAS[@MODULE[ModuleRWRingColor],@MODULE[ModuleRWStationFinish],~category[none]]:NEEDS[B9PartSwitch]:AFTER[RoosterWorksStationModules]',children=[switch('RWFinishSwatch','Surface',{'White':'#EBDDCC','Grey metal':'#747D83'}),switch('RWRingSwatch','Rings',PALETTE)]))
     (GD/'Compatibility/EditorAppearance.cfg').write_text('// Swatches manage no resources, transforms, materials or hardware variants.\n'+dump(out))
     out=Node('ROOT')
     for size,factor in ((250,1),(375,3.375),(500,8)):

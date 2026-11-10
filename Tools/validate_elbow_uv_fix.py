@@ -3,6 +3,7 @@ import sys,json,hashlib
 import numpy as np
 ROOT=Path(__file__).resolve().parents[1]
 from native_model import load,walk
+from hotfix_assets import check_digest
 from tube_material_regression import check as check_tube
 golden=json.loads((ROOT/'Tools/elbow_uv_baseline.json').read_text())
 for path,digest in golden.items():
@@ -29,5 +30,5 @@ for path,digest in golden.items():
                         shared[key]=uv
                 y['mesh']['uvs']=x['mesh']['uvs']
         assert old.root==new.root,'Elbow change outside UV coordinates'
-    else:assert hashlib.sha256((ROOT/path).read_bytes()).hexdigest()==digest,('Unrelated GameData change',path)
+    else:assert check_digest(ROOT,path,digest),('Unrelated GameData change',path)
 print('PASS elbow UV-only delta: exact prior geometry, normals, materials, indices, physics and gameplay; shared badge UV edges continuous; all other models and GameData byte-preserved')

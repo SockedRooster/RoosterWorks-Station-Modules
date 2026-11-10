@@ -1,0 +1,18 @@
+{
+  "accepted_archive": "RoosterWorks-Station-Modules-v0.7.7-test.2.zip",
+  "accepted_sha256": "9187f2e6ec13b511b1a9135965d811db3d219723a70850882e6f8292f7a0235b",
+  "status": "PASS",
+  "runtime_files": 255,
+  "part_ids": 49,
+  "differences": [
+    "GameData/RoosterWorksStationModules/RoosterWorksStationModules.version"
+  ],
+  "ckan_recommends": [
+    {
+      "name": "RoosterWorksStationSupport"
+    },
+    {
+      "name": "RoosterWorksGroundModules"
+    }
+  ]
+}

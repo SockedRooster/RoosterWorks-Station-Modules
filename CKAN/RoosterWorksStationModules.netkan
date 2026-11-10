@@ -1,0 +1,40 @@
+{
+  "spec_version": "v1.4",
+  "identifier": "RoosterWorksStationModules",
+  "name": "RoosterWorks Station Modules",
+  "abstract": "Crewed station modules, hubs, laboratories and orbital industry for 2.5, 3.75 and 5 m stations.",
+  "author": "SockedRooster",
+  "license": "MIT",
+  "$kref": "#/ckan/github/SockedRooster/RoosterWorks-Station-Modules/asset_match/^RoosterWorks-Station-Modules-v[0-9]+[.][0-9]+[.][0-9]+[.]zip$",
+  "x_netkan_version_edit": {
+    "find": "^[vV](?<version>.*)$",
+    "replace": "${version}"
+  },
+  "ksp_version": "1.12.5",
+  "tags": [
+    "parts"
+  ],
+  "resources": {
+    "repository": "https://github.com/SockedRooster/RoosterWorks-Station-Modules",
+    "bugtracker": "https://github.com/SockedRooster/RoosterWorks-Station-Modules/issues"
+  },
+  "install": [
+    {
+      "find": "RoosterWorksStationModules",
+      "install_to": "GameData"
+    }
+  ],
+  "depends": [
+    {
+      "name": "ModuleManager"
+    }
+  ],
+  "recommends": [
+    {
+      "name": "RoosterWorksStationSupport"
+    },
+    {
+      "name": "RoosterWorksGroundModules"
+    }
+  ]
+}

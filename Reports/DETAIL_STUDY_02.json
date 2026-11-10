@@ -1,0 +1,342 @@
+{
+  "models": [
+    {
+      "model": "RW_ADP_250_375.mu",
+      "normal_mapped_materials": 3,
+      "window_vertices_shaped": 0,
+      "padded_meshes": 0
+    },
+    {
+      "model": "RW_ADP_375_500.mu",
+      "normal_mapped_materials": 3,
+      "window_vertices_shaped": 0,
+      "padded_meshes": 0
+    },
+    {
+      "model": "RW_AIR_250.mu",
+      "normal_mapped_materials": 3,
+      "window_vertices_shaped": 0,
+      "padded_meshes": 0
+    },
+    {
+      "model": "RW_AIR_375.mu",
+      "normal_mapped_materials": 3,
+      "window_vertices_shaped": 0,
+      "padded_meshes": 0
+    },
+    {
+      "model": "RW_AIR_500.mu",
+      "normal_mapped_materials": 3,
+      "window_vertices_shaped": 0,
+      "padded_meshes": 0
+    },
+    {
+      "model": "RW_CEN_250.mu",
+      "normal_mapped_materials": 3,
+      "window_vertices_shaped": 0,
+      "padded_meshes": 0
+    },
+    {
+      "model": "RW_CMD_250.mu",
+      "normal_mapped_materials": 3,
+      "window_vertices_shaped": 0,
+      "padded_meshes": 0
+    },
+    {
+      "model": "RW_CMD_375.mu",
+      "normal_mapped_materials": 3,
+      "window_vertices_shaped": 0,
+      "padded_meshes": 0
+    },
+    {
+      "model": "RW_CMD_500.mu",
+      "normal_mapped_materials": 3,
+      "window_vertices_shaped": 0,
+      "padded_meshes": 0
+    },
+    {
+      "model": "RW_CUP_250.mu",
+      "normal_mapped_materials": 3,
+      "window_vertices_shaped": 0,
+      "padded_meshes": 0
+    },
+    {
+      "model": "RW_CUP_375.mu",
+      "normal_mapped_materials": 3,
+      "window_vertices_shaped": 0,
+      "padded_meshes": 0
+    },
+    {
+      "model": "RW_CUP_500.mu",
+      "normal_mapped_materials": 3,
+      "window_vertices_shaped": 0,
+      "padded_meshes": 0
+    },
+    {
+      "model": "RW_ELB_250.mu",
+      "normal_mapped_materials": 3,
+      "window_vertices_shaped": 0,
+      "padded_meshes": 0
+    },
+    {
+      "model": "RW_ELB_375.mu",
+      "normal_mapped_materials": 3,
+      "window_vertices_shaped": 0,
+      "padded_meshes": 0
+    },
+    {
+      "model": "RW_ELB_500.mu",
+      "normal_mapped_materials": 3,
+      "window_vertices_shaped": 0,
+      "padded_meshes": 0
+    },
+    {
+      "model": "RW_END_250_125.mu",
+      "normal_mapped_materials": 3,
+      "window_vertices_shaped": 0,
+      "padded_meshes": 0
+    },
+    {
+      "model": "RW_GRAV_250.mu",
+      "normal_mapped_materials": 3,
+      "window_vertices_shaped": 0,
+      "padded_meshes": 0
+    },
+    {
+      "model": "RW_GRN_250.mu",
+      "normal_mapped_materials": 3,
+      "window_vertices_shaped": 0,
+      "padded_meshes": 0
+    },
+    {
+      "model": "RW_GRN_375.mu",
+      "normal_mapped_materials": 3,
+      "window_vertices_shaped": 0,
+      "padded_meshes": 0
+    },
+    {
+      "model": "RW_GRN_500.mu",
+      "normal_mapped_materials": 3,
+      "window_vertices_shaped": 0,
+      "padded_meshes": 0
+    },
+    {
+      "model": "RW_HAB_250.mu",
+      "normal_mapped_materials": 3,
+      "window_vertices_shaped": 8640,
+      "padded_meshes": 2
+    },
+    {
+      "model": "RW_HAB_375.mu",
+      "normal_mapped_materials": 3,
+      "window_vertices_shaped": 8640,
+      "padded_meshes": 2
+    },
+    {
+      "model": "RW_HAB_500.mu",
+      "normal_mapped_materials": 3,
+      "window_vertices_shaped": 8640,
+      "padded_meshes": 2
+    },
+    {
+      "model": "RW_HABS_250.mu",
+      "normal_mapped_materials": 3,
+      "window_vertices_shaped": 4320,
+      "padded_meshes": 2
+    },
+    {
+      "model": "RW_HABS_375.mu",
+      "normal_mapped_materials": 3,
+      "window_vertices_shaped": 4320,
+      "padded_meshes": 2
+    },
+    {
+      "model": "RW_HABS_500.mu",
+      "normal_mapped_materials": 3,
+      "window_vertices_shaped": 4320,
+      "padded_meshes": 2
+    },
+    {
+      "model": "RW_HUB_250.mu",
+      "normal_mapped_materials": 3,
+      "window_vertices_shaped": 0,
+      "padded_meshes": 0
+    },
+    {
+      "model": "RW_HUB_375.mu",
+      "normal_mapped_materials": 3,
+      "window_vertices_shaped": 0,
+      "padded_meshes": 0
+    },
+    {
+      "model": "RW_HUB_500.mu",
+      "normal_mapped_materials": 3,
+      "window_vertices_shaped": 0,
+      "padded_meshes": 0
+    },
+    {
+      "model": "RW_ISRU_250.mu",
+      "normal_mapped_materials": 3,
+      "window_vertices_shaped": 0,
+      "padded_meshes": 0
+    },
+    {
+      "model": "RW_LAB_250.mu",
+      "normal_mapped_materials": 3,
+      "window_vertices_shaped": 0,
+      "padded_meshes": 0
+    },
+    {
+      "model": "RW_LAB_375.mu",
+      "normal_mapped_materials": 3,
+      "window_vertices_shaped": 0,
+      "padded_meshes": 0
+    },
+    {
+      "model": "RW_LAB_500.mu",
+      "normal_mapped_materials": 3,
+      "window_vertices_shaped": 0,
+      "padded_meshes": 0
+    },
+    {
+      "model": "RW_LOG_250.mu",
+      "normal_mapped_materials": 3,
+      "window_vertices_shaped": 0,
+      "padded_meshes": 0
+    },
+    {
+      "model": "RW_LOG_375.mu",
+      "normal_mapped_materials": 3,
+      "window_vertices_shaped": 0,
+      "padded_meshes": 0
+    },
+    {
+      "model": "RW_LOG_500.mu",
+      "normal_mapped_materials": 3,
+      "window_vertices_shaped": 0,
+      "padded_meshes": 0
+    },
+    {
+      "model": "RW_NSM_250.mu",
+      "normal_mapped_materials": 3,
+      "window_vertices_shaped": 0,
+      "padded_meshes": 0
+    },
+    {
+      "model": "RW_NST_250.mu",
+      "normal_mapped_materials": 3,
+      "window_vertices_shaped": 0,
+      "padded_meshes": 0
+    },
+    {
+      "model": "RW_PWR_250.mu",
+      "normal_mapped_materials": 3,
+      "window_vertices_shaped": 0,
+      "padded_meshes": 0
+    },
+    {
+      "model": "RW_PWR_375.mu",
+      "normal_mapped_materials": 3,
+      "window_vertices_shaped": 0,
+      "padded_meshes": 0
+    },
+    {
+      "model": "RW_PWR_500.mu",
+      "normal_mapped_materials": 3,
+      "window_vertices_shaped": 0,
+      "padded_meshes": 0
+    },
+    {
+      "model": "RW_TUB_250.mu",
+      "normal_mapped_materials": 3,
+      "window_vertices_shaped": 0,
+      "padded_meshes": 0
+    },
+    {
+      "model": "RW_TUB_375.mu",
+      "normal_mapped_materials": 3,
+      "window_vertices_shaped": 0,
+      "padded_meshes": 0
+    },
+    {
+      "model": "RW_TUB_500.mu",
+      "normal_mapped_materials": 3,
+      "window_vertices_shaped": 0,
+      "padded_meshes": 0
+    },
+    {
+      "model": "RW_TUBL_250.mu",
+      "normal_mapped_materials": 3,
+      "window_vertices_shaped": 0,
+      "padded_meshes": 0
+    },
+    {
+      "model": "RW_TUBL_375.mu",
+      "normal_mapped_materials": 3,
+      "window_vertices_shaped": 0,
+      "padded_meshes": 0
+    },
+    {
+      "model": "RW_TUBL_500.mu",
+      "normal_mapped_materials": 3,
+      "window_vertices_shaped": 0,
+      "padded_meshes": 0
+    }
+  ],
+  "status": "PASS offline; KSP runtime acceptance pending",
+  "native_models_validated": 47,
+  "colliders_preserved": 267,
+  "glass_meshes_preserved": 30,
+  "ring_selector_meshes_preserved": 125,
+  "gameplay_files_byte_identical": 91,
+  "dds_normals": "2 DXT5nm maps, 11 mip levels each, normal texture flag + orthonormal tangents",
+  "triangle_counts": {
+    "RW_ADP_250_375.mu": 16356,
+    "RW_ADP_375_500.mu": 16356,
+    "RW_AIR_250.mu": 21920,
+    "RW_AIR_375.mu": 21920,
+    "RW_AIR_500.mu": 21920,
+    "RW_CEN_250.mu": 27004,
+    "RW_CMD_250.mu": 20284,
+    "RW_CMD_375.mu": 20284,
+    "RW_CMD_500.mu": 20284,
+    "RW_CUP_250.mu": 17770,
+    "RW_CUP_375.mu": 17770,
+    "RW_CUP_500.mu": 17770,
+    "RW_ELB_250.mu": 40172,
+    "RW_ELB_375.mu": 40172,
+    "RW_ELB_500.mu": 40172,
+    "RW_END_250_125.mu": 28708,
+    "RW_GRAV_250.mu": 61268,
+    "RW_GRN_250.mu": 40764,
+    "RW_GRN_375.mu": 40764,
+    "RW_GRN_500.mu": 40764,
+    "RW_HAB_250.mu": 72452,
+    "RW_HAB_375.mu": 72452,
+    "RW_HAB_500.mu": 72452,
+    "RW_HABS_250.mu": 42728,
+    "RW_HABS_375.mu": 42728,
+    "RW_HABS_500.mu": 42728,
+    "RW_HUB_250.mu": 82428,
+    "RW_HUB_375.mu": 82428,
+    "RW_HUB_500.mu": 82428,
+    "RW_ISRU_250.mu": 26036,
+    "RW_LAB_250.mu": 24696,
+    "RW_LAB_375.mu": 24696,
+    "RW_LAB_500.mu": 24696,
+    "RW_LOG_250.mu": 30564,
+    "RW_LOG_375.mu": 30564,
+    "RW_LOG_500.mu": 30564,
+    "RW_NSM_250.mu": 24204,
+    "RW_NST_250.mu": 26932,
+    "RW_PWR_250.mu": 21772,
+    "RW_PWR_375.mu": 21772,
+    "RW_PWR_500.mu": 21772,
+    "RW_TUB_250.mu": 17460,
+    "RW_TUB_375.mu": 17460,
+    "RW_TUB_500.mu": 17460,
+    "RW_TUBL_250.mu": 18228,
+    "RW_TUBL_375.mu": 18228,
+    "RW_TUBL_500.mu": 18228
+  }
+}

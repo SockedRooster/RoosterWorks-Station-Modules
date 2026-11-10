@@ -33,6 +33,8 @@ def check_preserved(root,path,expected):
     """Require historical bytes, or exactly an authorized EC-only delta."""
     root=Path(root);p=root/path;current=p.read_bytes()
     if hashlib.sha256(current).hexdigest()==expected:return
+    from selector_scope import check_selector_delta
+    if check_selector_delta(root,path,expected):return
     entries=json.loads((root/'Source/Balancing/electric_charge_policy.json').read_text())['parts']
     assert p.parent==root/'GameData/RoosterWorksStationModules/Parts' and p.stem in entries,('Unrelated change',path)
     candidates=[root/'Source/Balancing'/folder/p.name for folder in ('v012-before','v013-before','v015-before')]

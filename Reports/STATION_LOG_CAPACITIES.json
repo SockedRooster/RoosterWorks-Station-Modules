@@ -1,0 +1,371 @@
+{
+  "RW_LOG_250": {
+    "scale": 1,
+    "dedicated": {
+      "Food": 1800,
+      "Water": 1700,
+      "Oxygen": 350000,
+      "Nitrogen": 200000,
+      "Ammonia": 40000,
+      "CarbonDioxide": 75000,
+      "Hydrogen": 750000
+    },
+    "mixed": {
+      "Food": 360.0,
+      "Water": 340.0,
+      "Oxygen": 70000.0,
+      "Nitrogen": 20000.0,
+      "Ammonia": 4000.0,
+      "CarbonDioxide": 7500.0,
+      "Hydrogen": 75000.0
+    },
+    "loadouts": {
+      "Mixed supplies": [
+        {
+          "name": "Food",
+          "amount": "360",
+          "maxAmount": "360"
+        },
+        {
+          "name": "Water",
+          "amount": "340",
+          "maxAmount": "340"
+        },
+        {
+          "name": "Oxygen",
+          "amount": "70000",
+          "maxAmount": "70000"
+        },
+        {
+          "name": "Nitrogen",
+          "amount": "20000",
+          "maxAmount": "20000"
+        },
+        {
+          "name": "Ammonia",
+          "amount": "4000",
+          "maxAmount": "4000"
+        },
+        {
+          "name": "CarbonDioxide",
+          "amount": "7500",
+          "maxAmount": "7500"
+        },
+        {
+          "name": "Hydrogen",
+          "amount": "75000",
+          "maxAmount": "75000"
+        }
+      ],
+      "Food": [
+        {
+          "name": "Food",
+          "amount": "1800",
+          "maxAmount": "1800"
+        }
+      ],
+      "Water": [
+        {
+          "name": "Water",
+          "amount": "1700",
+          "maxAmount": "1700"
+        }
+      ],
+      "Oxygen": [
+        {
+          "name": "Oxygen",
+          "amount": "350000",
+          "maxAmount": "350000"
+        }
+      ],
+      "Nitrogen": [
+        {
+          "name": "Nitrogen",
+          "amount": "200000",
+          "maxAmount": "200000"
+        }
+      ],
+      "Ammonia": [
+        {
+          "name": "Ammonia",
+          "amount": "40000",
+          "maxAmount": "40000"
+        }
+      ],
+      "Carbon Dioxide": [
+        {
+          "name": "CarbonDioxide",
+          "amount": "75000",
+          "maxAmount": "75000"
+        }
+      ],
+      "Hydrogen": [
+        {
+          "name": "Hydrogen",
+          "amount": "750000",
+          "maxAmount": "750000"
+        }
+      ],
+      "Waste": [
+        {
+          "name": "Waste",
+          "amount": "0",
+          "maxAmount": "520"
+        }
+      ],
+      "WasteWater": [
+        {
+          "name": "WasteWater",
+          "amount": "0",
+          "maxAmount": "520"
+        }
+      ]
+    }
+  },
+  "RW_LOG_375": {
+    "scale": 3.375,
+    "dedicated": {
+      "Food": 6075.0,
+      "Water": 5737.5,
+      "Oxygen": 1181250.0,
+      "Nitrogen": 675000.0,
+      "Ammonia": 135000.0,
+      "CarbonDioxide": 253125.0,
+      "Hydrogen": 2531250.0
+    },
+    "mixed": {
+      "Food": 1215.0,
+      "Water": 1147.5,
+      "Oxygen": 236250.0,
+      "Nitrogen": 67500.0,
+      "Ammonia": 13500.0,
+      "CarbonDioxide": 25312.5,
+      "Hydrogen": 253125.0
+    },
+    "loadouts": {
+      "Mixed supplies": [
+        {
+          "name": "Food",
+          "amount": "1215",
+          "maxAmount": "1215"
+        },
+        {
+          "name": "Water",
+          "amount": "1147.5",
+          "maxAmount": "1147.5"
+        },
+        {
+          "name": "Oxygen",
+          "amount": "236250",
+          "maxAmount": "236250"
+        },
+        {
+          "name": "Nitrogen",
+          "amount": "67500",
+          "maxAmount": "67500"
+        },
+        {
+          "name": "Ammonia",
+          "amount": "13500",
+          "maxAmount": "13500"
+        },
+        {
+          "name": "CarbonDioxide",
+          "amount": "25312.5",
+          "maxAmount": "25312.5"
+        },
+        {
+          "name": "Hydrogen",
+          "amount": "253125",
+          "maxAmount": "253125"
+        }
+      ],
+      "Food": [
+        {
+          "name": "Food",
+          "amount": "6075",
+          "maxAmount": "6075"
+        }
+      ],
+      "Water": [
+        {
+          "name": "Water",
+          "amount": "5737.5",
+          "maxAmount": "5737.5"
+        }
+      ],
+      "Oxygen": [
+        {
+          "name": "Oxygen",
+          "amount": "1181250",
+          "maxAmount": "1181250"
+        }
+      ],
+      "Nitrogen": [
+        {
+          "name": "Nitrogen",
+          "amount": "675000",
+          "maxAmount": "675000"
+        }
+      ],
+      "Ammonia": [
+        {
+          "name": "Ammonia",
+          "amount": "135000",
+          "maxAmount": "135000"
+        }
+      ],
+      "Carbon Dioxide": [
+        {
+          "name": "CarbonDioxide",
+          "amount": "253125",
+          "maxAmount": "253125"
+        }
+      ],
+      "Hydrogen": [
+        {
+          "name": "Hydrogen",
+          "amount": "2531250",
+          "maxAmount": "2531250"
+        }
+      ],
+      "Waste": [
+        {
+          "name": "Waste",
+          "amount": "0",
+          "maxAmount": "1755"
+        }
+      ],
+      "WasteWater": [
+        {
+          "name": "WasteWater",
+          "amount": "0",
+          "maxAmount": "1755"
+        }
+      ]
+    }
+  },
+  "RW_LOG_500": {
+    "scale": 8,
+    "dedicated": {
+      "Food": 14400,
+      "Water": 13600,
+      "Oxygen": 2800000,
+      "Nitrogen": 1600000,
+      "Ammonia": 320000,
+      "CarbonDioxide": 600000,
+      "Hydrogen": 6000000
+    },
+    "mixed": {
+      "Food": 2880.0,
+      "Water": 2720.0,
+      "Oxygen": 560000.0,
+      "Nitrogen": 160000.0,
+      "Ammonia": 32000.0,
+      "CarbonDioxide": 60000.0,
+      "Hydrogen": 600000.0
+    },
+    "loadouts": {
+      "Mixed supplies": [
+        {
+          "name": "Food",
+          "amount": "2880",
+          "maxAmount": "2880"
+        },
+        {
+          "name": "Water",
+          "amount": "2720",
+          "maxAmount": "2720"
+        },
+        {
+          "name": "Oxygen",
+          "amount": "560000",
+          "maxAmount": "560000"
+        },
+        {
+          "name": "Nitrogen",
+          "amount": "160000",
+          "maxAmount": "160000"
+        },
+        {
+          "name": "Ammonia",
+          "amount": "32000",
+          "maxAmount": "32000"
+        },
+        {
+          "name": "CarbonDioxide",
+          "amount": "60000",
+          "maxAmount": "60000"
+        },
+        {
+          "name": "Hydrogen",
+          "amount": "600000",
+          "maxAmount": "600000"
+        }
+      ],
+      "Food": [
+        {
+          "name": "Food",
+          "amount": "14400",
+          "maxAmount": "14400"
+        }
+      ],
+      "Water": [
+        {
+          "name": "Water",
+          "amount": "13600",
+          "maxAmount": "13600"
+        }
+      ],
+      "Oxygen": [
+        {
+          "name": "Oxygen",
+          "amount": "2800000",
+          "maxAmount": "2800000"
+        }
+      ],
+      "Nitrogen": [
+        {
+          "name": "Nitrogen",
+          "amount": "1600000",
+          "maxAmount": "1600000"
+        }
+      ],
+      "Ammonia": [
+        {
+          "name": "Ammonia",
+          "amount": "320000",
+          "maxAmount": "320000"
+        }
+      ],
+      "Carbon Dioxide": [
+        {
+          "name": "CarbonDioxide",
+          "amount": "600000",
+          "maxAmount": "600000"
+        }
+      ],
+      "Hydrogen": [
+        {
+          "name": "Hydrogen",
+          "amount": "6000000",
+          "maxAmount": "6000000"
+        }
+      ],
+      "Waste": [
+        {
+          "name": "Waste",
+          "amount": "0",
+          "maxAmount": "4160"
+        }
+      ],
+      "WasteWater": [
+        {
+          "name": "WasteWater",
+          "amount": "0",
+          "maxAmount": "4160"
+        }
+      ]
+    }
+  }
+}

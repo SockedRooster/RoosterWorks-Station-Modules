@@ -1,16 +1,16 @@
 {
   "NAME": "RoosterWorks Station Modules",
-  "URL": "https://github.com/SockedRooster/RoosterWorks-Station-Modules/releases",
+  "URL": "https://raw.githubusercontent.com/SockedRooster/RoosterWorks-Station-Modules/main/GameData/RoosterWorksStationModules/RoosterWorksStationModules.version",
   "VERSION": {
     "MAJOR": 0,
     "MINOR": 7,
-    "PATCH": 5,
-    "BUILD": 4
+    "PATCH": 7,
+    "BUILD": 0
   },
   "KSP_VERSION": {
     "MAJOR": 1,
     "MINOR": 12,
     "PATCH": 5
   },
-  "DOWNLOAD": "https://github.com/SockedRooster/RoosterWorks-Station-Modules/releases"
+  "DOWNLOAD": "https://github.com/SockedRooster/RoosterWorks-Station-Modules/releases/latest"
 }

@@ -1,0 +1,16 @@
+{
+  "name": "RoosterWorks Station Modules",
+  "version": "0.7.7",
+  "tag": "v0.7.7",
+  "date": "2026-11-09",
+  "repository": "SockedRooster/RoosterWorks-Station-Modules",
+  "addon": "RoosterWorksStationModules",
+  "accepted_source": "RoosterWorks-Station-Modules-v0.7.7-test.2.zip",
+  "validation_report": "RELEASE_VALIDATION.json",
+  "version_tuple": {
+    "MAJOR": 0,
+    "MINOR": 7,
+    "PATCH": 7,
+    "BUILD": 0
+  }
+}

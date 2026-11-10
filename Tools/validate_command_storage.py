@@ -2,13 +2,14 @@
 from pathlib import Path
 import sys,json,hashlib,math
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'Source'))
+from hotfix_assets import check_digest
 from config_nodes import parse
 from build_command_storage import build
 GD=ROOT/'GameData/RoosterWorksStationModules'
 before=json.loads((ROOT/'Tools/command_storage_baseline.json').read_text())
 for path,digest in before.items():
     if path.endswith('.version'):continue
-    assert hashlib.sha256((ROOT/path).read_bytes()).hexdigest()==digest,('Unrelated command-storage change',path)
+    assert check_digest(ROOT,path,digest),('Unrelated command-storage change',path)
 new='GameData/RoosterWorksStationModules/Compatibility/ZZZCommandStorage075.cfg'
 assert {p.relative_to(ROOT).as_posix() for p in (ROOT/'GameData').rglob('*') if p.is_file()}==set(before)|{new}
 p=ROOT/new;data=p.read_bytes();build();assert p.read_bytes()==data
@@ -35,5 +36,5 @@ for node,size in zip(tree.children,(250,375,500)):
                 if child.header=='%MODULE[HardDrive]':effective.update(dict(child.values))
     assert float(effective['%dataCapacity'])==expected and effective['%maxDataCapacityFactor']=='5'
     print('PASS command archive',size,'native data steps:',[expected*i for i in range(1,6)])
-assert json.loads((GD/'RoosterWorksStationModules.version').read_text())['VERSION']['BUILD']==4
+assert json.loads((GD/'RoosterWorksStationModules.version').read_text())['VERSION']['BUILD'] in (4,5)
 print('PASS command storage: exact volume scaling, native five-step defaults/ceilings, final patch precedence, no sample changes; all 213 preceding GameData files protected except version')

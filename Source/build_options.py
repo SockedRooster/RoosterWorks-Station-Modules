@@ -66,7 +66,7 @@ def reactor(size,factor):
 def build():
     grey_textures()
     (GD/'Compatibility/ExteriorFinish.cfg').write_text('''// Independent selector preserves stock HAB Standard / SideHatch variants.
-@PART[RW_*]:HAS[!MODULE[ModuleRWStationFinish]]:FOR[RoosterWorksStationModules]
+@PART[RW_*]:HAS[@MODEL:HAS[#model[RoosterWorksStationModules/Models/*]],!MODULE[ModuleRWStationFinish]]:FOR[RoosterWorksStationModules]
 {
     MODULE
     {

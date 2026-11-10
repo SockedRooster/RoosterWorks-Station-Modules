@@ -17,7 +17,8 @@ for path,digest in golden.items():
 print('PASS every v13 GameData file byte-preserved except explicit PWR EC overrides and version')
 for path in GD.rglob('*.cfg'):parse(path.read_text())
 module=parse((GD/'Compatibility/ExteriorFinish.cfg').read_text()).children[0]
-assert module.header=='@PART[RW_*]:HAS[!MODULE[ModuleRWStationFinish]]:FOR[RoosterWorksStationModules]'
+from selector_scope import FINISH
+assert module.header==FINISH
 assert module.children[0].get('name')=='ModuleRWStationFinish' and module.children[0].get('finish')=='White'
 for path in (GD/'Models').glob('*.mu'):
     model=load(path)

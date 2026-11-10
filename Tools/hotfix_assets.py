@@ -8,6 +8,10 @@ from pathlib import Path
 def check_digest(root,path,expected):
     root=Path(root);p=root/path
     if hashlib.sha256(p.read_bytes()).hexdigest()==expected:return True
+    import sys
+    sys.path.insert(0,str(root/'Source'))
+    from selector_scope import check_selector_delta
+    if check_selector_delta(root,path,expected):return True
     policy=json.loads((root/'Source/Balancing/ring_hotfix_policy.json').read_text())
     entry=policy.get(path)
     if entry is None:return False

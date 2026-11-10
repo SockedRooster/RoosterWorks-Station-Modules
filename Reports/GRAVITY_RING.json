@@ -1,0 +1,12 @@
+{
+  "part": "RW_GRAV_250",
+  "major_radius": 4.2,
+  "minor_radius": 0.72,
+  "diameter": 9.84,
+  "crew": 4,
+  "stock_IVA": "crewCabinInternals",
+  "default_rpm": 6,
+  "equivalent_g": 0.16907848647428145,
+  "habitat_model": "fixed hub only, 12 m3; no automatic gravity bonus",
+  "triangles": 61268
+}

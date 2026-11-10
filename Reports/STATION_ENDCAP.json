@@ -1,0 +1,29 @@
+{
+  "id": "RW_END_250_125",
+  "source": "ground-hotpatch-v23",
+  "removed_hose_segments": 104,
+  "removed_hose_triangles": 2496,
+  "axis": "Y",
+  "length_m": 0.9,
+  "large_m": 2.5,
+  "small_m": 1.25,
+  "mass_t": 0.3,
+  "small_end_docking_only": true,
+  "source_to_station_rotation": [
+    [
+      0.0,
+      0.0,
+      -1.0
+    ],
+    [
+      -1.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      1.0,
+      0.0
+    ]
+  ]
+}

@@ -1,0 +1,46 @@
+[
+  {
+    "id": "RW_ISRU_250",
+    "role": "ISRU",
+    "ground_source": "RW_GND_ISRU",
+    "dry_mass_t": 5.25,
+    "configured_cost": 14006.0,
+    "docking_ports": 2,
+    "side_assemblies": 2,
+    "axis": "Y",
+    "length_m": 2.4
+  },
+  {
+    "id": "RW_NST_250",
+    "role": "NST",
+    "ground_source": "RW_GND_NST",
+    "dry_mass_t": 4.8,
+    "configured_cost": 198100.0,
+    "docking_ports": 2,
+    "side_assemblies": 2,
+    "axis": "Y",
+    "length_m": 2.4
+  },
+  {
+    "id": "RW_CEN_250",
+    "role": "CEN",
+    "ground_source": "RW_GND_CEN",
+    "dry_mass_t": 6.0,
+    "configured_cost": 102800.0,
+    "docking_ports": 2,
+    "side_assemblies": 2,
+    "axis": "Y",
+    "length_m": 2.4
+  },
+  {
+    "id": "RW_NSM_250",
+    "role": "NSM",
+    "ground_source": "RW_GND_NSM",
+    "dry_mass_t": 5.5,
+    "configured_cost": 36375.0,
+    "docking_ports": 2,
+    "side_assemblies": 2,
+    "axis": "Y",
+    "length_m": 2.4
+  }
+]
