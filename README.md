@@ -13,3 +13,14 @@ ModuleManager is required. Community Resource Pack and SystemHeat enable the nuc
 ## Developer source
 
 See SOURCE_UPDATE.md for the accepted build and packaging instructions.
+
+## License
+
+Copyright (c) 2026 SockedRooster.
+
+This project uses **dual licensing**:
+
+- **Art assets:** All `.dds`, `.png`, and `.mu` files are **All Rights Reserved**. You may not redistribute or re-use these assets without express permission from the author.
+- **Everything else:** Original source code, configuration files, documentation, and other non-art files are distributed under the **MIT License**, subject to its terms.
+
+See the full [LICENSE](LICENSE) file for the MIT permission notice, conditions, and warranty disclaimer. Third-party content and dependencies retain their respective licenses; this notice does not grant rights to third-party assets.
