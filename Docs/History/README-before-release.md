@@ -183,7 +183,7 @@ Optional grey metal finish on all 19 existing parts, independently selectable fr
 
 Choose **Exterior finish** in the editor. Choose the separately named **Nuclear Power and Service Core** when fitting the reactor; start it with its reactor control. Optional nuclear editions require Community Resource Pack and support Kerbalism Default background generation or the stock loaded-vessel fallback. External radiators are not required. White remains available throughout the family.
 
-See [FINISH_AND_REACTOR_OPTIONS.md](FINISH_AND_REACTOR_OPTIONS.md) for stats, build instructions, dependencies and in-game checks. Original native models, glass, badges, lighting and hatch runtime are preserved. Offline validation and package integrity are checked; live KSP tests remain pending. This is a development candidate, with no installation or publication performed.
+See [FINISH_AND_REACTOR_OPTIONS.md](../../FINISH_AND_REACTOR_OPTIONS.md) for stats, build instructions, dependencies and in-game checks. Original native models, glass, badges, lighting and hatch runtime are preserved. Offline validation and package integrity are checked; live KSP tests remain pending. This is a development candidate, with no installation or publication performed.
 
 ## Earlier development history — superseded PWR capacities
 
